@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title> 
+  <link rel="stylesheet" href="__HOMECSS__/base.css" media="all">
+  <link rel="stylesheet" href="__HOMECSS__/welcome_new.css" media="all">
+  <link rel="stylesheet" href="__HOMECSS__/search.css" media="all">
+  <link rel="stylesheet" href="__HOMECSS__/toTop.css" media="all">
+  <!--加载顶部文件-->
+  <include file="./Mls/Home/Common/header.html" />
+  <include file="./Mls/Home/Common/header_bg.html" />
+  <include file="./Mls/Home/Common/navbar.html" />
+  <load file="__PUBLIC__/Js/jquery.FainPic.js" />
+  <load file="__HOMEJS__/jquery.scrollToTop.min.js" />
+  <script src="__PUBLIC__/Js/searchwaterfall.js"></script>
+  <script>
+	$(function(){
+		$("#toTop").scrollToTop(1000);
+	})
+  </script>
+ <style>
+.pin{
+    float:left;
+}
+</style>
+</head>
+<a href="#top" id="toTop"></a>
+ <div class="content_fluid" style="width: 1200px;"> 
+   <div class="s_p_tabs"> 
+    <div class="tabs_con"> 
+     
+     <ul class="list"> 
+      <li class="red_f" stype="goods"><span><{$num}>&nbsp;宝贝</span></li> 
+      <li class="last gray_f">&nbsp;&nbsp;搜索结果：<{$name}></li> 
+     </ul> 
+     <div class="clear_f"></div> 
+    </div> 
+   </div> 
+   
+   <div id="main" style="width:100%;position:relative;" class="goods_wall"> 
+  
+		<if condition="$num eq 0">
+			<div class="search_info">抱歉哦！没有找到<span class="red_f"><{$name}></span>，或许你可以去看看：<a href="__MODULE__/index/index">返回首页</a></div>
+		<else />
+		<volist name="result" id="re">
+		<div class="poster_grid retsop pin" col="0" coli="0" >
+			<div class="new_poster"> 
+		  <div class="np_pic hover_pic"> 
+		   <div class="price">
+			￥<{$re.price}>
+		   </div> 
+		   <a title="<{$re.name}>" target="_blank" href="__MODULE__/Share/index/id/<{$re.id}>" class="pic_load"><img width="226" height="301" alt="<{$re.name}>" src="__PUBLIC__<{$re.g_pic}>" class="goods_pic" /></a> 
+		   <div class="like_merge" style="display: none;"> 
+			<a href="javascript:void(0)" class="right_f poster_likes "> <i class="like_status lm_like">&nbsp;</i> </a> 
+			<a href="javascript:void(0)" class="right_f poster_forward"><em class="lm_shouji">&nbsp;</em>收进杂志</a> 
+		   </div> 
+		  </div> 
+		  <div class="title"> 
+		   <p><a target="_blank" href="__MODULE__/Share/index/id/<{$re.id}>"><{$re.name}></a></p> 
+		  </div> 
+		  <div class="clear_f"></div> 
+		  <div class="comm_num twiiter_box"> 
+		   <span class="pl">销量（<{$re.buy_num}>）</span> 
+		   <a href="javascript:void(0)" class="left_f poster_likes likes " s_uid="82086561" isshowlike="1"> <b class="likes_status"> <i class="lm_love2">&nbsp;</i>喜欢 </b> <span class="red_f f14_f poster_like_num">5</span> </a> 
+		  </div> 
+		  <div class="np_share comment_panel"> 
+		   <span target="_blank" user_id="167983" href="/shop/167983" class="avatar32_f trans07 shopTips"><img src="__PUBLIC__/1.jpg" /></span> 
+		  <!--  <p class="ml42_f"><a target="_blank" href="/shop/167983">若西之恋</a></p>  -->
+		   <p class="commentHover t_idt"><{$re.summary}></p> 
+		   <div class="clear_f"></div> 
+		  </div> 
+		 </div>
+	  </div>
+	</volist>
+	</if>
+    </div>
+	 
+	 
+	 
+   
+   
+   <!-- <div class="spinner botSpinner none_f" style="display: none;"></div> 
+   <div class="clear_f"></div> 
+   <div class="paging_panel c_f pr_f">  -->
+   <!-- </div>  -->
+  </div>
+<!--包含底部文件-->
+<include file="./Mls/Home/Common/footer.html" />

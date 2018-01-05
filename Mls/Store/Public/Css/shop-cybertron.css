@@ -1,0 +1,15 @@
+#vl-mul-menu-sidebar{width:180px;height:100%;float:left;text-align:left;clear:both;background:#ecedf2;overflow:auto}
+#vl-mul-menu-sidebar ul.menu-wrapper{margin-top:10px}
+#vl-mul-menu-sidebar ul.menu-wrapper .vl-dropdown-icon{display:inline-block;text-indent:0;font-family:cybertron;font-size:10px;transition:All .3s ease;-webkit-transition:All .3s ease;-moz-transition:All .3s ease;-o-transition:All .3s ease}
+#vl-mul-menu-sidebar ul.menu-wrapper .bold{font-size:15px;font-weight:700}
+#vl-mul-menu-sidebar ul.menu-wrapper a.active .vl-dropdown-icon{transform:rotate(90deg);-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-o-transform:rotate(90deg)}
+#vl-mul-menu-sidebar ul li.level-1 a{text-indent:20px}
+#vl-mul-menu-sidebar ul li.level-2 a{text-indent:30px}
+#vl-mul-menu-sidebar ul li.level-3 a{text-indent:40px}
+#vl-mul-menu-sidebar ul li.level-4 a{text-indent:50px}
+#vl-mul-menu-sidebar ul li.level-5 a{text-indent:60px}
+#vl-mul-menu-sidebar ul li a{position:relative;display:inline-block;width:100%;padding:8px 0;font-size:14px;color:#656668;text-decoration:none;white-space:nowrap;border-bottom:1px solid #e1e1e1}
+#vl-mul-menu-sidebar ul li a .line{display:none;position:absolute;left:0;top:0;height:100%;width:3px;background:#428ce8}
+#vl-mul-menu-sidebar ul li a.selected,#vl-mul-menu-sidebar ul li a:hover{color:#428ce8}
+#vl-mul-menu-sidebar ul li a.selected .line,#vl-mul-menu-sidebar ul li a:hover .line{display:inline-block}
+#vl-main{float:none}

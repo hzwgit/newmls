@@ -1,0 +1,597 @@
+body{
+	background-color:#fff
+}
+
+.mr24_f{
+	margin-right:24px
+}
+
+.header_top{
+	width:1200px
+}
+
+.top-banner{
+	position:relative;
+	height:340px;
+	overflow:hidden
+}
+
+.top-banners{
+	overflow:hidden;
+	width:4800px
+}
+
+.top-banners .item{
+	position:absolute;
+	width:100%;
+	height:340px;
+	background-position:50%;
+	opacity:0;
+	-webkit-transition:opacity .6s cubic-bezier(0.82,0.14,0.83,1) 0s;
+	-moz-transition:opacity .6s cubic-bezier(0.82,0.14,0.83,1) 0s;
+	-o-transition:opacity .6s cubic-bezier(0.82,0.14,0.83,1) 0s;
+	transition:opacity .6s cubic-bezier(0.82,0.14,0.83,1) 0s
+}
+
+.top-banners .item a{
+	display:block;
+	height:100%
+}
+
+.top-banners .active{
+	opacity:1;
+	z-index:10
+}
+
+.top-banner-handlers{
+	position:relative;
+	top:308px;
+	height:32px;
+	width:1200px;
+	margin:auto;
+	z-index:100
+}
+
+.top-banner-handlers .item{
+	float:left;
+	height:32px;
+	line-height:32px;
+	margin-right:1px;
+	text-align:center
+}
+
+.top-banner-handlers .item a{
+	display:block;
+	font-size:14px;
+	color:#fff;
+	background-color:rgba(153,153,153,0.7);
+	*background-color:#999
+}
+
+.top-banner-handlers .last{
+	margin-right:0
+}
+
+.top-banner-handlers .active a{
+	background-color:rgba(255,102,153,0.7);
+	*background-color:#f69
+}
+
+.shop{
+	width:1200px;
+	margin:auto
+}
+
+.shop-ico{
+	float:left;
+	width:19px;
+	height:16px;
+	margin-right:10px;
+	background-image:url("/meilishuo/home/static/images/shop/shop_tle.png");
+	vertical-align:top
+}
+
+.shop-cat{
+	overflow:hidden;
+	padding-bottom:15px;
+	margin-bottom:25px;
+	background-color:#f7f7f7
+}
+
+.shop-cat .item{
+	float:left;
+	margin:15px 0 0 34px
+}
+
+.shop-cat .item:first-child{
+	margin-left:40px
+}
+
+.shop-cat .title{
+	display:inline-block;
+	width:32px;
+	height:32px;
+	padding:6px;
+	margin-right:10px;
+	font-size:14px;
+	line-height:17px;
+	text-align:center;
+	background-color:#ff8bb3;
+	color:#fff;
+	vertical-align:top
+}
+
+.shop-cat .list{
+	display:inline-block;
+	vertical-align:top
+}
+
+.shop-cat .list li{
+	display:inline-block;
+	*display:inline;
+	margin:6px 8px 0 0;
+	*zoom:1
+}
+
+.shop-cat .list .active{
+	color:#f69
+}
+
+.shop-cat .first{
+	width:109px
+}
+
+.shop-cat .second{
+	width:355px
+}
+
+.shop-cat .second li:nth-child(1){
+	width:50px;
+	text-align:center
+}
+
+.shop-cat .last li{
+	margin-top:0
+}
+
+.shop-cat .last .logo{
+	display:block;
+	width:100px;
+	height:44px;
+	line-height:44px;
+	background-color:#fff;
+	text-align:center
+}
+
+.shop-cat .last img{
+	margin-top:7px
+}
+
+.mod-shop{
+	position:relative;
+	margin-bottom:5px;
+	padding:5px 5px 10px;
+	border:1px solid #fff
+}
+
+.mod-shop:hover{
+	border-color:#f4f3f3
+}
+
+.mod-shop .shop-img-wrap{
+	display:block;
+	text-align:center;
+	overflow:hidden
+}
+
+.mod-shop .shop-img-wrap img{
+	margin-bottom:15px;
+	border:1px solid rgba(153,153,153,0.08)
+}
+
+.mod-shop .info{
+	height:60px;
+	padding:0 6px 10px 0
+}
+
+.mod-shop .avatar{
+	float:left;
+	margin-right:10px
+}
+
+.mod-shop .avatar img{
+	width:65px;
+	height:65px;
+	border-radius:50%
+}
+
+.mod-shop .title-info{
+	height:16px;
+	overflow:hidden
+}
+
+.mod-shop .title{
+	float:left;
+	color:#ff8bb3;
+	font-size:14px;
+	font-weight:bold
+}
+
+.mod-shop .label{
+	display:inline-block;
+	height:16px;
+	line-height:16px;
+	margin-left:10px;
+	padding:0 5px;
+	background-color:#ff8bb3;
+	color:#fff;
+	text-align:center
+}
+
+.mod-shop .assess-info,.mod-shop .shop-intro{
+	margin:12px 0 8px
+}
+
+.mod-shop .assess-info span,.mod-shop .sale-info span{
+	display:inline-block;
+	width:120px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis
+}
+
+.mod-shop .intro{
+	line-height:1.2;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis
+}
+
+.mod-shop .sale-info{
+	margin:8px 0 10px
+}
+
+.mod-shop .gray{
+	margin:0 20px 0 8px;
+	color:#999;
+	font-style:normal
+}
+
+.mod-shop .btn-wrap{
+	margin-top:20px;
+	font-size:0;
+	text-align:center
+}
+
+.mod-shop .btn{
+	display:inline-block;
+	width:130px;
+	height:40px;
+	margin-right:10px;
+	line-height:40px;
+	color:#fff;
+	background-color:#f69;
+	border-radius:0;
+	font-size:16px
+}
+
+.mod-shop .icon-add{
+	display:inline-block;
+	width:10px;
+	height:10px;
+	margin-right:5px;
+	font-size:18px;
+	vertical-align:top
+}
+
+.mod-shop .link{
+	float:right;
+	color:#f69
+}
+
+.icon-title{
+	background-image:url("/meilishuo/home/static/images/doota/shop_20140806.png")
+}
+
+.icon-title{
+	width:80px;
+	height:20px;
+	margin-bottom:10px
+}
+
+.sort a:hover .icon-arrow,.active .icon-arrow{
+	background-position:-19px -58px
+}
+
+.shop-suggest .btn-wrap{
+	visibility:hidden
+}
+
+.shop-suggest .icon-title{
+	background-position:0 -3px
+}
+
+.shop-suggest .bd{
+	margin-left:-5px;
+	overflow:hidden
+}
+
+.shop-suggest .mod-shop{
+	float:left;
+	width:372px;
+	height:503px
+}
+
+.shop-suggest .mod-shop:hover .btn-wrap{
+	visibility:visible
+}
+
+.shop-suggest .shop-img{
+	width:372px;
+	height:352px
+}
+
+.shop-all .icon-title{
+	background-position:0 -30px
+}
+
+.shop-all .sort{
+	float:right;
+	margin-right:12px;
+	font-size:0
+}
+
+.shop-all .sort a{
+	font-size:12px;
+	color:#999
+}
+
+.shop-all .sort a:hover{
+	color:#f69
+}
+
+.shop-all .sort .active{
+	color:#f69
+}
+
+.shop-all .sort .middle{
+	display:inline-block;
+	height:12px;
+	margin:0 20px;
+	padding:0 22px;
+	border-color:#ccc;
+	border-style:solid;
+	border-width:0 1px
+}
+
+.shop-all .bd{
+	position:relative;
+	margin-left:-5px;
+	overflow:hidden
+}
+
+.shop-all .shop-wrap{
+	height:385px
+}
+
+.shop-all .mod-shop{
+	width:376px;
+	height:350px
+}
+
+.icon-shop{
+	display:none;
+	position:absolute;
+	width:44px;
+	height:44px
+}
+
+.star-shop .icon-shop{
+	display:block;
+	background-image:url("http://d05.res.meilishuo.net/pic/_o/a3/9a/012e724d7dbc6b358313707e7ddf_44_44.ch.png")
+}
+
+.competitive-shop .icon-shop{
+	display:block;
+	background-image:url("http://d02.res.meilishuo.net/pic/_o/a3/4a/fdd3a3802b88f134d1af6c5916f6_44_44.ch.png")
+}
+
+.online,.notonline{
+	background:url("/meilishuo/home/static/images/person/person_icon3.gif") no-repeat;
+	padding:1px 4px 1px 20px
+}
+
+.online{
+	background-position:0 -83px
+}
+
+.notonline{
+	background-position:0 -58px
+}
+
+.lm_love,.lm_love2,.lm_comm,.lm_shouji,.lm_like,.lm_liked{
+	background:url("/meilishuo/home/static/images/header/mls_global140607.png") no-repeat;
+	height:12px
+}
+
+.lm_love{
+	background-position:0 -259px;
+	padding:0 5px 0 6px
+}
+
+.lm_comm{
+	background-position:-16px -260px;
+	padding:0 4px 0 5px
+}
+
+.lm_shouji{
+	background-position:-158px -68px;
+	padding:0 6px
+}
+
+.lm_love2{
+	background-position:-53px -259px;
+	padding:0 5px 0 6px
+}
+
+.lm_like{
+	background-position:-101px -67px;
+	padding:1px 6px
+}
+
+.lm_liked{
+	background-position:-127px -67px;
+	padding:1px 6px
+}
+
+.like_merge{
+	height:32px;
+	position:absolute;
+	display:none;
+	overflow:hidden;
+	left:6px;
+	top:6px;
+	width:218px
+}
+
+.like_merge .poster_comment,.like_merge .poster_forward,.like_merge .poster_likes,.like_merge .poster_del,.like_merge .poster_dellike{
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	text-align:center;
+	cursor:pointer;
+	font-size:14px;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	padding:0 5px;
+	background:#fffcfc;
+	background:-moz-linear-gradient(#fffcfc,#f3f0f0);
+	background:-webkit-linear-gradient(#fffcfc,#f3f0f0);
+	filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#FFFCFC,endcolorstr=#F3F0F0);
+	border:1px solid #d6d6d1;
+	margin-right:2px
+}
+
+.like_merge .line_num{
+	border-left:1px solid #d6d6d1;
+	display:inline-block;
+	padding-left:5px
+}
+
+.like_merge .poster_forward:hover .lm_shouji{
+	background-position:-188px -68px
+}
+
+.likes{
+	cursor:pointer;
+	height:22px;
+	line-height:22px
+}
+
+.likes .likes_status{
+	background-color:#ff74a1;
+	color:#fff;
+	float:left;
+	text-align:center;
+	margin-right:6px;
+	height:20px;
+	line-height:20px;
+	width:50px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+	border:1px solid #fa5b90;
+	font-weight:normal
+}
+
+.likes .likes_status:hover{
+	color:#fff
+}
+
+.mark{
+	width:220px;
+	position:absolute;
+	left:5px;
+	top:-1px
+}
+
+.mark .m_ico{
+	float:left;
+	color:#fff;
+	text-align:center;
+	overflow:hidden;
+	margin-right:1px
+}
+
+.mark .m_ico:hover{
+	color:#fff
+}
+
+.mark{
+	top:56px
+}
+
+.bgcnt{
+	background:url("/meilishuo/home/static/images/header/mls_global140607.png") no-repeat right -571px;
+	display:inline-block;
+	*display:inline;
+	padding:35px 120px 20px 100px;
+	zoom:1;
+	position:relative
+}
+
+.pageNav{
+	margin:10px auto;
+	text-align:center
+}
+
+.pageNav a{
+	display:inline-block;
+	font-weight:bold;
+	font-size:14px;
+	height:22px;
+	line-height:22px;
+	text-align:center;
+	white-space:nowrap;
+	color:#f69;
+	background-color:#ffe1ea;
+	border:1px solid #fcc8d9;
+	margin:0 1px;
+	min-width:12px;
+	padding:0 4px
+}
+
+.pageNav .currentpage{
+	background:#fff;
+	border:1px solid #ddd;
+	color:#000
+}
+
+.pageNav .pageNextico{
+	height:58px;
+	width:55px;
+	position:absolute;
+	right:0;
+	top:0
+}
+
+.pageNav .pagePrev,.pageNav .pageNext{
+	height:22px;
+	font-size:14px;
+	font-weight:normal;
+	width:50px
+}
+
+.paging_panel{
+	padding-top:15px;
+	padding-bottom:5px
+}
+
+.alpha{
+	margin-left:0
+}
+
+.omega{
+	margin-right:0
+}
+
+;

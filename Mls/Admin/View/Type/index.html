@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap后台模板</title>
+    <link rel="stylesheet" href="__ADMINCSS__/a_002.css">
+    <link rel="stylesheet" href="__ADMINCSS__/base-min.css">
+    <link rel="stylesheet" href="__ADMINCSS__/cats-manage-min.css">
+    <link rel="stylesheet" href="__ADMINCSS__/a_004.css" type="text/css">
+    <link rel="stylesheet" href="__ADMINCSS__/shop-cybertron.css" type="text/css">
+
+    <link rel="stylesheet" href="__ADMINCSS__/index.css" type="text/css" media="screen">
+
+    <script type="text/javascript" src="__ADMINJS__/js/jquery.js"></script>
+    <script type="text/javascript" src="__ADMINJS__/js/tendina.js"></script>
+    <script type="text/javascript" src="__ADMINJS__/js/common.js"></script>
+
+</head>
+<body>
+    <!--顶部-->
+<div style="width: 100%;" id="vl-main">
+    <div id="vl-toolbar" class="toolbar">
+
+        <div class="operater">
+            <div class="manage-title">
+                <a id="J_AddSupCatHD" class="button btn-add J_TGoldData" href="#" data-gold-type="click/type" data-gold-url="/tbwmdd.10.13.1" data-gold-data="{&quot;siteCategoryId&quot;:1,&quot;userId&quot;:651512033,&quot;instId&quot;:115515492,&quot;pageId&quot;:&quot;&quot;}">添加手工分类</a>
+            </div>
+        </div>
+
+        <div class="toolbar-opts">
+            <a href="" class="release J_TGoldData" id="J_CatsSubmit_2" data-gold-type="click/type" data-gold-url="/tbwmdd.10.13.4" data-gold-data="{&quot;siteCategoryId&quot;:1,&quot;userId&quot;:651512033,&quot;instId&quot;:115515492,&quot;pageId&quot;:&quot;&quot;}">
+                <span>保存更改</span>
+            </a>
+        </div>
+    </div>
+    <div style="height: 100%;" id="vl-container">
+        <div id="content" class="tb-shop">
+
+            <div class="panel manage-cats" id="J_content">
+                <div class="select-opt" id="J_TDealAll"> <b class="cat-checkbox"></b>
+                    <a href="#" class="J_TGoldData selectall " data-gold-type="click/type" data-gold-url="/tbwmdd.10.13.5" data-gold-data="{&quot;siteCategoryId&quot;:1,&quot;userId&quot;:651512033,&quot;instId&quot;:115515492,&quot;pageId&quot;:&quot;&quot;}">全选</a>
+                </div>
+                <div class="title-nav toolbar-opts">
+                    <a id="J_TDelALl" class="disabled release J_TGoldData" href="#" data-gold-type="click/type" data-gold-url="/tbwmdd.10.13.6" data-gold-data="{&quot;siteCategoryId&quot;:1,&quot;userId&quot;:651512033,&quot;instId&quot;:115515492,&quot;pageId&quot;:&quot;&quot;}">
+                        <span>批量删除</span>
+                    </a>
+
+                    <div class="p-right">
+                        <a href="" class="J_CollapseAll ">展开</a>
+                        <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+                        <a href="" class="J_FoldingAll noable ">收起</a>
+                    </div>
+                </div>
+                <div class="table-title">
+                    <table class="cats-table" cellpadding="0" cellspacing="0">
+                        <colgroup>
+                        <col width="3%">
+                        <col width="2.5%">
+                        <col width="19%">
+                        <col width="15%">
+                        <col width="14.6%">
+                        <col width="10%">
+                        <col width="12.5%">
+                        <col width="auto"></colgroup>
+                    <tbody>
+                        <tr class="table-title">
+                            <td class="td-00">&nbsp;</td>
+                            <td class="td-0">&nbsp;</td>
+                            <td class="td-1">分类名称</td>
+                            <td class="td-2">
+                                <div class="td-2-node">分类图片</div>
+                            </td>
+                            <td class="td-4">移动</td>
+                            <td class="td-3">默认展开</td>
+                            <td class="td-timeh">创建时间</td>
+                            <td class="td-8">分类类型</td>
+                            <td class="td-9">操作</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-outer">
+                <div tabindex="95" style="position: relative; outline: medium none;" class="ks-container">
+                    <div style="position: absolute; top: 0px; left: 0px; width: 100%; overflow: visible;" class="cats-list ks-body" id="J_table_box">
+                        <form action="" data-action="//siteadmin.taobao.com/category/index.htm?action=category%2FCategoryAction&amp;event_submit_do_save_category=true" method="post" id="J_CatsForm">
+                            <table id="J_CatsList" class="cats-table" cellpadding="0" cellspacing="0">
+                                <colgroup>
+                                <col width="3%">
+                                <col width="2.5%">
+                                <col width="19%">
+                                <col width="15%">
+                                <col width="14.6%">
+                                <col width="10%">
+                                <col width="12.5%">
+                                <col width="auto"></colgroup>
+
+                        <!--expand    folding-->
+                            <tbody id="J_Cat1103508169" class="expand" data-type="0">
+                                <tr class="cat-sup" data-type="0">
+                                    <td class="td-00">
+                                        <span class="checkbox-box">
+                                            <span class="pseudo-checkbox"></span>
+                                            <input id="show-1103508169" class="J_CatOpt checkbox" type="checkbox"></span>
+                                    </td>
+
+                                    <td class="td-0"> <i class="J_FoldTrigger arrow arrow-left"></i>
+                                    </td>
+                                    <td class="td-1">
+                                        <div class="input-box">
+                                            <input id="name-1103508169" data-id="1103508169" class="input-text J_CatName" autocomplete="off" value="吃货" data-condition="" maxlength="20" type="text"></div>
+                                    </td>
+                                    <td class="td-2">
+                                        <input disabled="true" class="J_CatImg" id="img-1103508169" value="" type="hidden">
+                                        <a href="#" class="add-pic J_EditPic">
+                                            <span> <em>添加图片</em>
+                                            </span>
+                                        </a>
+                                    </td>
+                                    <td class="td-move">
+                                        <div class="move-box">
+                                            <a href="#" class="move-top  J_CatMoveTop no-move-top">上移</a>
+                                            <a class="move-up  J_CatMoveUp no-move-up" href="#">上移</a>
+                                            <a class="move-down J_CatMoveDown" href="#">下移</a>
+                                            <a href="#" class="move-btm  J_CatMoveBtm">下移</a>
+                                        </div>
+                                    </td>
+
+                                    <td class="td-3">
+                                        <span class="switch-box  checked ">
+                                            <span class="pseudo-switch"></span>
+                                            <input id="show-1103508169" class="J_CatShow checkbox" checked="checked" type="checkbox"></span>
+
+                                    </td>
+
+                                    <td class="td-time">2015-07-13</td>
+
+                                    <td class="td-8">手动分类</td>
+
+                                    <td class="td-9">
+                                        <a class="J_CatDelete" href="//siteadmin.taobao.com/category/index.htm?action=category%2FCategoryAction&amp;event_submit_do_check_remove=true&amp;id=1103508169&amp;_tb_token_=3591b9f8ee70e">删除</a>
+                                        <a href="//siteadmin.taobao.com/category/auction.htm#!/search?catId=1103508169" id="link-1103508169" target="_blank">查看</a>
+                                    </td>
+                                </tr>
+
+                                <tr class="cat-sub" data-type="0">
+
+                                    <td class="td-00">
+                                        <span class="checkbox-box">
+                                            <span class="pseudo-checkbox"></span>
+                                            <input id="show-1103508170" class="J_CatOpt checkbox" type="checkbox"></span>
+                                    </td>
+
+                                    <td class="td-0"></td>
+                                    <td class="td-1">
+                                        <div class="input-box">
+                                            <input id="name-1103508170" data-id="1103508170" class="input-text J_CatName" value="吃货_1" autocomplete="off" data-condition="" maxlength="20" type="text"></div>
+                                    </td>
+                                    <td class="td-2">
+                                        <input class="J_CatImg" id="img-1103508170" value="http://https://img.alicdn.com/imgextra/i1/651512033/TB24kdrbFXXXXbvXXXXXXXXXXXX_!!651512033.jpg" type="hidden">
+                                        <a href="#" class="edit-pic J_EditPic">
+                                            <span> <em>编辑</em>
+                                            </span>
+                                        </a>
+                                        <a class="J_DelPic optd-pic">删除</a>
+                                    </td>
+                                    <td class="td-move">
+                                        <div class="move-box">
+                                            <a class="move-up  J_CatMoveUp no-move-up" href="#">上移</a>
+                                            <a class="move-down J_CatMoveDown" href="#">下移</a>
+                                        </div>
+                                    </td>
+                                    <td class="td-3">&nbsp;</td>
+                                    <td class="td-time">2015-07-13</td>
+
+                                    <td class="td-8">手动分类</td>
+
+                                    <td class="td-9">
+                                        <a class="J_CatDelete" href="//siteadmin.taobao.com/category/index.htm?action=category%2FCategoryAction&amp;event_submit_do_check_remove=true&amp;id=1103508170&amp;_tb_token_=3591b9f8ee70e">删除</a>
+                                        <a href="//siteadmin.taobao.com/category/auction.htm#!/search?catId=1103508170" id="link-1103508170" target="_blank">查看</a>
+
+                                    </td>
+                                </tr>
+
+                                <tr class="cat-sub add-sub J_Confirmed high">
+                                    <td class="td-00"></td>
+                                    <td class="td-0"></td>
+                                    <td class="td-1">
+                                        <a class="add-cat J_AddCat" href="//siteadmin.taobao.com/category/index.htm?action=category%2FCategoryAction&amp;event_submit_do_check_add=true&amp;parentCategoryId=1103508169&amp;_tb_token_=3591b9f8ee70e" param:id="1103508169">
+                                            <span>
+                                                <em>添加子分类</em>
+                                            </span>
+                                        </a>
+                                    </td>
+                                    <td class="td-2"></td>
+                                    <td class="td-move"></td>
+                                    <td class="td-3"></td>
+                                    <td class="td-time">2015-07-15</td>
+                                    <td class="td-8"></td>
+                                    <td class="td-9"></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>

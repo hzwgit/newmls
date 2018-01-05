@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="__HOMECSS__/base.css" media="all">
+  <link rel="stylesheet" href="__HOMECSS__/welcome_new.css" media="all">
+  <link rel="stylesheet" href="__HOMECSS__/toTop.css" media="all">
+  
+  <!--加载顶部文件-->
+  <include file="./Mls/Home/Common/header.html" />
+  <include file="./Mls/Home/Common/header_bg.html" />
+  <include file="./Mls/Home/Common/navbar.html" />
+  <load file="__PUBLIC__/Js/jquery.FainPic.js" />
+  <load file="__HOMEJS__/jquery.scrollToTop.min.js" />
+  
+  <script>
+	$(function(){
+		$("#toTop").scrollToTop(1000);
+		$.ScrollPic({
+			ele: '.top_bnr',   //插件应用div
+			Time:'3000',          //自动切换时间
+			autoscrooll:true,       //设置是否自动渐变
+		});
+		
+		$(".listP").each(function(){
+			var tid = $(this).attr('flag');
+			$.post('__CONTROLLER__/showGoods',{id:tid},function(data){
+				var aa = eval(data);
+				for(var i in aa){
+					$("p[flag="+tid+"]").append('<a class="red_f" href="__MODULE__/Guang/catalog/id/'+aa[i].id+'/pid/'+aa[i].p_id+'" target="_blank">'+aa[i].name+'</a>');
+				}
+			});
+		});
+		
+		$('.list').each(function(){
+			var mid = $(this).attr('flag');
+			$.post('__CONTROLLER__/showType',{id:mid},function(data){
+				$("ul[flag="+mid+"]").append(data);
+			});
+		})	
+
+		$('.list').mouseenter(function(){
+			$(this).children('.nav_list').css('display','block');
+			$(this).addClass('active');	
+		})
+		
+		$('.list').mouseleave(function(){
+			$(this).children('.nav_list').css('display','none');
+			$(this).removeClass('active');
+		})
+		
+	})
+  </script>
+</head>
+	<a href="#top" id="toTop"></a>
+  <div class="top_bnr">
+    <ul style="position: relative; overflow: hidden; cursor: pointer;" class="banner slides">
+      
+	  <volist name="playpic" id="pp">
+		<!--$pp.s_id-->
+		
+		<li style="position: absolute; top: 0px; left: 0px; z-index: 2; ">
+			<a class="pic" href="#/<{$pp.s_id}>" target="_blank" style="background: transparent url(__PUBLIC__/<{$pp.pic}>) repeat scroll center top;"></a>
+		</li>
+	  </volist>
+    </ul>
+  </div>
+  <div class="top_wrap">
+    <div class="top_box">
+      <div class="bnr_btn_wrap">
+        <span style="display: none;" class="bnr_btn bnr_btn_left"></span>
+        <span style="display: none;" class="bnr_btn bnr_btn_right"></span>
+      </div>
+	  
+	  
+	  
+	  
+	<div class="attr_box">
+		<ul class="sec_attr">
+			
+			<foreach name="result" item="vo">
+			<li flag="<{$vo.id}>" class="list">
+				<div  class="list_cont">
+					<h3 class="nav_tle">
+						<a href="__MODULE__/Guang/firstCatalog/id/<{$vo.id}>" target="_blank">
+				
+							<span class="nav_ico" style="background: url('__HOMEIMAGES__/29de71e358db368966393442b350_18_18.c8.png') no-repeat;"></span>
+							<{$vo.name}>
+						</a>
+					</h3>
+					<p class="listP"  flag="<{$vo.id}>">
+						
+					</p>				
+					<samp class="corner">&gt;</samp>
+				</div>
+				<!-- 二级-->
+				<ul flag="<{$vo.id}>" class="nav_list" style="display: none;">
+				</ul>			
+			</li>
+			</foreach>
+			
+		</ul>
+	</div>
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  <div class="banner">
+		<a href="#" target="_blank">
+          <img src="__PUBLIC__/Uploads/1f8a4f413c3fbbee721fe63cddd6_200_139.ch.jpg" width="200" height="139"/>
+        </a>
+		<a href="#" target="_blank">
+          <img src="__PUBLIC__/Uploads/360a055c5eff36a3e5d880079f98_200_139.cf.jpg" width="200" height="139"/>
+        </a>
+		<a href="#" target="_blank">
+          <img src="__PUBLIC__/Uploads/d8486ee4efc30866998430757982_200_139.cg.jpg" width="200" height="139"/>
+        </a>
+	  </div>
+      <!-- <div class="banner">
+        <a href="#" target="_blank">
+          <img src="__PUBLIC__/1.jpg" width="200" height="139"/>
+        </a>
+        <a href="#" target="_blank">
+          <img src="__PUBLIC__/1.jpg" width="200" height="139"/>
+        </a>
+        <a href="#" target="_blank">
+          <img src="__PUBLIC__/1.jpg" width="200" height="139"/>
+        </a>
+      </div> -->
+     <!--  <div class="round">
+        <div class="adType">
+          <a class=""></a>
+          <a class=""></a>
+          <a class=""></a>
+          <a class=""></a>
+          <a class=""></a>
+          <a class="current"></a>
+        </div>
+      </div> -->
+      <div class="bnr_box">
+        <ul class="pic_attr">
+          <li><!--热销popular-->
+            <a href="__MODULE__/Guang/index/act/popular" target="_blank">
+              <img src="__HOMEIMAGES__/ba97738b4fb32591deef9c22f157_175_142.ch.jpg" />
+            </a>
+          </li>
+          <li><!--流行hot-->
+            <a href="__MODULE__/Guang/index/act/hot" target="_blank">
+              <img src="__HOMEIMAGES__/87c977a797ed1e5997ba2442f7dc_175_142.cf.jpg" />
+            </a>
+          </li>
+          <li><!--新榜newGood-->
+            <a href="__MODULE__/Guang/index/act/newGood" target="_blank">
+              <img src="__HOMEIMAGES__/293024cf884d110d2059cc652106_175_142.ch.jpg" />
+            </a>
+          </li>
+          <li><!--专题topic-->
+            <a href="__MODULE__/Guang/index/act/topic" target="_blank">
+              <img src="__HOMEIMAGES__/65d104f6c5a4592f0db882683768_175_142.cf.jpg" />
+            </a>
+          </li>
+        </ul><!--推广-->
+        <div class="ads_one">
+          <a href="" target="_blank">
+            <img src="__HOMEIMAGES__/2198c9f8ccb32869d963f614f664_198_142.ch.jpg" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height: 154px;"></div>
+  <div class="auto_wrap">
+    <div class="wel_tle">
+      <h2 class="tle">
+		
+        <span class="ico1"></span>
+        <span id="hotPer">人气推荐单品</span>
+      </h2>
+    </div>
+	<div style="margin:0 auto;width:1300px;">
+    <ul class="rec_sku recommend">
+	 <volist name="hotGood" id="hg">
+		<li>
+        <div class="s_picBox">
+          <a class="s_pic imgBox" href="__MODULE__/Share/index/id/<{$hg.id}>" target="_blank" title="<{$hg.name}>">
+            <img style="width:180px;height:255px;" class="" src="__PUBLIC__/<{$hg.g_pic}>" />
+          </a>
+        </div>
+        <p class="txt">
+          <a href="__MODULE__/Share/index/id/<{$hg.id}>" target="_blank"><{$hg.name}></a>
+        </p>
+        <p class="price_box">
+          <span class="price_red"><{$hg['price']*$hg['discount']/100}></span>
+          <span class="price"><{$hg.price}></span>
+        </p>
+        <p><{$hg.buy_num}>人已购买</p>
+      </li>
+	 </volist>
+	 </ul>
+	 </div>
+	 
+     <div class="auto_wrap line">
+			<div class="wel_tle">
+			<a class="more" href="__MODULE__/Guang/firstCatalog/id/1" target="_blank">
+			  查看所有衣服
+			  <samp>&gt;</samp>
+			</a>
+			<h2 style="float:left;display:inline-block">
+			  <span class="ico2"></span>
+			  <span style="color:red"></span>
+			</h2>
+			<span class="today">
+			  今日上新 <strong><{$upGood}></strong>
+			  件
+			</span>
+		</div>
+		<div class="attr_box">
+			<ul class="pic_box">
+				<volist name="colRes" id="col">
+					<li>
+        <a class="bar" href="" target="_blank"><{$col.summary}></a>
+        <a class="pic imgBox" href="__MODULE__/Share/index/id/<{$col.id}>" title="<{$col.summary}>">
+          <img style="width:180px;height:254px;" class="" src="__PUBLIC__<{$col.g_pic}>" />
+        </a>
+		</li>
+				</volist>
+			</ul>
+			</div>
+			<div class="shop"> 
+   <div class="cmn_title"> 
+   <!--  <p class="f14_f"><a target="_blank" href="">更多好店<samp> &gt;</samp></a></p>  -->
+    <h3 class="f16_f">最热衣服好店</h3> 
+   </div> 
+   <ul class="list"> 
+	<volist name="shops" id="ss">
+    <li> <a target="_blank" href="" class="avatar32_f"><img src="__PUBLIC__/1.jpg" /></a> <p class="name"><a target="_blank" href="__MODULE__/Shopinfo/index/id/<{$ss.gid}>"><{$ss.sname}></a></p> <p class="txt"><{$ss.total}>件商品/总销量<{$ss.sum}></p> </li> 
+	</volist>
+   </ul> 
+  </div>
+		</div>
+		<div class="auto_wrap line">
+			<div class="wel_tle">
+			<a class="more" href="__MODULE__/Guang/firstCatalog/id/10" target="_blank">
+			  查看所有鞋子
+			  <samp>&gt;</samp>
+			</a>
+			<h2 style="float:left;display:inline-block">
+			  <span class="ico3"></span>
+			  <span style="color:red"></span>
+			</h2>
+			<span class="today">
+			  今日上新 <strong><{$upShoes}></strong>
+			  件
+			</span>
+		</div>
+		<div class="attr_box">
+			<ul class="pic_box">
+				<volist name="shoRes" id="sr">
+					<li>
+					<a class="bar" href="" target="_blank"><{$sr.summary}></a>
+					<a class="pic imgBox" href="__MODULE__/Share/index/id/<{$sr.id}>" target="_blank" title="<{$sr.summary}>">
+					  <img  width="180px" height="254px" class="" src="__PUBLIC__<{$sr.g_pic}>" />
+					</a>
+					</li>
+				</volist>	
+			</ul>
+			</div>
+			<div class="shop"> 
+		   <div class="cmn_title"> 
+		   <!--  <p class="f14_f"><a target="_blank" href="">更多好店<samp> &gt;</samp></a></p>  -->
+			<h3 class="f16_f">最热鞋子好店</h3> 
+		   </div> 
+		   <ul class="list"> 
+			<volist name="shops" id="ss">
+			<li> <a target="_blank" href="" class="avatar32_f"><img src="__PUBLIC__/1.jpg" /></a> <p class="name"><a target="_blank" href="__MODULE__/Shopinfo/index/id/<{$ss.gid}>"><{$ss.sname}></a></p> <p class="txt"><{$ss.total}>件商品/总销量<{$ss.sum}></p> </li> 
+			</volist>
+		   </ul> 
+		  </div>
+		</div>
+		<div class="auto_wrap line">
+			<div class="wel_tle">
+			<a class="more" href="__MODULE__/Guang/firstCatalog/id/39" target="_blank">
+			  查看所有包包
+			  <samp>&gt;</samp>
+			</a>
+			<h2 style="float:left;display:inline-block">
+			  <span class="ico4"></span>
+			  <span style="color:red"></span>
+			</h2>
+			<span class="today">
+			  今日上新 <strong><{$upBag}></strong>
+			  件
+			</span>
+		</div>
+		<div class="attr_box">
+			<ul class="pic_box">
+				<volist name="bagRes" id="br">
+				<li>
+        <a class="bar" href="" target="_blank"><{$br.summary}></a>
+        <a class="pic imgBox" href="__MODULE__/Share/index/id/<{$br.id}>" target="_blank" title="<{$br.summary}>">
+          <img width="180px" height="254px" class="" src="__PUBLIC__<{$br.g_pic}>" />
+        </a>
+		</li>
+			</volist>
+			</ul>
+			</div>
+			<div class="shop"> 
+		   <div class="cmn_title"> 
+		   <!--  <p class="f14_f"><a target="_blank" href="">更多好店<samp> &gt;</samp></a></p>  -->
+			<h3 class="f16_f">最热包包好店</h3> 
+		   </div> 
+		   <ul class="list"> 
+			<volist name="shops" id="ss">
+			<li> <a target="_blank" href="" class="avatar32_f"><img src="__PUBLIC__/1.jpg" /></a> <p class="name"><a target="_blank" href="__MODULE__/Shopinfo/index/id/<{$ss.gid}>"><{$ss.sname}></a></p> <p class="txt"><{$ss.total}>件商品/总销量<{$ss.sum}></p> </li> 
+			</volist>
+		   </ul> 
+		  </div>
+		</div>
+		<div class="auto_wrap line">
+			<div class="wel_tle">
+			<a class="more" href="__MODULE__/Guang/firstCatalog/id/40" target="_blank">
+			  查看所有配饰
+			  <samp>&gt;</samp>
+			</a>
+			<h2 style="float:left;display:inline-block">
+			  <span class="ico5"></span>
+			  <span style="color:red"></span>
+			</h2>
+			<span class="today">
+			  今日上新 <strong><{$upOrn}></strong>
+			  件
+			</span>
+		</div>
+		<div class="attr_box">
+			<ul class="pic_box">
+				<volist name="ornRes" id="uo">
+				<li>
+        <a class="bar" href="" target="_blank"><{$uo.summary}></a>
+        <a class="pic imgBox" href="__MODULE__/Share/index/id/<{$uo.id}>" target="_blank" title="<{$uo.summary}>">
+          <img  width="180px" height="254px" class="" src="__PUBLIC__<{$uo.g_pic}>" />
+        </a>
+		</li>
+			</volist>
+			</ul>
+			</div>
+			<div class="shop"> 
+		   <div class="cmn_title"> 
+		   <!--  <p class="f14_f"><a target="_blank" href="">更多好店<samp> &gt;</samp></a></p>  -->
+			<h3 class="f16_f">最热配饰好店</h3> 
+		   </div> 
+		   <ul class="list"> 
+			<volist name="shops" id="ss">
+			<li> <a target="_blank" href="" class="avatar32_f"><img src="__PUBLIC__/1.jpg" /></a> <p class="name"><a target="_blank" href="__MODULE__/Shopinfo/index/id/<{$ss.gid}>"><{$ss.sname}></a></p> <p class="txt"><{$ss.total}>件商品/总销量<{$ss.sum}></p> </li> 
+			</volist>
+		   </ul> 
+		  </div>
+		</div>
+
+		
+	</div>
+<!--包含底部文件-->
+<include file="./Mls/Home/Common/footer.html" />

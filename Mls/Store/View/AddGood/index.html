@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="__PUBLIC__/Css/bootstrap.min.css">
+	<style>
+		#addgood input.text-word {
+			width: 310px;
+			height: 36px;
+			line-height: 36px;
+			border: 1px solid #EBEBEB;
+			background: #FFF none repeat scroll 0% 0%;
+			font-family: "Microsoft YaHei","Tahoma","Arial","宋体";
+			padding: 0px 10px;
+		}
+		#addgood select {
+			width: 310px;
+			height: 36px;
+			line-height: 36px;
+			border: 1px solid #EBEBEB;
+			background: #FFF none repeat scroll 0% 0%;
+			font-family: "Microsoft YaHei","Tahoma","Arial","宋体";
+			color: #666;
+		}
+		#addgood input.text-but {
+			width: 100px;
+			height: 40px;
+			line-height: 30px;
+			border: 1px solid #CDCDCD;
+			background: #E6E6E6 none repeat scroll 0% 0%;
+			font-family: "Microsoft YaHei","Tahoma","Arial","宋体";
+			color: #969696;
+			float: left;
+			margin: 0px 10px 0px 0px;
+			display: inline;
+			cursor: pointer;
+			font-size: 14px;
+			font-weight: bold;
+		}
+		#addgood td.text{
+			padding:15px 10px;
+			background:#f9f9f9;
+			width:130px;
+			text-align:right;
+			font-weight:bold;
+			vertical-align: middle;
+		}
+		#vl-toolbar {
+			height: 30px;
+			width: auto;
+			background: #DFDFDF none repeat scroll 0% 0%;
+			border-bottom: 1px solid #CCC;
+			z-index: 10000371;
+			position: relative;
+		}
+	</style>
+
+    <link rel="stylesheet" href="__STORECSS__/shop-cybertron.css" type="text/css">
+    <link rel="stylesheet" href="__STORECSS__/index.css" type="text/css" media="screen">
+
+
+    <script type="text/javascript" src="__PUBLIC__/Js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="__STOREJS__/addgood.js"></script>
+</head>
+<body>
+<div style="" id="vl-main">
+	<div style="z-index:-10" id="vl-toolbar" class="toolbar">
+	</div>
+	<form id="addgood" >
+		<table class="table table-bordered">
+			<tr style="padding:10px 0;">
+				<td style="vertical-align: middle;padding:15px 10px;background:#f9f9f9;width:130px;text-align:right;font-weight:bold">商品名称:</td>
+				<td style="padding:15px 10px;">
+					<input class="text-word" name="name" type="text" value="<{$good['name']}>">
+				</td>
+			</tr>
+			<tr style="padding:10px 0;">
+				<td style="vertical-align: middle;padding:15px 10px;background:#f9f9f9;width:130px;text-align:right;font-weight:bold">商品价格:</td>
+				<td style="padding:15px 10px;">
+					<input class="text-word" name="price" type="text" value="<{$good['price']}>">
+				</td>
+			</tr>
+			<tr style="padding:10px 0;">
+				<td style="vertical-align: middle;padding:15px 10px;background:#f9f9f9;width:130px;text-align:right;font-weight:bold">库存:</td>
+				<td style="padding:15px 10px;">
+					<input class="text-word" name="stock" type="text" value="<{$good['stock']}>">
+				</td>
+			</tr>
+			<tr style="padding:10px 0;">
+				<td style="vertical-align: middle;padding:15px 10px;background:#f9f9f9;width:130px;text-align:right;font-weight:bold">折扣:</td>
+				<td style="padding:15px 10px;">
+					<input class="text-word" type="text" value="<{$good['discount'] / 10}>">
+				</td>
+			</tr>
+
+			<tr style="padding:10px 0;">
+				<td style="vertical-align: middle;padding:15px 10px;background:#f9f9f9;width:130px;text-align:right;font-weight:bold">状态:</td>
+				<td style="padding:15px 10px;">
+					<select name="level" id="state">
+					<if condition="$good['state'] eq 1">
+						<option value="1" selected>上架</option>
+						<option value="0">下架</option>
+					<else />
+						<option value="1">上架</option>
+						<option value="0"  selected>下架</option>
+					</if>
+					</select>
+				</td>
+			</tr>
+			<!--店铺类别-->
+			<tr>
+				<td style="vertical-align: middle;padding:15px 10px;background:#f9f9f9;width:130px;text-align:right;font-weight:bold">店铺类别:</td>
+				<td style="padding:15px 10px;">
+					
+					<select name="" id="">
+						<foreach name="pType" item="vo">
+						<{$selected = ''}>
+							<if condition="$vo['id'] eq $good['p_id']">
+								<{$selected = 'selected'}>
+							</if>
+							<if condition="$vo['state'] neq null">
+								<if condition="$vo['states'] neq 1">
+									<option value="<{$vo['id']}>" disabled <{$selected}> ><{$vo['name']}></option>
+									<else />
+									<option value="<{$vo['id']}>" <{$selected}> ><{$vo['name']}></option>
+								</if>
+								<else />
+								<option  value="<{$vo['id']}>" <{$selected}> >&nbsp;&nbsp;<{$vo['name']}></option>
+							</if>
+						</foreach>
+					</select>
+
+				</td>
+			</tr>
+			<!--商品类别
+			<tr>
+				<td style="vertical-align: middle;padding:15px 10px;background:#f9f9f9;width:130px;text-align:right;font-weight:bold">商品分类:</td>
+				<td style="padding:15px 10px;">
+					<select name="" id="">
+						<foreach name="hType" item="val">
+						<if condition="$val['bpath'] == null">
+							<option value="$val['id']" disabled><{$val['name']}></option>
+							<else />
+							<if condition="($val['bpath']|substr_count eq ',') eq 2">
+							<option value="$val['id']" disabled>&nbsp;&nbsp;<{$val['name']}></option>
+							<else />
+							<if condition="$val['id'] eq $good['g_id']" >
+							<option value="$val['id']" selected>&nbsp;&nbsp;&nbsp;&nbsp;<{$val['name']}></option>
+							<else />
+							<option value="$val['id']" >&nbsp;&nbsp;&nbsp;&nbsp;<{$val['name']}></option>
+							</if>
+							</if>
+						</if>
+						</foreach>
+					</select>
+				</td>
+			</tr>
+			-->
+			<tr>
+				<td style="vertical-align: middle;padding:15px 10px;background:#f9f9f9;width:130px;text-align:right;font-weight:bold">简介:</td>
+				<td style="padding:15px 10px;">
+					<textarea id="summary" cols="100" rows="6"><{$val['summary']}></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align: middle;padding:15px 10px;background:#f9f9f9;width:130px;text-align:right;font-weight:bold">操作:</td>
+				<td style="padding:15px 10px;">
+					<input class="text-but btn  active" type="button" data-id="update" value="提交">
+					<input class="text-but btn  active" type="reset" value="重置">
+				</td>
+			</tr>
+		</table>
+	</form>
+	</div>
+</body>
+</html>

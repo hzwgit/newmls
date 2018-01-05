@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="__HOMECSS__/base.css" media="all">
+<link rel="stylesheet" href="__HOMECSS__/page_guang.css" media="all">
+<link rel="stylesheet" href="__HOMECSS__/waterfall.css" media="all">
+<link rel="stylesheet" href="__HOMECSS__/toTop.css" media="all">
+
+<script src="__PUBLIC__/Js/jquery-2.1.4.min.js"></script>
+<script src="__PUBLIC__/Js/waterfall.js"></script>
+
+<style>
+.pin{
+    float:left;
+}
+</style>
+<!--加载顶部文件-->
+<include file="./Mls/Home/Common/header.html" />
+<include file="./Mls/Home/Common/header_bg.html" />
+<include file="./Mls/Home/Common/navbar.html" />
+<load file="__HOMEJS__/jquery.scrollToTop.min.js" />
+
+<script>
+	$(function(){
+		//置顶按钮
+		$("#toTop").scrollToTop(1000);
+	})
+	
+</script>
+
+<a href="#top" id="toTop"></a>
+<div class="content_fluid" style="width:1200px;"  >
+    <div  id="main" class="goods_wall" style="width: 100%; position: relative;" pata-pid="<{$pid}>" pata-id="<{$id}>">	
+        <div style="" class="corner_notic pin"> 
+            <div class="sidebar_rec"> 
+                <div class="list"> 
+					 <h3> <span target="_blank">更多同类</span> </h3> 
+					 <div class="cont"> 
+					<volist name="cata" id="ca">
+                            <a class="red_f" href="__MODULE__/Guang/catalog/id/<{$ca.id}>/pid/<{$ca.p_id}>"><{$ca.name}></a>                    
+					</volist>
+					 </div> 
+                   <!--  <div class="item"> 
+                        <h3> <a href="" target="_blank"> <img src="http://d05.res.meilishuo.net/img/_o/f3/61/29de71e358db368966393442b350_18_18.c8.png" /> 最热 </a> </h3> 
+                        <div class="cont"> 
+                            <a class="red_f" target="_blank" href="http://www.meilishuo.com/activity/fashion/main/?cid=9529&amp;hdtrc=desire_pc_wlc&amp;pstrc=fe_pos%3Awlc_words_0_0"> 全球潮款 </a> 
+                            <a class="" target="_blank" href="/guang/catalog/hot?nid=210945&amp;cata_id=1000000000000&amp;pstrc=fe_pos%3Awlc_words_0_18"> 魅惑恨天高 </a> 
+                        </div> 
+                        <samp class="corner">&gt;</samp> 
+                    </div>  -->
+                    <!--二级分类-->
+                   <!--  <div class="more"> 
+                        <div class="nav_item"> 
+                            <h4><a href="" target="_blank">本季最in风尚</a></h4> 
+                            <div class="cont"> 
+                                <a href="javascript:;"  target="_blank"> 全球潮款 </a> 
+                                <a href="javascript:;" target="_blank"> 夏季新品 </a> 
+                            </div>
+                        </div>
+                    </div> -->
+                    <!--顶级分类-->
+                   <!--  <div class="list last"> 
+                        配饰
+                    </div> -->
+                </div> 
+            </div> 
+        </div>
+
+        <div coli="0" col="1" style="width: 960px;float:left;" class="corner_nav"> 
+            <ul class="cata_types"> 
+                <li><a href="__CONTROLLER__/catalog/id/<{$id}>/pid/<{$pid}>/where/popular" class="">100元以下</a></li>		
+		<li><a href="__CONTROLLER__/catalog/id/<{$id}>/pid/<{$pid}>/where/hotSe" class="">100~300</a></li>		
+		<li><a href="__CONTROLLER__/catalog/id/<{$id}>/pid/<{$pid}>/where/upNew" class=" last">300以上</a></li>
+				
+               <!--  <li class="last"><a target="_blank" href="">夏季新品</a></li>  -->
+            </ul> 
+        </div>
+
+
+        <volist name="list" id='ls'>
+        <div class="pin poster_grid retsop poster_wall"> 
+            <div class="new_poster"> 
+                <div class="np_pic hover_pic"> 
+                    <div class="price">
+                        <{$ls.gprice}>
+                    </div> 
+                    <a class="pic_load" href="__MODULE__/Share/index/id/<{$ls.gid}>" target="_blank" title="<{$ls.gname}>"><img class="goods_pic" src="__PUBLIC__/<{$ls.gpic}>" alt="<{$ls.gname}>" width="226" /></a> 
+                    <div style="display: none;" class="like_merge"> 
+                        <a class="right_f poster_likes " href="javascript:void(0)"> <i class="like_status lm_like">&nbsp;</i> </a> 
+                        <a class="right_f poster_forward" href="javascript:void(0)"><em class="lm_shouji">&nbsp;</em>收进杂志</a> 
+                    </div> 
+                </div> 
+                <div class="title"> 
+                    <p><a href="__MODULE__/Share/index/id/<{$ls.gid}>" target="_blank"><{$ls.gname}></a></p> 
+                </div> 
+                <div class="clear_f"></div> 
+                <div class="comm_num twiiter_box"> 
+                    <a class="pl" href="__MODULE__/Share/index/id/<{$ls.gid}>" target="_blank">销量（<{$ls.gbuy}>）</a> 
+                    <a isshowlike="1" s_uid="85591250" class="left_f poster_likes likes " href="javascript:void(0)"> <b class="likes_status"> <i class="lm_love2">&nbsp;</i>喜欢 </b> <span class="red_f f14_f poster_like_num">23215</span> </a> 
+                </div> 
+                <div class="np_share comment_panel"> 
+                    <!-- <a class="avatar32_f trans07 shopTips" href="/shop/193784" user_id="193784" target="_blank"><img src="http://d05.res.meilishuo.net/pic/H/8e/0b/e8884dffc49c0882d8cd41b38e2d_200_200.ch.jpg" /></a>  -->
+                    <!-- <p class="ml42_f"><a href="/shop/193784" target="_blank">静夜思女装坊</a></p> --> 
+                    <p class="commentHover t_idt"><{$ls.gsa}></p> 
+                    <div class="clear_f"></div> 
+                </div> 
+            </div>
+        </div>
+        </volist>
+    </div>
+</div>
+
+
+
+

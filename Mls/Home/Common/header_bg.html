@@ -1,0 +1,75 @@
+<div style="margin-bottom: 0px;" class="header_bg ">
+      <div class="clear_f"></div>
+      <div class="header_top logo_wrap">
+        <a class="logo_new" href="__MODULE__/index/index"></a>
+        <div class="ser_n">
+          <form class="searchBox" action="__MODULE__/index/search" method="get">
+            <div class="search-table">
+              <span class="cur" data-type="1">宝贝</span>
+              <!-- <div style="display: none;" class="list">
+                <ul>
+                  <li>
+                    <a data-type="1">宝贝</a>
+                  </li>
+                  <li>
+                    <a data-type="4">商家</a>
+                  </li>
+                  <li>
+                    <a data-type="3">杂志</a>
+                  </li>
+                  <li>
+                    <a data-type="2">用户</a>
+                  </li>
+                </ul>
+              </div> -->
+            <!--   <em class="arrow"></em> -->
+            </div>
+            <span class="ipt1">
+              <em class="i_search"></em>
+              <input class="searchKey" name="searchKey" autocomplete="off" value="" placeholder="搜流行商品" data-placeholder="搜流行商品" type="text" />
+            </span>
+<!--             <input class="search_type" value="1" name="searchType" type="hidden" />
+            <input class="filter" value="goods" name="filter" type="hidden" />
+            <input class="search_frm" value="searchsuggestion" name="frm" type="hidden" />
+            <input class="suggest_frm" value="" name="suggest_frm" type="hidden" /> -->
+            <span class="ipt2">
+              <input class="fm_hd_btm_shbx_bttn" value="搜 索" type="submit" />
+            </span>
+          </form>
+          <div class="clear_f"></div>
+          <ul class="searchType none_f"></ul>
+          <script>    
+				$(function(){
+					var $flag = false;
+					$(".fm_hd_btm_shbx_bttn").click(function(){
+						if($(".searchKey").val()){
+							$flag = true;
+						};
+						return $flag;
+					})
+				})
+             //$.each(prompt , function(index , data){   
+             // <li class="searchKeyItem" stype="goods">echo data</li>      
+              // });
+             </script>
+        </div>
+        <!-- <ul class="cart_info">
+        <li>
+          <a href="/cart" target="_blank">
+            <span class="carts_num none_f">
+              <span>undefined</span>
+            </span>
+            <em class="i_cart">&nbsp;</em>
+            查看购物车
+          </a>
+        </li>
+        <li>
+          <a href="/order" target="_blank">
+            <em class="i_order">&nbsp;</em>
+            我的订单
+          </a>
+        </li>
+      </ul>
+      -->
+    </div>
+  </div>

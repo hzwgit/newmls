@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title> 
+  <link rel="stylesheet" href="__HOMECSS__/base.css" media="all">
+  <link rel="stylesheet" href="__HOMECSS__/confirm.css" media="all">
+  <load file="__PUBLIC__/js/region_select.js" />
+  <!--加载顶部文件-->
+  <include file="./Mls/Home/Common/header.html" />
+
+
+<div class="cart_header">
+<div class="logo_wrap">
+	<a class="logo_new" href="http://www.meilishuo.com/?frm=logoa"></a>
+</div>
+<div class="status">
+	<div class="chart"></div>
+	<div class="text">
+		<span class="first current">我的购物车</span>
+		<span class="middle current">填写核对订单信息</span>
+		<span>付款，完成购买</span>
+	</div>
+	<div class="chart"></div>
+	<div class="text">
+		<span class="first current">立即购买</span>
+		<span class="middle current">填写核对订单信息</span>
+		<span>付款，完成购买</span>
+	</div>
+</div>
+</div>
+
+	<script type="text/javascript">
+		$(function(){
+		//点击使用新地址 显示form表单
+		$('#addr_new').click(function(){
+			new PCAS('location_p', 'location_c', 'location_a', '北京市', '', '');
+
+			// $('#addr_form').css('display','block');
+			$('#addr_form').slideDown(500);
+			
+
+		})
+
+
+
+		//点击修改地址显示form表单
+		$('.change').click(function(){
+			$(this).each(function(){
+				$id=$(this).attr('recid');
+				$('input[addrid='+$id+']').attr('checked',true);
+				$.post("<{:U(change)}>",{id:$id},function(msg){
+					// alert(msg);
+					//接收json数组 然后eval转格式
+					msg = eval(msg);
+					$p=msg[0];
+					$c=msg[1];
+					$a=msg[2];
+					//获取数据 分配到修改地址处
+					$st=$('span[name=s'+$id+']').html();
+					$('#addressStreet').val($st);
+
+					$ni=($('span[name=n'+$id+']').html());
+					$('#addressUser').val($ni);
+
+					$ph=$('span[name=p'+$id+']').html();
+					$('#addressPhone').val($ph);
+
+					$i=$('span[name=i'+$id+']').html();
+					$('#changeid').val($i);
+
+					//地址联动
+					new PCAS('location_p', 'location_c', 'location_a', $p, $c, $a);
+
+					//显示修改地址
+					// $('#addr_form').css('display','block');
+					$('#addr_form').slideDown(500);
+
+
+				})
+
+
+			})
+
+			
+			
+
+		})
+		//点击删除
+		$('.del').click(function(){
+			$(this).each(function(){
+				$id=$(this).attr('delid');
+				$.post("<{:U(del)}>",{id:$id},function(msg){
+					if(msg){
+						$('div[delid='+$id+']').hide(2000);
+
+					}
+				})
+
+			})
+		})
+
+
+
+
+
+		//点击取消，form表单隐藏
+		$('.cancel').click(function(){
+			// $('#addr_form').css('display','none');
+			$('#addr_form').slideUp(400);
+
+
+		})
+
+		//点击地址 ，form表单隐藏
+		$('.oop').change(function(){
+			// $('#addr_form').css('display','none');
+			// $('#addr_form').css('display','none');
+			$('#addr_form').slideUp(500);
+			$('#addr_form').slideUp(400);
+
+
+		})
+		//默认
+
+
+		//点击保存并使用
+		$('#keep').click(function(){
+			$address=[];
+			$address.push($('#location_p option:selected').val());
+			$address.push($('#location_c option:selected').val());
+			$address.push($('#location_a option:selected').val());
+			$street=$('#addressStreet').val();
+			$nickname=$('#addressUser').val();
+			$phone=$('#addressPhone').val();
+			$id=$('#changeid').val();
+			$de=$('#is_default:checked').val();
+
+
+					//添加数据 给hidden
+					
+				
+
+			$.post("<{:U(add)}>",{id:$id,address:$address,street:$street,nickname:$nickname,phone:$phone,de:$de},function(msg){
+
+				if(msg=='save'){
+					
+
+				
+					$('#changeid').val('');
+					$('#addr_form').css('display','none');
+					location.reload();
+
+				}else{
+
+					$('#changeid').val('');
+					$('#addr_form').css('display','none');
+					$("span[dis-add=addresss]").html($address[0]+','+$address[1]+','+$address[2]);
+					$('span[dis-str=streets]').html($street);
+					$("span[dis-nic=nicknames]").html($nickname);
+					$("span[dis-pho=phoness]").html($phone);
+					$('input[ch=dochecked]').attr('checked',true);
+					$('input[ch=dochecked]').attr('addrid',msg);
+					$('#displays').show(2000);
+					
+				}
+
+
+			})
+
+
+		})
+
+		//点击提交按钮
+		$('#charge').click(function(){
+			$tp=$('#total_price').html();
+			
+			$textarea=$('#textarea').val();
+			$r_id=$('input:checked').attr('addrid');
+		
+			$shopid=$('#shopid').val();
+			$goodsid=$('#goodsid').val();
+			$num=$('#num').val();
+			
+			$.post("<{:U(makeorder)}>",{textarea:$textarea,r_id:$r_id,shopid:$shopid,goodsid:$goodsid,num:$num},function(arg){
+				//alert(arg);
+			if(arg){
+				//alert(arg);
+					location="__ROOT__/index.php/Home/Wallet/index/tp/"+$tp;
+				}
+			})
+			
+			// console.log($vals);
+		})
+
+
+
+
+
+
+		})
+	</script>
+<div class="container">
+<!-- <input type="hidden" id="size" value="<{$size}>">
+<input type="hidden" id="color" value="<{$size}>"> -->
+<!-- <input type="hidden" id="shopname" value="<{$shopname}>"> -->
+<input type="hidden" id="goodsid" value="<{$goodsid}>">
+<input type="hidden" id="num" value="<{$num}>">
+<input type="hidden" id="shopid" value="<{$shopid}>">
+<p class="label">确认收货地址</p>
+<div class="addr">
+
+		<volist name="info" id="vo">
+
+			<div delid="<{$vo.id}>" class="unit adrl_list adrl_update_list active">
+				<!-- <div class="hidden">
+					<span class="adrl_nickname">sdf</span>
+					<span class="adrl_address">内蒙古自治区赤峰市巴林左旗天河区</span>
+					<span class="adrl_postcode"></span>
+					<span class="adrl_phone">138****8200</span>
+				</div> -->
+				<!-- <label> -->
+				<if condition="$vo.defaults eq 1">
+					<input name="addr" class="oop" checked  addrid="<{$vo.id}>" type="radio">
+				<else />
+					<input name="addr" class="oop"  addrid="<{$vo.id}>" type="radio">
+
+				</if>
+					<span  name="i<{$vo.id}>"  class="hidden" ><{$vo.id}></span>	
+					<span name="a<{$vo.id}>" class="adrl_addr"><{$vo.address}></span>
+					<span  name="s<{$vo.id}>"  class="street"><{$vo.street}></span>
+					<span  name="n<{$vo.id}>"  class="nickname"><{$vo.name}></span>
+					
+					联系方式：<span  name="p<{$vo.id}>"  class="phones"><{$vo.phone}></span>
+				<!-- </label> -->
+				<span class="del orign_edit adrl_edit edit" style="margin-right: -3px; margin-left: 40px;" delid="<{$vo.id}>" >删除</span>
+
+				<span class="change orign_edit adrl_edit edit" recid="<{$vo.id}>" >修改此地址</span>
+				<!-- <span class="update_edit edit" style="display:">
+					<span class="adrl_label">为享受更好的配送服务，请</span>
+					<span class="adrl_edit btn-update">升级此地址</span>
+			</span> -->
+		</div>
+		
+	</volist>
+
+	<div id="displays" class="unit adrl_list adrl_update_list active" style="display:none">
+				
+				
+				<input  ch="dochecked" name="addr" class="oop"  addrid=""  type="radio">
+						
+					<span dis-add="addresss"></span>
+					<span dis-str="streets"></span>
+					<span dis-nic="nicknames"></span>
+					
+					联系方式：<span dis-pho="phoness"></span>
+				
+				<span class="del orign_edit adrl_edit edit" style="margin-right: -3px; margin-left: 40px;">删除</span>
+
+				<span class="change orign_edit adrl_edit edit"  >修改此地址</span>
+		</div>
+
+	<div class="new_addr" id="new_adder_wrapper">
+		<div class="unit ">
+			<input value="-1" name="addr" id="addr_new" class="mls-input-radio" type="radio">
+			<label style="width:200px" for="addr_new" class="mls-input-label mls-input-radio-label">使用新地址</label>
+			<!-- <span id="addr_tip" class="new_addr_tentext">收货地址最多支持保存10条，超过10条将会自动替换最早创建的地址</span> -->
+		</div>
+		<div class="form" id="addr_form" style="display:none">
+			<form id="addressForm" method="post" onsubmit="return false">
+				<div class="infos">
+					<p>
+						<span class="left"> <b class="red_f mr4_f">*</b>
+							<label for="addressPid">所在地：</label>
+
+							<select name="location_p" id="location_p">
+   							 </select>
+
+
+							<select name="location_c" id="location_c">
+  							  </select>
+
+
+							<select name="location_a" id="location_a">
+   							 </select>
+
+
+							 
+
+							<strong>&nbsp;</strong>
+						</span>
+					</p>
+					<p>
+						<b class="red_f mr4_f">*</b>
+						<label for="addressStreet">街道地址：</label>
+						<input class="mls-input-text l_ipt_s street" id="addressStreet" name="street" value="" type="text"> <strong>&nbsp;</strong>
+					</p>
+					<p>
+						<span class="left">
+							<span>
+							<input id="changeid" type="hidden" name="" value="">
+								<b class="red_f mr4_f">*</b>
+								<label for="addressUser">收件人：</label>
+								<input class="mls-input-text l_ipt reciever" id="addressUser" name="nickname" value="" type="text">
+								<strong>&nbsp;</strong>
+							</span>
+						</span>
+					</p>
+					<p>
+						<span class="phone">
+							<b class="red_f mr4_f">*</b>
+							<label for="addressPhone">联系电话：</label>
+							<input class="mls-input-text l_ipt contact" id="addressPhone" name="phone" value="" type="text">
+							<strong>&nbsp;</strong>
+						</span>
+					</p>
+				</div>
+				<div class="buttons">
+					<div class="left_f">
+						<input class="addressBtn button" id="keep" value="保存并使用" type="submit">
+						<input class="addressBtn cancel" value="取消" type="button"></div>
+					<span class="set_default_con">
+						<input class="mls-input-checkbox" name="is_default"  checked id="is_default" value="1" type="checkbox">
+						<label class="mls-input-label mls-input-checkbox-label" for="is_default">设为默认</label>
+					</span>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<p class="label">商品清单</p>
+<div class="order">
+	<table cellpadding="0" cellspacing="0">
+		<thead>
+			<tr>
+				<th class="first" width="20px"></th>
+				<th width="390">商品信息</th>
+				<th width="100px">单价（元）</th>
+				<th width="284px">数量</th>
+				<th width="137px">小计</th>
+				<th class="last" width="20px"></th>
+			</tr>
+		</thead>
+		
+		<tbody class="shop">
+			<tr class="blank_tr">
+				<td></td>
+			</tr>
+			<tr>
+				<td class="shop_title" colspan="6">
+					<span>
+						商家：
+						<a class="red_f" href="http://localhost/Project8.3/index.php/Home/Shopinfo/index/id/<{$goodsid}>" target="_blank"><{$shopname}></a>
+					</span>
+					<a class="getserviceqq knilmi" href="###-332370709-179168-2-" target="_blank">&nbsp;</a>
+				</td>
+			</tr>
+		</tbody>
+		<tbody class="goods">
+			<tr class="first last" id="goods_1539382398">
+				<td class="first"></td>
+				<td class="content">
+					<a class="content-link" target="_blank" href="http://localhost/Project/index.php/Home/Shopinfo/index/id/<{$goodsid}>">
+						<img src="__PUBLIC__<{$goodspic}>">
+						<span class="title"><{$goodsname}></span>
+						<span class="props">
+							<span >颜色：<{$color}></span>
+							<span >尺码：<{$size}></span>
+						</span>
+					</a>
+				</td>
+				<td>
+					<div class="u_price"><{$goodsprice}></div>
+				</td>
+				<td><{$num}></td>
+				<td><{$num*$goodsprice}></td>
+				<td class="last"></td>
+			</tr>
+			<tr class="total">
+				<td class="first"></td>
+				<td colspan="2" class="buyer_msg">
+					<label>购买留言：</label>
+					<textarea name="comment[]" value="" class="mls-input-text comment" id="textarea" placeholder="选填：建议填写已经与卖家达成一致的说明"></textarea>
+				</td>
+				<td colspan="2" style="vertical-align:top;">
+					<ul class="coupon_freight">
+						<li style="display:none" id="coupon_list_179168">
+							<div class="info">
+								<label class="lb">店铺优惠券：</label>
+								<select class="mls-select shop_coupon" id="coupon_179168"></select>
+							</div>
+							<div class="price">
+								-
+								<span class="credit">0</span>
+							</div>
+						</li>
+					<!-- 	<li>
+							<div id="freight_show" class="info freight_show_179168">
+								<label class="lb">运费：</label>
+								<span class="freight_info">免运费</span>
+							</div>
+							<div class="price">
+								<span>0.00</span>
+							</div>
+						</li> -->
+					</ul>
+				</td>
+				<td class="last"></td>
+			</tr>
+			<tr class="total">
+				<td class="first"></td>
+				<td colspan="2"></td>
+				<td colspan="2" class="shop_total">
+					<span>共1件商品，</span>
+					<span>
+						店铺合计：
+						<span id="shop_total_price_179168" class="price"><{$num*$goodsprice}></span>
+						元
+					</span>
+				</td>
+				<td class="last"></td>
+			</tr>
+		</tbody>
+		<tbody id="plat_coupon_info" class="empty" style="display:none">
+			<tr>
+				<td colspan="3" class="first"></td>
+				<td colspan="2">
+					<div class="platform_coupon">
+						<div class="info">
+							<label class="lb">美丽说优惠券：</label>
+							<select class="mls-select" id="coupon"></select>
+						</div>
+						<div class="price">
+							<span>
+								-
+								<span class="credit " id="coupon_save">0</span>
+							</span>
+						</div>
+					</div>
+				</td>
+				<td class="last"></td>
+			</tr>
+		</tbody>
+		
+		<tbody class="empty">
+			<tr>
+				<td colspan="3" class="first" style="height:10px;"></td>
+				<td colspan="3" class="last" style="height:10px;"></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td class="first">&nbsp;</td>
+				<td colspan="5" class="last">
+					<span class="right">
+					<!-- 	<a class="cart" href="http://order.meilishuo.com/cart/?select_sid=1539382400_1539382398">&lt;&lt;返回购物车</a> -->
+						<span>商品总价：</span>
+						<span class="price">
+							￥
+							<span id="total_price"><{$num*$goodsprice}></span>
+						</span>
+						<a href="javascript:;" class="go_charge" id="charge"></a>
+					</span>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+</div>
+
+<!--包含底部文件-->
+<include file="./Mls/Home/Common/footer.html" />

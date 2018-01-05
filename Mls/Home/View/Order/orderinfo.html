@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="__HOMECSS__/base.css" media="all">
+	<link rel="stylesheet" href="__HOMECSS__/index.css" media="all">
+	<load file="__HOMECSS__/orderinfo.css" />
+	<!--加载顶部文件-->
+	<include file="./Mls/Home/Common/header.html" />
+	<include file="./Mls/Home/Common/header_bg.html" />
+	<include file="./Mls/Home/Common/navbar.html" />
+	<load file="__PUBLIC__/Js/jquery-2.1.4.min.js" />
+	
+</head>
+<body>
+	<div class="order_header">
+		<span class="icon"></span>
+	</div>
+	<div class="route">
+		<div class="route_bread">
+			<a href="http://www.meilishuo.com/">美丽说</a>
+			<samp>&gt;</samp>
+			<a href="http://order.meilishuo.com/order/list/">我的美丽说订单</a>
+			<samp>&gt;</samp>
+			<span class="red_f">订单详情</span>
+		</div>
+	</div>
+	<div class="order_area">
+		<div class="order_status_bar">
+		<!-- <{$a=$infos[0].o_state}> -->
+			<p>当前状态：<{$arr.$a}></p>
+			<div class="flowStep" style="width:576px;">
+				<div class="chart" style="margin-left:54px">
+					<div class="line" style="width:456px;left:6px"></div>
+					<div style="margin-left:0px;" class="ball "></div>
+					
+					<if condition="$a neq 4">
+
+						<if  condition="$a eq 0">
+							<div style="margin-left:140px;" class="ball empty"></div>
+						<else />
+							<div style="margin-left:140px;" class="ball"></div>
+						</if>
+							
+						<if condition="$a gt 1">
+							<div style="margin-left:140px;" class="ball"></div>
+						<else />
+							<div style="margin-left:140px;" class="ball empty"></div>
+
+						</if>
+						<if condition="$a eq 3">
+							<div style="margin-left:140px;" class="ball "></div>
+						<else />
+							<div style="margin-left:140px;" class="ball empty"></div>
+						
+						</if>
+					<else />
+						<div style="margin-left:140px;" class="ball empty"></div>
+						<div style="margin-left:140px;" class="ball empty"></div>
+						<div style="margin-left:140px;" class="ball empty"></div>
+					</if>
+
+				</div>
+				<div class="text">
+					<div class="active" style="width:120px;">拍下宝贝</div>
+					<div style="width:120px;margin-left:32px;">支付订单</div>
+					<div style="width:120px;margin-left:32px;">卖家发货</div>
+					<div style="width:120px;margin-left:32px;">确认收货</div>
+					<div class="active" style="width:120px;"><{$infos[0].time|date="Y-m-d H:i:s",###}></div>
+					<div style="width:120px;margin-left:32px;display:none;"></div>
+					<div style="width:120px;margin-left:32px;display:none;"></div>
+					<div style="width:120px;margin-left:32px;display:none;"></div>
+				</div>
+			</div>
+			<div class="status_text">
+				<if condition="$a eq 0">
+
+				<div class="status_text">
+					您的订单已经提交，请在
+					<span class="red_f"><!-- 2015-07-25 14:02 -->24小时内</span>
+					完成支付，超时订单将自动关闭。
+				</div>
+				<div class="status_text">交易高峰时段，可能会存在订单状态更新不及时，如果您已经完成支付，请耐心等待，不要取消订单。</div>
+				<a target="_blank" oid="<{$infos[0].o_id}>" id="pay_now" href="" class="btn">立即支付</a>
+				<a id="cancel_order" oid="<{$infos[0].o_id}>" href="javascript:;" class="btn gray">取消订单</a>
+				<elseif condition="$a eq 1" />
+					<div class="status_text">等待卖家发货ing</div>
+				<elseif condition="$a eq 2" />
+				<!-- <a target="_blank" id="pay_now" href="https://zhifu.meilishuo.com/wallet/?orderId=15072444163196" class="btn">确定收货</a> -->
+				<elseif condition="$a eq 4" />
+				<div class="status_text button">交易关闭</div>
+				<!-- <a id="cancel_order" href="javascript:;" class="btn gray">退货</a> -->
+				</if>
+			</div>
+		</div>
+		<div class="order_address">
+			<div id="express">
+				<h4>收货信息</h4>
+				<p>收货人：<{$infos[0].name}></p>
+				<p>收货地址：<{$infos[0].address}></p>
+				<p>详细地址： <{$infos[0].street}></p>
+				<p>联系电话：<{$infos[0].phone}></p>
+			</div>
+		</div>
+		<div class="order_goods">
+			<table class="order_list">
+				<colgroup>
+				<col width="360">
+				<col width="120">
+				<col width="80">
+				<col width="100">
+				<col width="130">
+				<col width="120"></colgroup>
+			<thead>
+				<tr>
+					<th>商品信息</th>
+					<th>单价（元）</th>
+					<th>数量</th>
+					<th>售后</th>
+					<th>合计（元）</th>
+					<th>订单状态</th>
+				</tr>
+			</thead>
+			<script>
+			$(function(){
+
+				var to=0;
+				$('.bl').each(function(){
+					to+=parseFloat($(this).html());
+				})	
+				
+				$('#total').html(to.toFixed(2));
+				
+				$('#pay_now').click(function(){
+					$id=$(this).attr('oid');
+					$.post("<{:U('gets')}>",{order:$id},function(msg){
+						if(msg){
+							alert('付款成功');
+						}
+
+					})
+
+				})
+
+				$('#cancel_order').click(function(){
+					$id=$(this).attr('oid');
+					$.post("<{:U('delorder')}>",{order:$id},function(msg){
+						if(msg){
+						
+							alert('Thank');
+							location.reload();
+						}
+
+					})
+
+				})
+
+
+
+
+			})
+
+			</script>
+
+				
+
+			<tbody class="order_list">
+				<volist name="infos" id="vo">
+				<if condition="$vo.id neq $oop">
+				<!-- <{$oop=$vo.id}> -->
+				<tr class="order_info">
+					<td colspan="6">
+						<span>
+							商家：
+							<a class="red_f" href="" target="_blank">商家名<{$infos.shopname}></a>
+						</span>
+						<a class="getserviceqq knilmi" href="###-164623905-115211-3-" target="_blank">&nbsp;</a>
+					</td>
+				</tr>
+				</if>
+				
+				<tr class="order_goods_list">
+					<td class="order_goods_goods">
+						<a target="_blank" href="http://www.meilishuo.com/share/item/3681485473">
+							<img class="pic" src="__PUBLIC__<{$vo.g_pic}>"></a>
+						<p class="title">
+							<{$vo.gname}>
+							<br></p>
+						
+					</td>
+					<td class=""><{$vo.price}></td>
+					<td class=""><{$vo.num}></td>
+					<td class=""></td>
+					<td class="bl" rowspan="1"><{$vo['price']*$vo['num']*$vo['discount']/100}></td>
+					<!-- <{$a=$vo.o_state}> -->
+					<td class="bll" rowspan="1"><{$arr.$a}></td>
+				</tr>
+
+			</volist>
+			
+			</tbody>
+
+		
+
+
+		</table>
+		<!-- 	 -->
+		<ul>
+			<li class="order_timer">
+				<p>
+					<span class="first">订单号：<{$infos[0].o_id}></span>
+					<span>成交时间：<{$infos[0].time|date="Y-m-d H:i:s",###}></span>
+					
+				</p>
+			</li>
+			<!-- 		<li class="order_discount">
+			<span>优惠券：未使用</span>
+		</li>
+		-->
+	<!-- 	<li class="order_comment_discount">
+			<table>
+				<tbody>
+					<tr>
+						<td class="comment"></td>
+						<td class="discount">
+							<table>
+								<tbody>
+									<tr class="discount_info">
+										<td> <strong>已选择优惠</strong>
+										</td>
+									</tr>
+									<tr class="discount_info">
+										<td>
+											<img src="http://i.meilishuo.net/css/images/cartOrder/mail.png?asdf">
+											<span>已使用满1包邮</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</li> -->
+		<li>
+			<p class="right_f">
+				<span class="last">
+					<!-- <span>
+						运费： <em class="red_f f15_f">0.00&nbsp;</em>
+						元
+					</span>
+					<span>
+						共计优惠： <strong class="red_f f15_f">- 0</strong>
+						&nbsp;元
+					</span> -->
+					<if condition="$a neq 4">
+					<span>
+						实付金额：
+						<strong id="total" class="red_f f18_f"></strong>
+						&nbsp;&nbsp;元 
+					</span>
+					<else />
+
+					</if>
+					<span class="order_list">
+					<if condition="$a neq 4">
+					<if condition="$a eq 0">
+
+						<a href="" target="_blank" class="button">付款</a>
+					<elseif condition="$a eq 2" />
+						<a href="" target="_blank" class="button">确认收货</a>
+					<elseif condition="$a eq 3" />
+					
+					</if>
+					<else />
+						
+
+					</if>
+
+					</span>
+				</span>
+			</p>
+			<div class="clear_f"></div>
+		</li>
+	</ul>
+</div>
+</div>
+
+</body>
+
+<include file="./Mls/Home/Common/footer.html" />

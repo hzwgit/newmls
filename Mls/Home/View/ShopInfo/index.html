@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="__PUBLIC__/Css/bootstrap.min.css" media="all">
+	<link rel="stylesheet" href="__HOMECSS__/base.css" media="all">
+	<link rel="stylesheet" href="__HOMECSS__/confirm.css" media="all">
+
+	<link rel="stylesheet" href="__HOMECSS__/shop_con.css" media="all">
+	<load file="__PUBLIC__/Js/jquery-2.1.4.min.js" />
+	<load file="__PUBLIC__/Js/bootstrap.min.js" />
+
+	<!--加载顶部文件-->
+	<include file="./Mls/Home/Common/header.html" />
+
+	<div class="main">
+	<include file="./Mls/Home/Common/shopcontit.html" />
+	<include file="./Mls/Home/Common/shoptop.html" />
+
+
+
+		<div class="clear_f"></div>
+
+
+
+
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<foreach name="image" item="val" key="k">
+				<if condition="$k eq 0">
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					<else />	
+					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				</if>
+			</foreach>
+		</ol>
+
+		<div class="carousel-inner" role="listbox">
+			<foreach name="image" item="vo" key="key">
+				<if condition="$key eq 0">
+					<div class="item active">
+						<img src="__PUBLIC__<{$vo['pic']}>" alt=""></div>
+					<else />	
+					<div class="item">
+						<img src="__PUBLIC__<{$vo['pic']}>" alt=""></div>
+				</if>
+			</foreach>
+		</div>
+
+		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+
+	</div>
+
+
+
+		<div class="user_module" style="background:none;">
+			<div class="pics">
+				<div class="pic">
+					<a>
+						<img src="http://d05.res.meilishuo.net/pic/_o/83/f8/d62eaf7e982b37a7253e7a56d591_950_208.cf.jpg"></a>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+		<div class="clear_f"></div>
+		<div class="goods_list" >
+			<div class="order_by">
+				<div class="g_title">全部商品（261）</div>
+				<ul class="orderby_list">
+					<li class="red_f">
+						<a href="javascript:;">销量</a>
+					</li>
+					<li class="o_item ">
+						<a href="javascript:;">最新</a>
+					</li>
+				</ul>
+				<div class="clear_f"></div>
+			</div>
+
+			<div class="goods_wall" style="width:960px;" id="main">
+			<!--遍历-->
+			<foreach name="goods" item="vo">
+				<div  coli="0" col="0" class="poster_grid retsop poster_wall pin" >
+					<div class="new_poster">
+						<div class="np_pic hover_pic">
+							<div class="price"><{$vo['price']}></div>
+							<a class="pic_load" href="__MODULE__/Share/index/id/<{$vo['id']}>" target="_blank" title="<{$vo['name']}>">
+								<img class="goods_pic" src="__PUBLIC__<{$vo['g_pic']}>" alt="<{$vo['name']}>" height="328" width="226"></a>
+							<div class="like_merge">
+								<a class="right_f poster_likes " href="javascript:void(0)">
+									<i class="like_status lm_like">&nbsp;</i>
+								</a>
+								<a class="right_f poster_forward" href="javascript:void(0)">
+									<em class="lm_shouji">&nbsp;</em>
+									收进杂志
+								</a>
+							</div>
+						</div>
+						<div class="title">
+							<p>
+								<a href="__MODULE__/Share/index/id/<{$vo['id']}>" target="_blank"><{$vo['name']}></a>
+							</p>
+						</div>
+						<div class="clear_f"></div>
+						<div class="comm_num twiiter_box">
+							<a class="pl" href="__MODULE__/Share/index/id/<{$vo['id']}>" target="_blank">销量（<{$vo['buy_num']}>）</a>
+							<a isshowlike="1" s_uid="47172902" class="left_f poster_likes likes " href="javascript:void(0)">
+								<b class="likes_status">
+									<i class="lm_love2">&nbsp;</i>
+									喜欢
+								</b>
+								<span class="red_f f14_f poster_like_num">0</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</foreach>
+			<!--结束-->	
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="promise ">
+			<ul>
+				<li>
+					<a href="/help/return/" target="_blank" class="pro_ico">
+						<img src="http://i.meilishuo.net/css/images/doota/service/pc_seven_new.png"></a>
+					<p class="pro_tle">
+						<a href="/help/return/" target="_blank">7天无理由退货</a>
+					</p>
+					<p>
+						<a href="/help/return/" target="_blank">轻松购物有保障</a>
+					</p>
+				</li>
+				<li>
+					<a href="/help/return/" target="_blank" class="pro_ico">
+						<img src="http://i.meilishuo.net/css/images/doota/service/pc_pei_new.png"></a>
+					<p class="pro_tle">
+						<a href="/help/return/" target="_blank">先行赔付</a>
+					</p>
+					<p>
+						<a href="/help/return/" target="_blank">轻松购物有保障</a>
+					</p>
+				</li>
+				<li class="last">
+					<a href="/help/return/" target="_blank" class="pro_ico">
+						<img src="http://i.meilishuo.net/css/images/doota/service/pc_fan_new.png"></a>
+					<p class="pro_tle">
+						<a href="/help/return/" target="_blank">退货补贴运费</a>
+					</p>
+					<p>
+						<a href="/help/return/" target="_blank">轻松购物有保障</a>
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+<include file="./Mls/Home/Common/footer.html" />
+
+
+	<script>
+	$(function(){
+		var $winWidth =  $(window).width();
+		var $num = 	$('#slider').children().length;
+		var $table = $winWidth * ($num-1) * -1;
+		setInterval(function(){
+			var mar = parseInt($('#slider').css('margin-left'));
+			if(mar == $table){
+				$('#slider').css('margin-left','0px');
+			} else {
+				$('#slider').css('margin-left',mar-$winWidth+'px');
+
+			}
+			//mar = mar-$winWidth;
+		},3000)
+	})
+</script>

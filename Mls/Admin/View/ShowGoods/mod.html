@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>后台模板</title>
+
+<script type="text/javascript" src="__ADMINJS__/jquery.js"></script>
+
+<link rel="stylesheet" href="__ADMINCSS__/add.css" type="text/css" media="screen">
+<link rel="stylesheet" href="__PUBLIC__/Css/bootstrap.min.css" type="text/css" media="screen">
+<load file="__ADMINJS__/jquery.js" />
+<script>
+	$(function(){
+		gid = $("input[name='gid']").val();
+		//默认选中
+		$.post("<{:U('ShowGoods/doSelect')}>",{id:gid},function(data){
+			$("option[value="+data+"]").attr('selected','selected');
+		});
+		//排除不能选择类别
+		$.post("<{:U('ShowGoods/hasChild')}>",{},function(data){
+			var arr = eval(data);
+			$("option").each(function(){
+				tid = $(this).val();
+				for(var i = 0;i<arr.length;i++){
+					if(tid == arr[i][0].p_id){
+						$(this).attr('disabled','disabled');
+					}
+				}
+			});
+		});
+	})
+</script>
+</head>
+<body>
+<div class="div_from_aoto" style="width: 500px;">
+    <form action="__MODULE__/ShowGoods/modType" method="post">
+		<input type='hidden' name='gid' value="<{:I('id')}>" />
+		 <div class="control-group">
+			<div class="controls">	
+				<label>商品名:&nbsp;&nbsp;</label>
+				<span><{:I('name')}></span>
+            </div>
+            <div class="controls">	
+				<label>类别&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select name="opt">
+					<volist name="types" id='ts'>
+							<option  value="<{$ts.id}>" ><{$ts.name}></option>
+					</volist>
+                </select><br><br>
+            <button id="btn" class="btn btn-success" style="width:120px;">确认</button>
+            </div>
+        </div>
+        <div>
+            
+        </div>
+    </form>
+</div>
+
+</body></html>

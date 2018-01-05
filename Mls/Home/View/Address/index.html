@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="__HOMECSS__/base.css" media="all">
+	<link rel="stylesheet" href="__HOMECSS__/index.css" media="all">
+	<load file="__PUBLIC__/js/region_select.js" />
+
+	<link rel="stylesheet" href="__HOMECSS__/orderaddress.css" media="all">
+	<!--加载顶部文件-->
+	<!-- <load file="__HOMECSS__/orderaddress.css" /> -->
+	<include file="./Mls/Home/Common/header.html" />
+	<include file="./Mls/Home/Common/header_bg.html" />
+	<include file="./Mls/Home/Common/navbar.html" />
+  <load file="__PUBLIC__/js/region_select.js" />
+
+
+	
+	<div class="clear_f"></div>
+	
+	<div class="route">	<div class="route_bread">		<a href="http://www.meilishuo.com/">美丽说</a>		<samp>&gt;</samp>		<a href="http://order.meilishuo.com/order/list/">我的美丽说订单</a>		<samp>&gt;</samp>		<span class="red_f">我的收货地址</span>	</div></div>
+	<div class="order_area">
+		<div class="doota_nav">	<ul>		<li><a href="http://order.meilishuo.com/order/list/">已买到的商品</a></li>		<li><a href="http://order.meilishuo.com/cart">我的购物车</a></li>		<li class="selected"><a href="http://order.meilishuo.com/address/">我的收货地址</a></li>		<li><a href="http://order.meilishuo.com/coupon/">我的优惠券</a></li>		<li><a href="http://order.meilishuo.com/refund/list/">退款/退货</a></li>		<li><a href="http://order.meilishuo.com/refund/service_list/">售后</a></li>		<li><a href="http://order.meilishuo.com/complain/list/">我的投诉</a></li>	</ul></div>
+
+		<script>
+		$(function(){
+		//点击关闭时候 登陆框关闭
+		$('#loginclose').click(function(){
+			
+				$('#login').hide(500);
+				$('#overlogin').hide(500);
+				
+
+			})
+
+			//点击立即登陆 ，ajax传数据到后台判断
+			$('.login_btn').click(function(){
+				$pass=$('#password').val();
+				$user=$('#mlsUser').val();
+				$.post("<{:U('login')}>",{pass:$pass,user:$user},function(arg){
+					if(arg){
+						
+						// $('#dialogLayer').css('display','none');
+						// $('#overlay').css('display','none');
+						$('#login').hide(2000);
+						$('#overlogin').hide(2000);
+						location.reload();
+					}else{
+						
+						// $('.loginErrorMessage').css('display','block');
+						$('.loginErrorMessage').show(1000);
+						
+					}
+
+				})
+			})
+
+			//地址关闭
+			$('#addressclose').click(function(){
+				$('#overaddress').fadeOut(400);
+				$('#address').slideUp(400);
+			})
+			$('.cancelBtn').click(function(){
+				$('#overaddress').fadeOut(400);
+				$('#address').slideUp(400);
+			})
+
+			//点击使用新地址
+			$('#btn-new').click(function(){
+					$('td[class=ad_street]').html();
+					$("td[class=ad_nickname]").html();
+					$("td[class=ad_phone]").html();
+			
+
+					$('input[class=changeid]').val();
+
+				new PCAS('location_p', 'location_c', 'location_a', '北京市', '', '');
+					
+				$('#overaddress').fadeIn(400);
+				$('#address').show(400);
+			})
+			//点击保存
+			$('.addressBtn').click(function(){
+				//所在地
+				$address=[];
+				$address.push($('#location_p option:selected').val());
+				$address.push($('#location_c option:selected').val());
+				$address.push($('#location_a option:selected').val());
+				//用户名字
+				$nickname=$('#addressUser').val();
+				//电话
+				$phone=$('#validatePhoneOrMobile').val();
+				//街道
+				$street=$('#addressStreet').val();
+				//是否默认
+				$de=$('#is_default:checked').val();
+
+				$id=$('input[class=changeid]').val();
+
+					// alert($id);
+
+					$.post("<{:U(add)}>",{id:$id,address:$address,street:$street,nickname:$nickname,phone:$phone,de:$de},function(msg){
+
+				if(msg=='save'){
+					
+					// alert(1);
+				
+					$('.changeid').val('');
+					$('#overaddress').hide(400);
+					$('#address').hide(400);
+					location.reload();
+					// $('#addr_form').css('display','none');
+
+				}else{
+					// alert(2);
+					// alert(msg);
+					
+					$('.changeid').val('');
+					$('#overaddress').hide(400);
+					$('#address').hide(400);
+					$("td[class=ad_address]").html($address[0]+','+$address[1]+','+$address[2]);
+					$('td[class=ad_street]').html($street);
+					$("td[class=ad_nickname]").html($nickname);
+					$("td[class=ad_phone]").html($phone);
+			
+
+					$('input[class=changeid]').val(msg);
+
+					$('.newaddr').show(2000);
+					if($de){
+						// $('span:contains(默认地址)').html('<a href="javascript:" style="color:#FF6699">设为默认</a>')
+						$('span[moren=moren]').css('display','block');
+
+					}else{
+						$('a[sets=set]').css('display','block');
+
+					}
+
+
+
+					
+				}
+
+
+			})
+
+			})
+
+
+			//点击修改的时候
+			$('.adrl_edit').each(function(){
+				
+				$(this).click(function(){
+					$id=$(this).attr('addrid');
+					// alert($id);
+					$.post("<{:U(change)}>",{id:$id},function(msg){
+					// alert(msg);
+					//接收json数组 然后eval转格式
+					
+					msg = eval(msg);
+					$p=msg[0];
+					$c=msg[1];
+					$a=msg[2];
+					$name=$('td[name=n'+$id+']').html();
+					$('#addressUser').val($name);
+					$street=$('td[name=s'+$id+']').html();
+					$('#addressStreet').val($street);
+					$phone=$('td[name=p'+$id+']').html();
+					$('#validatePhoneOrMobile').val($phone);
+
+					
+					$('.changeid').val($id);
+					
+
+
+
+
+					//地址联动
+					new PCAS('location_p', 'location_c', 'location_a', $p, $c, $a);
+
+					//显示修改地址
+					$('#overaddress').fadeIn(400);
+					$('#address').show(400);
+
+				})
+
+					
+				})
+				
+			})
+			$('.adrl_delete').each(function(){
+				$(this).click(function(){
+					$id=$(this).attr('addrid');
+						$.post("<{:U(del)}>",{id:$id},function(msg){
+							if(msg){
+							$('tr[dele='+$id+']').hide(600);
+
+							}
+					})
+				})
+			})
+
+
+			$('.set_default').each(function(){
+				$(this).click(function(){
+					$id=$(this).attr('aaddrid');
+
+						$.post("<{:U(setdefault)}>",{id:$id},function(msg){
+							if(msg){
+								$('span:contains(默认地址)').html('<a href="javascript:" style="color:#FF6699">设为默认</a>')
+								$('a[aaddrid='+$id+']').html('<span style="color:#666666">默认地址</span>');
+								
+
+							}
+						})
+
+				})
+			})
+
+		})
+
+		</script>
+
+	<div class="maskLayer" id="overaddress" style="width: 100%; height: 911px; display: none;"></div>
+		
+	<div style="width: 620px; height: auto; display: none; top: 17.75px; left: 50%; margin-left: -310px;" class="dialogLayer" id="address">
+	<div class="dialogTitle" id="addresstitle">
+		<span class="close_z" id="addressclose"></span>
+		<span id="dialogTitleText">新增地址</span>
+	</div>
+	<div class="dialogContent" id="addressContent">
+		<fieldset>
+			<form id="addressForm" class="address_form" method="post" onsubmit="return false" action="">
+				<legend>新增/编辑收货地址表单</legend>
+				<p>
+					<span>*</span>
+					<label for="addressUser">收货人姓名：</label>
+					<input class="l_ipt mls-input-text" id="addressUser" name="nickname" value="" type="text"> <strong class=""></strong>
+				</p>
+				<p>
+					<span>*</span>
+					<label for="validatePhoneOrMobile">联系电话：</label>
+					<input class="l_ipt mls-input-text" id="validatePhoneOrMobile" name="phone" value="" type="text"> <strong class=""></strong>
+				</p>
+				<p>
+					<span>*</span>
+
+					<label for="addressPid">所在地：</label>
+
+
+							<select name="location_p" id="location_p">
+   							 </select>
+
+
+							<select name="location_c" id="location_c">
+  							  </select>
+
+
+							<select name="location_a" id="location_a">
+   							 </select>
+
+
+
+					<strong class=""></strong>
+				</p>
+				<p>
+					<span>*</span>
+					<label for="addressStreet">街道地址：</label>
+					<input class="l_ipt_s mls-input-text" id="addressStreet" name="street" value="" type="text">
+					<strong class=""></strong>
+				</p>
+				<div>
+				<!-- 	<p>
+						<label for="addressPostcode">邮政编码：</label>
+						<input class="l_ipt mls-input-text" id="addressPostcode" name="postcode" value="" type="text">
+						<strong></strong>
+					</p> -->
+					<p>
+						<label>&nbsp;</label>
+						<input class="mls-input-checkbox" name="is_default" id="is_default" value="1" type="checkbox">
+						<label class="mls-input-label mls-input-checkbox-label red-check" for="is_default">设为默认</label>
+					</p>
+				</div>
+				<div class="submitBox">
+					<input class="button addressBtn" value="保存" type="submit">
+					<input class="button cancelBtn" value="取消" type="button"></div>
+			</form>
+		</fieldset>
+		<div class="clear_f"></div>
+	</div>
+</div>
+
+
+	
+
+
+
+
+
+
+
+	<!-- 判断有没有登陆 -->
+		<empty name="Think.session.hid">
+		<div class="maskLayer" id="overlogin" style="width: 100%; height: 975px; display: block;"></div>
+<div style="width: 620px; height: auto; display: block; top: 102.75px; left: 50%; margin-left: -310px;" class="dialogLayer" id="login">
+	<div class="dialogTitle" id="logintitle">
+		<span class="close_z" id="loginclose"></span>
+		<span id="dialogTitleText">登录</span>
+	</div>
+	<div class="dialogContent" id="loginContent">
+		<div class="login_wrap">
+			<div class="login_normal">
+				<h3>
+					<a href="http://www.meilishuo.com/user/register?frm=tk_reg" target="_BLANK">注册</a>
+					登录美丽说
+				</h3>
+				<fieldset>
+					<form method="post" onsubmit="return false" action="" id="loginForm">
+						<div class="l_list">
+							<p class="l_box">
+								<input class="l_txt" id="mlsUser" name="mlsUser" placeholder="手机号/邮箱/用户名" type="text">
+								<span></span>
+								<span class="user_icon"></span>
+							</p>
+						</div>
+						<div class="l_list">
+							<p class="l_box">
+								<input class="l_txt" id="password" name="password" placeholder="密码" type="password">
+								<span></span>
+								<span class="pwd_icon"></span>
+							</p>
+						</div>
+					
+						<div class="loginErrorMessage none_f" style="display: none;">账号或密码错误，请重新输入</div>
+						<div class="login_btn_wrap">
+							<input class="login_btn" value="立即登录" type="submit"></div>
+						
+					</form>
+				</fieldset>
+			</div>
+		
+			<!-- <div class="clear_f"></div> -->
+		</div>
+		<!-- <div class="clear_f"></div> -->
+	</div>
+</div>
+		
+		<else />
+		<!-- 显示遍历出来的地址 -->
+		<div class="address_content">
+	<div class="address_content_box">
+		<table class="address_list">
+			<colgroup>
+			<col width="90">
+			<col width="240">
+			<col width="80">
+			<col width="100">
+			<col width="90">
+			<col width="140"></colgroup>
+		<thead>
+			<tr>
+				<th class="adrl_nickname">收货人</th>
+				<th>收货地址</th>
+				<th>街道地址</th>
+				<th>联系电话</th>
+				<th></th>
+				<th class="adrl_control">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<volist name="info" id="vo">
+			<tr dele="<{$vo.id}>" class="adrl_list " >
+			<input  class="changeid" name="i<{$vo.id}>" type="hidden"  value=""></span>
+
+				<td class="adrl_nickname" name="n<{$vo.id}>" ><{$vo.name}></td>
+				<td class="adrl_address" name="a<{$vo.id}>" ><{$vo.address}></td>
+				<td class="adrl_street" name="s<{$vo.id}>" > <{$vo.street}></td>
+				<td class="adrl_phone" name="p<{$vo.id}>"><{$vo.phone}></td>
+				<td>
+				<if condition="$vo.defaults neq 1">
+					<a href="javascript:void(0)"  aaddrid="<{$vo.id}>"class="set_default">设为默认</a>
+				<else />	
+					<span>默认地址</spasn>
+				</if>
+				</td>
+				<td class="adrl_control">
+					<a class="adrl_edit" addrid="<{$vo.id}>" href="javascript:void(0)">修改</a>
+					<samp>|</samp>
+					<a class="adrl_delete" addrid="<{$vo.id}>" href="javascript:void(0)">删除</a>
+				</td>
+			</tr>
+		</volist>
+		<tr class="newaddr" style="display:none" >
+			<!-- <input  class="changeid" name="" type="hidden"  value=""></span> -->
+			<input  class="changeid" name="" type="hidden"  value=""></span>	
+				<td class="ad_nickname" name="" > </td>
+				<td style="padding-right: 144px;" class="ad_address" name="" > </td>
+				<td class="ad_street" name="" > </td>
+				<td class="ad_phone" name=""> </td>
+				<td>
+				
+					<a sets="set" href="javascript:void(0)" style="display:none" addrid=""class="set_default">设为默认</a>
+				
+					<span moren="moren" style="display:none">默认地址</spasn>
+			
+				</td>
+				<td class="adrl_control">
+					<a class="adrl_edit" addrid="" href="javascript:void(0)">修改</a>
+					<samp>|</samp>
+					<a class="adrl_delete" addrid="" href="javascript:void(0)">删除</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="address_add_wrap">
+		<span class="button" id="btn-new">新增地址</span>
+	</div>
+</div>
+</div>
+	</empty>
+</div>
+<!--包含底部文件-->
+<include file="./Mls/Home/Common/footer.html" />

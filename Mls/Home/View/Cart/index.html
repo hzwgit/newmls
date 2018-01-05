@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title> 
+  <link rel="stylesheet" href="__HOMECSS__/base.css" media="all">
+  <link rel="stylesheet" href="__HOMECSS__/cart.css" media="all">
+  <link rel="stylesheet" href="__HOMECSS__/cartnull.css" media="all">
+
+  <load file="__PUBLIC__/js/jquery-2.1.4.min.js" />
+</head>
+  <!--加载顶部文件-->
+  <include file="./Mls/Home/Common/header.html" />
+	<script>
+		$(function(){
+
+			//减少商品
+			$('.minus').click(function(){
+				$(this).each(function(){
+
+					$sid=($(this).attr('data-sid'));
+					$num=parseInt($('input[gid='+$sid+']').val());
+
+					if($num>1){
+						$num-=1;
+						if($num<=1){
+							$num=1;
+						}
+						$('input[gid='+$sid+']').val($num);
+						$price=$('span[priceid='+$sid+']').html();
+						$val=$num*$price;
+						$('[name=gid'+$sid+']').html($val.toFixed(1));
+							if($('[ck='+$sid+']:checked').attr('class')=='shop-id'){
+						$o=parseFloat($('.total_price').html())-parseFloat($price);
+				$('.total_price').html($o.toFixed(1));
+						
+						}
+
+					}
+					
+				})
+				
+
+			})
+			//增加商品
+			$('.add').click(function(){
+				$o=0;
+				$(this).each(function(){
+					$sid=($(this).attr('data-sid'));
+					$num=parseInt($('input[gid='+$sid+']').val());
+					$num+=1;
+					if($num>100){
+						$num=100;
+					}
+					$('input[gid='+$sid+']').val($num);
+					$price=$('span[priceid='+$sid+']').html();
+					$val=$num*$price;
+					$('[name=gid'+$sid+']').html($val.toFixed(1));
+					if($('[ck='+$sid+']:checked').attr('class')=='shop-id'){
+					$o=parseFloat($('.total_price').html())+parseFloat($price);
+					$('.total_price').html($o.toFixed(1));
+
+					}
+					
+
+
+				})
+				
+			})
+
+
+
+
+
+			//购物车全选
+			$('input[name=all-goods-id]').click(function(){
+				$val=this.checked;
+
+
+				$('input[type=checkbox]').each(function(){
+					this.checked=$val;
+
+				})
+
+			})
+
+
+
+
+
+			//商铺全选
+			$('.del').each(function(){
+				$check=$(this).parent().parent().prev().attr('one');
+				
+				$('#'+$check).click(function(){
+					$val=this.checked;
+					
+					$('input[name='+$check+']').each(function(){
+						this.checked=$val;
+
+					})
+				})
+			})
+
+			//商品选中 商店也中
+			$('.shop-id').each(function(){
+
+				$shopid=$(this).attr('name');
+				$(this).click(function(){
+					$vv=this.checked;
+					$('#'+$shopid).each(function(){
+						this.checked=$vv;
+					});
+
+				})
+
+			})
+
+
+						
+			//全选时候显示的价格
+			$('input[name=all-goods-id]').click(function(){
+				$gtotal=0;
+				$('input[class=shop-id]:checked').each(function(){
+					$gtotal+=parseFloat($(this).parent().siblings('[name=gtotal]').children('span').html());
+
+
+				})
+			 $('.total_price').html($gtotal.toFixed(1));
+			})
+
+
+			//商品点击时候
+			$('input[class=shop-id]').click(function(){
+				$goodstotal=0;
+				$('input[class=shop-id]:checked').each(function(){
+					$goodstotal+=parseFloat($(this).parent().siblings('[name=gtotal]').children('span').html());
+
+
+				})
+				$('.total_price').html($goodstotal.toFixed(1));
+
+			})
+
+
+			//商店全选时候价格显示
+			$('input[name=shopall]').click(function(){
+
+				$goodstotal=0;
+				$('input[class=shop-id]:checked').each(function(){
+					$goodstotal+=parseFloat($(this).parent().siblings('[name=gtotal]').children('span').html());
+
+
+				})
+				$('.total_price').html($goodstotal.toFixed(1)); 
+
+
+			})
+			//进来时候默认全选
+			$(document).ready(function(){
+  				$('input[type=checkbox]').attr('checked',true);
+  				$total=0;
+  				$('.goods_total').each(function(){
+
+  					$total+=parseFloat($(this).html());
+
+
+  				})
+  				$('.total_price').html($total.toFixed(1));
+			});
+
+			//移动到 去结算 时候 判断价格
+			$('#into').hover(function(){
+				if(	$('.total_price').html()=="0.0"){	
+					$('#into').css('cursor','not-allowed');
+				}else{
+					$('#into').css('cursor','pointer');
+				}
+			})
+			
+
+
+		//获取选中商品的数量存到session
+			$('.charge-btn').click(function(){
+				$order=[];
+				$('.shop-id:checked').each(function(){
+					$ids = Object();
+					$gid=$(this).attr('ck');
+					$sid=$(this).attr('spid');
+					$num=$('input[gid='+$gid+']').val();
+					$ids.sid = $sid;
+					$ids.gid = $gid;
+					$ids.nums = $num;
+					$order.push($ids); 
+					//$nums.push($sid);
+					//$ids.push($gid);
+					//$shopid.push($sid);
+				})
+				$.post("<{:U(donum)}>",{order:$order},function(arg){
+						if(arg){
+							if(	$('.total_price').html()!=="0.0"){
+								//判断是否登陆
+								if(!$('#isset').html()){
+									// $('#dialogLayer').css('display','block');
+									// $('#overlay').css('display','block');
+									$('#dialogLayer').show(1000);
+									$('#overlay').fadeIn(1000);
+								}else{
+									location="<{:U('Init/index')}>";
+									// alert(1);
+								}
+							}
+						}
+				})
+				// console.log($order);
+				//alert($nums[0].nums);
+				//alert($ids);	
+				//alert($shopid);
+
+			
+			})
+
+			//关闭模态框
+			$('#closeDialog').click(function(){
+				// $('#dialogLayer').css('display','none');
+				// $('#overlay').css('display','none');
+					$('#dialogLayer').hide(500);
+				$('#overlay').hide(500);
+				// alert(111);
+
+			})
+
+			//点击立即登陆 ，ajax传数据到后台判断
+			$('.login_btn').click(function(){
+				$pass=$('#password').val();
+				$user=$('#mlsUser').val();
+				$.post("<{:U('Cart/login')}>",{pass:$pass,user:$user},function(arg){
+					if(arg){
+						// $('#dialogLayer').css('display','none');
+						// $('#overlay').css('display','none');
+						$('#dialogLayer').slideUp(2000);
+						$('#overlay').slideUp(2000);
+						location.reload();
+					}else{
+						// $('.loginErrorMessage').css('display','block');
+						$('.loginErrorMessage').show(1000);
+						
+					}
+
+				})
+			})
+
+			//删除对应的商品
+			$('.del').click(function(){
+				$(this).each(function(){
+
+					$delid=$(this).attr('del');
+					$shopid=$(this).attr('name');
+					$soid=$(this).attr('sho');
+					$.post("<{:U(delgoods)}>",{shopid:$shopid,id:$delid},function(msg){
+
+						// alert(msg);
+						if(msg=="2"){
+							$('#del'+$delid).fadeOut(800);
+						}
+						if(msg=="1"){
+							// alert(1);
+							// $('table').css('display','none');
+				 		// 	$('#kong').css('display','block');
+				 		$('table').fadeOut(400);
+				 			$('#kong').show(800);
+						}
+						if(msg=='3'){
+							// alert(3);
+							$('#del'+$delid).fadeOut(800);
+							$('tr[one='+$soid+']').fadeOut(800);
+
+						}
+					})
+					
+				})
+				// alert($('.goods').attr('id'));
+				// if($('.goods').attr('id')=="undifind"){
+				// 				$('table').css('display','none');
+				// 				$('#kong').css('display','block');
+				// 			}
+
+			})
+
+
+
+		})
+		</script>
+
+
+<div class="cart_header">
+	<div class="logo_wrap">
+		<a class="logo_new" href="__ROOT__/index.php/"></a>
+	</div>
+	<div class="status">
+		<div class="chart"></div>
+		<div class="text">
+			<span class="first current">我的购物车</span>
+			<span class="middle">填写核对订单信息</span>
+			<span class="">付款，完成购买</span>
+		</div>
+		
+	</div>
+</div>
+<div class="status-top">
+	
+
+	<span class="tag-item tag-show">
+		<a>
+			国内商品
+			<span id="China_count"><{$Think.session.cart|count}></span>
+		</a>
+	</span>
+
+	
+
+	<span class="right">
+		商品总价：（不含运费和优惠扣减）：
+		<span class="total_price">0.00</span>
+		元
+		<!-- <a style="display: inline;" href="" class="go_charge">去结算&gt;&gt;</a> -->
+	</span>
+</div>
+<div class="container">
+	<div class="cart">
+<div id="kong" class="cart" style="border-top-width: 0px;display:none">		<div class="no_logged">		<div class="clear">			<div class="icon"></div>			<div class="description">				您的购物车还空着呢，<br><a href="<{:U('index/index')}>">去逛逛</a>吧！			</div>		</div>	</div>	</div>
+
+<empty name="Think.session.cart">
+	<div  class="cart" style="border-top-width: 0px;">		<div class="no_logged">		<div class="clear">			<div class="icon"></div>			<div class="description">				您的购物车还空着呢，<br><a href="__ROOT__">去逛逛</a>吧！			</div>		</div>	</div>	</div>
+	<else />
+		<span id='isset' style="display:none"><{$session}></span>
+		<table style="display:" cellpadding="0" cellspacing="0">
+			<thead>
+				<tr>
+					<th class="tl first" width="55px">
+						<label><input id="" name="all-goods-id"  value="" class=""  type="checkbox">
+						全选</label>
+					</th>
+					<th style="text-align:center" width="254px">商品信息</th>
+					<th width="100px">&nbsp;&nbsp;&nbsp;</th>
+					<th width="150px">单价（元）</th>
+					<th width="130px">数量</th>
+					<th width="135px">小计（元）</th>
+					<th class="last">操作</th>
+				</tr>
+			</thead>
+
+				<!--2商家名字栏-->
+		<tbody class="shop">
+	
+		
+
+		<volist name="sion" id="vo">
+		<foreach name="vo" item="voo" key="oo">
+		<if condition="$key neq $val">
+		<!-- <{$val=$key}> -->
+			<tr one="<{$voo.shopname}>" class="shop_title" id=">">
+				<!--店铺全选按钮-->
+				<td fater=<{$voo.shopname}> class="first">
+					<!-- <input class="" name="shopall" value="" id="<{$voo.shopname}>" type="checkbox"> -->
+					
+				</td>
+
+
+				<td class="tl last" colspan="6">
+					<div class="clearfix left_f" style="height:22px;line-height:22px;">
+						<span class="shop_info">
+							商家：
+							<a class="red_f" href="<{:U('HOME/shopinfo/index')}>/id/<{$voo.id}>"  target="_blank" title=""><{$voo.shopname}></a>
+						</span>
+						<a class="getserviceqq knilmi shop_im" href="###--179168-2-" target="_blank">&nbsp;</a>
+					</div>
+					<!-- <div class="shop_discount clearfix"></div> -->
+					<!--优惠卷信息-->
+					<!-- <span class="right_f red_f coupon mr6_f" id="coupon_179168" data-shopid="179168">
+						<span>优惠券:59减5</span>
+						<em class="coupon_arrow">√</em>
+					</span> -->
+			
+				</td>
+			</tr>
+		</if>
+	
+
+	<!--2商品信息栏-->
+		
+
+		<tr id="del<{$voo.id}>" class="goods last first ">
+			
+			<!--商品选项checkbox-->
+			<td class="ch">
+				<input class="shop-id" name="<{$voo.shopname}>" value="gid<{$voo.id}>" spid="<{$key}>" ck="<{$voo.id}>" type="checkbox">
+				<!-- <label for="select_634203464" class="mls-input-label mls-input-checkbox-label red-check"></label> -->
+			</td>
+
+
+			<!--商品名称和图片-->
+			<td class="g-content" id="g_content_634203464">
+				<a href="<{:U('home/Share/index')}>/id/<{$voo.id}>" target="_blank">
+					<img asrc="<{$voo.img}>" src="<{$voo.img}>">
+
+				</a>
+				<div class="name">
+					<div>
+						<a href="<{:U('home/Share/index')}>/id/<{$voo.id}>" target="_blank"><{$voo.name}></a>
+					</div>
+				</div>
+			</td>
+
+
+			<td class="order_detail">
+				<div class="order_detail_wrapper">
+					<span class="order_info " id="order_info_634203464" data-sid="634203464" data-shopid="179168" data-twitterid="3473702123">
+						<span class="order_info_item order_info_item_0 first">颜色：<{$voo.color}></span>
+						<span class="order_info_item order_info_item_1 ">尺码：<{$voo.size}></span>
+						<!-- <span class="order_info_text">编辑</span> -->
+					</span>
+					<div class="order_edit" id="order_edit_634203464">
+						<span class="arrow_left"></span>
+					</div>
+				</div>
+			</td>
+
+			<!--单价-->
+			<td class="price_discount">
+				<!-- 如果有打折则也显示原价 -->
+				<span class="price_origial">
+					<s><{$voo['price']/$voo['discount']*100}></s>
+				</span>
+				<!-- 显示实际价格 -->
+				<span priceid="<{$voo.id}>" class="price"><{$voo.price}></span>
+				<!-- 如果有促销则显示促销相关信息 -->
+				<span class="promote_wrapper">
+				<if condition="$voo.discount neq 100">
+					<div class="promo_num">
+						<em class="discount-txt">限时<{$voo['discount']/10}>折</em>
+						<br>
+						<!-- <em class="" time="186324.4049999714"><b>2</b>
+							天 <b>03</b>
+							小时
+							<b>43</b>
+							分
+							<b>56</b>
+							秒</em>  -->
+					</div>
+				</if>	
+				</span>
+			</td>
+
+			<!--数量按钮-->
+			<td name="goodsname">
+				<span class="minus"  data-sid="<{$voo.id}>"></span>
+				<input class="amount" num="<{$voo.num}>" gid="<{$voo.id}>" value="<{$voo.num}>" type="text">
+				<span class="add"   data-sid="<{$voo.id}>"></span>
+			</td>
+
+			<!--总格-->
+			<td name="gtotal">
+				<span name="gid<{$voo.id}>" class="goods_total"><{$voo['num']*$voo['price']}></span>
+			</td>
+
+			<!--操作-->
+			<td class="last">
+				<a href="javascript:;" name="<{$key}>" sho="<{$voo.shopname}>" class="del" del="<{$voo.id}>">删除</a>
+			</td>
+		</tr>
+		</foreach>
+	</volist>
+
+	</tbody>
+
+			
+	
+
+	<!--空行-->
+	<tbody class="empty">
+		<tr>
+			<td colspan="7"></td>
+		</tr>
+	</tbody>
+
+
+	<tfoot id="float_ctrl">
+		<tr>
+			<!--全选按钮-->
+			<td class="tl first" width="65px">
+				<label><input id="" name="all-goods-id" value="" class="" type="checkbox">
+				全选</label>
+			</td>
+			<!-- 大促期间这个显示 -->
+			<!-- 大促期间这个不显示 -->
+			<td colspan="6" id="noTips" class="last tl clearfix_f">
+				<a href="javascript:;" id="removeSelected" class="link red_f">删除选中的商品</a>
+				<span class="link red_f remove_blank"></span>
+				<span class="txt">商品总价（不含运费和优惠扣减）：</span>
+				<span class="red">
+					￥
+					<span class="total_price">0.0</span>
+				</span>
+				<a id="into"  class="charge-btn"></a>
+			</td>
+		</tr>
+	</tfoot>
+
+
+</table>
+
+</empty>
+<div class="maskLayer" id="overlay" style="width: 100%; height: 975px; display: none;"></div>
+<div style="width: 620px; height: auto; display: none; top: 102.75px; left: 50%; margin-left: -310px;" class="dialogLayer" id="dialogLayer">
+	<div class="dialogTitle" id="dialogTitle">
+		<span class="close_z" id="closeDialog"></span>
+		<span id="dialogTitleText">登录</span>
+	</div>
+	<div class="dialogContent" id="dialogContent">
+		<div class="login_wrap">
+			<div class="login_normal">
+				<h3>
+					<a href="http://www.meilishuo.com/user/register?frm=tk_reg" target="_BLANK">注册</a>
+					登录美丽说
+				</h3>
+				<fieldset>
+					<form method="post" onsubmit="return false" action="" id="loginForm">
+						<div class="l_list">
+							<p class="l_box">
+								<input class="l_txt" id="mlsUser" name="mlsUser" placeholder="手机号/邮箱/用户名" type="text">
+								<span></span>
+								<span class="user_icon"></span>
+							</p>
+						</div>
+						<div class="l_list">
+							<p class="l_box">
+								<input class="l_txt" id="password" name="password" placeholder="密码" type="password">
+								<span></span>
+								<span class="pwd_icon"></span>
+							</p>
+						</div>
+					
+						<div class="loginErrorMessage none_f" style="display: none;">账号或密码错误，请重新输入</div>
+						<div class="login_btn_wrap">
+							<input class="login_btn" value="立即登录" type="submit"></div>
+						
+					</form>
+				</fieldset>
+			</div>
+		
+			<!-- <div class="clear_f"></div> -->
+		</div>
+		<!-- <div class="clear_f"></div> -->
+	</div>
+</div>
+
+
+
+
+
+<!--包含底部文件-->
+<include file="./Mls/Home/Common/footer.html" />

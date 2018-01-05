@@ -1,0 +1,80 @@
+<!--导航栏js-->
+<load file="__HOMEJS__/jquery-1.7.2.js" />
+<load file="__HOMEJS__/navbar.js" />
+<script>
+	$(function(){
+		$(".dress").mouseover(function(){
+			$('#close').css('display','block');
+		}).mouseout(function(){
+			$('#close').css('display','none');
+		});
+	})
+</script>
+<div style="position: relative; top: 0px; height: auto;" id="navbar">
+    <div class="wheader">
+      <div class="header_b">
+        <ul class="nav_new">
+          <li class="home">
+            <a class="r_d" href="__MODULE__/index">
+              首页
+              <span class="shining none_f"></span>
+            </a>
+          </li>
+          <li class="guang">
+            <a class="" href="__MODULE__/Guang/hot">今日最热</a>
+          </li>
+          <li class="dress">
+            <a href="__MODULE__/Guang/firstCatalog/id/1">
+              衣服
+            </a>
+            <div id="close" style="display: none;" class="header_list">
+              <div id="first" class="header_lcon">
+                <!-- <a class="" href="/guang/catalog/dress?nid=210113&amp;cata_id=2001000000000&amp;frm=daeh">上衣</a>
+                <a class="" href="/guang/catalog/dress?nid=210115&amp;cata_id=2004000000000&amp;frm=daeh">裙子</a>
+                <a class="" href="/guang/catalog/dress?nid=210117&amp;cata_id=2006000000000&amp;frm=daeh">裤子</a>
+                <a class="" href="/guang/catalog/dress?nid=210119&amp;cata_id=2009000000000&amp;frm=daeh">内衣</a> -->
+              </div>
+            </div>
+          </li>
+          <li>
+            <a class="" href="__MODULE__/Guang/firstCatalog/id/10">鞋子</a>
+          </li>
+          <li>
+            <a class="" href="__MODULE__/Guang/firstCatalog/id/39">包包</a>
+          </li>
+          <li>
+            <a class="" href="__MODULE__/Guang/firstCatalog/id/40">配饰</a>
+          </li>
+          <li>
+            <a class="" href="/guang/catalog/jiaju?nid=210107&amp;cata_id=9000000000000&amp;frm=daeh">家居</a>
+          </li>
+          <li>
+            <a class="r_r " href="/beauty?frm=daeh">美妆</a>
+          </li>
+          <li class="sale">
+            <a class="" href="/biz/shareact/list/?frm=daeh">特卖</a>
+          </li>
+          <li>
+            <a class="" href="/tuan/?frm=daeh">团购</a>
+          </li>
+          <li>
+            <a class="" href="/shop/?frm=daeh">好店</a>
+          </li>
+          <li class="group">
+            <a class="" href="/magazine?frm=daeh">杂志</a>
+          </li>
+          <li class="report">
+            <a class=" fclub" href="/welfare?frm=daeh">
+              福利社
+              <em class="white_arrow"></em>
+            </a>
+            <div class="header_list">
+              <div class="header_lcon">
+                <a href="/daren?frm=daeh">达人</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

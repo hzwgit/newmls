@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="__HOMECSS__/base.css" media="all">
+	<link rel="stylesheet" href="__HOMECSS__/index.css" media="all">
+	<!--加载顶部文件-->
+	<include file="./Mls/Home/Common/header.html" />
+	<include file="./Mls/Home/Common/header_bg.html" />
+	<include file="./Mls/Home/Common/navbar.html" />
+<load file="__PUBLIC__/Js/jquery-2.1.4.min.js" />
+	
+	<div class="clear_f"></div>
+	
+	<div class="route">
+		<div class="route_bread">
+			<a href="">美丽说</a>
+			<samp>&gt;</samp>
+			<a href="<{:U('order/index')}>">我的美丽说订单</a>
+			<samp>&gt;</samp>
+			<span class="red_f">订单列表</span>
+		</div>
+	</div>
+	<div class="order_area">
+		<div class="doota_nav">
+			<ul>
+				<li class="selected">
+					<a href="__CONTROLLER__/">已买到的商品</a>
+				</li>
+				<li>
+					<a href="<{:U('cart/index')}>">我的购物车</a>
+				</li>
+				<li>
+					<a href="<{:U('address/index')}>">我的收货地址</a>
+				</li>
+				<li>
+					<a href="">我的优惠券</a>
+				</li>
+				<li>
+					<a href="">退款/退货</a>
+				</li>
+				<li>
+					<a href="">售后</a>
+				</li>
+				<!-- <li>
+					<a href="">我的投诉</a>
+				</li> -->
+			</ul>
+		</div>
+
+		<script>
+		$(function(){
+			$("#orderStatus").change(function(){
+				$('form').submit();
+			})
+
+			
+					
+
+
+			
+			//取消订单
+			$('a[name=delorder]').click(function(){
+
+				$order=$(this).attr('order_id');
+				// alert($order);
+				if(confirm('确定取消订单吗')){
+					$.ajax({
+						type:'post',
+						data:'order='+$order,
+						url:"<{:U('Order/delorder')}>",
+						success:function(msg){
+							if(msg){
+								$('td[data-oid='+$order+']').fadeOut(1000);
+								$('p[data-oid='+$order+']').html('<strong>交易关闭</strong>');
+							}
+						}
+
+					});
+					
+
+				}
+			})
+
+					// $va=<{$Think.get.status}>;
+					// // alert($va);
+					// $('option[value='+$va+']').attr('selected',true);
+		$('#closeDialog').click(function(){
+				// $('#dialogLayer').css('display','none');
+				// $('#overlay').css('display','none');
+					$('#dialogLayer').slideUp(500);
+				$('#overlay').slideUp(500);
+				// alert(111);
+
+			})
+
+			//点击立即登陆 ，ajax传数据到后台判断
+			$('.login_btn').click(function(){
+				$pass=$('#password').val();
+				$user=$('#mlsUser').val();
+				$.post("<{:U('Cart/login')}>",{pass:$pass,user:$user},function(arg){
+					if(arg){
+						// $('#dialogLayer').css('display','none');
+						// $('#overlay').css('display','none');
+						$('#dialogLayer').slideUp(2000);
+						$('#overlay').slideUp(2000);
+						location.reload();
+					}else{
+						// $('.loginErrorMessage').css('display','block');
+						$('.loginErrorMessage').show(1000);
+						
+					}
+
+				})
+			})
+			$(document).ready(function(){
+				// $va=<{$Think.get.status}>;
+					$va=$('#statu').val();
+
+					$('option[value='+$va+']').attr('selected',true);
+			})
+
+			$('[name=get]').each(function(){
+				$(this).click(function(){
+					$id=$(this).attr('getid');
+					$.post("<{:U('gets')}>",{order:$id},function(msg){
+						if(msg){
+							location.reload();
+						}
+
+					})
+				})
+			})
+			
+			$('[enter=enter]').each(function(){
+				$(this).click(function(){
+					$id=$(this).attr('order_id');
+					$.post("<{:U('enter')}>",{order:$id},function(msg){
+						if(msg){
+							alert('')
+						}
+
+					})
+				})
+			})
+
+		})
+
+		</script>
+
+		<empty name="Think.session.hid">
+		<div class="maskLayer" id="overlay" style="width: 100%; height: 975px; display: block;"></div>
+<div style="width: 620px; height: auto; display: block; top: 102.75px; left: 50%; margin-left: -310px;" class="dialogLayer" id="dialogLayer">
+	<div class="dialogTitle" id="dialogTitle">
+		<span class="close_z" id="closeDialog"  style="margin-top: -2px;">x</span>
+		<span id="dialogTitleText">登录</span>
+	</div>
+	<div class="dialogContent" id="dialogContent">
+		<div class="login_wrap">
+			<div class="login_normal">
+				<h3>
+					<a href="http://www.meilishuo.com/user/register?frm=tk_reg" target="_BLANK">注册</a>
+					登录美丽说
+				</h3>
+				<fieldset>
+					<form method="post" onsubmit="return false" action="" id="loginForm">
+						<div class="l_list">
+							<p class="l_box">
+								<input class="l_txt" id="mlsUser" name="mlsUser" placeholder="手机号/邮箱/用户名" type="text">
+								<span></span>
+								<span class="user_icon"></span>
+							</p>
+						</div>
+						<div class="l_list">
+							<p class="l_box">
+								<input class="l_txt" id="password" name="password" placeholder="密码" type="password">
+								<span></span>
+								<span class="pwd_icon"></span>
+							</p>
+						</div>
+					
+						<div class="loginErrorMessage none_f" style="display: none;">账号或密码错误，请重新输入</div>
+						<div class="login_btn_wrap">
+							<input class="login_btn" value="立即登录" type="submit"></div>
+						
+					</form>
+				</fieldset>
+			</div>
+		
+			<!-- <div class="clear_f"></div> -->
+		</div>
+		<!-- <div class="clear_f"></div> -->
+	</div>
+</div>
+		
+		<else />
+		<div class="order_content">
+			<div class="order_content_box">
+				<fieldset>
+					<form  method="get" action="__CONTROLLER__/index">
+						<legend>订单列表表单</legend>
+						<table class="order_list">
+							<colgroup>
+							<col width="240">
+							<col width="100">
+							<col width="70">
+							<col width="80">
+							<col width="90">
+							<col width="120">
+							<col width="130"></colgroup>
+						<thead>
+							<tr>
+								<th>商品信息</th>
+								<th>单价（元）</th>
+								<th>数量</th>
+								<th></th>
+								<th>售后</th>
+								<input type="hidden" value="<{$Think.get.status}>" id="statu">
+								<th>合计（元）</th>
+								<th>
+									<select class="mls-select" id="orderStatus" name="status">
+							
+
+										<option value="0">交易状态</option>
+										<option value="1">等待付款</option>
+										<option value="2">等待发货</option>
+										<option value="3">等待确认收货</option>
+										<option value="4">交易成功</option>
+										<option value="5">交易关闭</option>
+									</select>
+								</th>
+								<th width="80">操作</th>
+							</tr>
+						</thead>
+
+
+						<volist name="orderinfos" id="order" empty="$empty">
+
+						<tbody class="order_list">
+
+							<tr  class="empty">
+								<td colspan="8">&nbsp;</td>
+							</tr>
+
+							<!-- 判断是否同一个订单号 -->
+							<if condition="$order.o_id neq $argument">
+							<!-- <{$argument=$order.o_id}> -->
+							<tr class="order_info header">
+								<td colspan="8">
+									<span>订单号：<{$order.o_id}></span>
+									<span>
+										商家：
+										<a class="red_f" href="" target="_blank"><{$order.shopname}></a>
+									</span>
+									<a class="getserviceqq knilmi" href="###-844410438-1006519-3-" target="_blank">&nbsp;</a>
+									<span style="margin-left: -30px;">成交时间：<{$order.time|date="Y-m-d H-i-s",###}></span>
+								</td>
+							</tr>
+						</if>
+						<!-- 判断结束 -->
+
+						
+							<tr class="order_goods_list first last" data-oid="<{$order.o_id}>">
+								<td class="order_goods_goods">
+									<a class="goods_detail " target="_blank" href="<{:U('share/index')}>/id/<{$order.id}>">
+										<img class="pic" src="__PUBLIC__<{$order.goodspic}>"></a>
+									<p class="title">
+										<a class="goods_detail " target="_blank" href="<{:U('share/index')}>/id/<{$order.id}>"><{$order.name}></a>
+										<span class="snap-wrapper">
+											【
+											<a class="snap-link" href="" target="_blank">交易快照</a>
+											】
+										</span>
+									</p>
+									<!-- <p class="prop">需要注释
+										<span>颜色：罩衫+背心+裤子</span>
+										<span>尺码：均码</span>
+									</p> -->
+								</td>
+								<td class=""><{$order.price}></td>
+								<td class=""><{$order.num}></td>
+								<td class=""></td>
+								<td class=""></td>
+								<td class="br" rowspan="1">
+								<{$order['discount']/100*$order['num']*$order['price']}>
+									<br><!-- 免运费 --></td>
+								<td class="br" rowspan="1">
+									<!-- <{$a=$order.o_state}> -->
+									<p  data-oid="<{$order.o_id}>" ><{$arr.$a}></p>
+
+									<p>
+										<a class="red_f" target="_blank" href="__CONTROLLER__/orderinfo/hid/1/orderid/<{$order.o_id}>">订单详情</a>
+									</p>
+								</td>
+								<if condition="$order.o_state neq 4">
+								<td  data-oid="<{$order.o_id}>" class="br" rowspan="1" width="80">
+
+							
+								<!-- 判断是否付款 -->
+								<if condition="$order.o_state eq 0">
+									<a href=""  name="get" getid="<{$order.o_id}>" class="button">付款</a>
+									<br>
+									<!-- <a class="red_f" name="delorder" order_id="<{$order.o_id}>" href="javascript:;">取消订单</a> -->
+									<br>
+								</if>
+								<!-- 判断结束 -->
+								<if condition="$order.o_state eq 2">
+									<p><a href="" enter="enter" order_id="<{$order.o_id}>" target="_blank" class="button">确认收货</a>
+									<br>
+										<a order_id="<{$order.o_id}>" class="red_f" name="delorder" href="javascript:;">取消订单</a>
+									</p>
+								<elseif condition="$order.o_state eq 3" />
+										<span>交易成功</span>
+								<else />
+										<a order_id="<{$order.o_id}>" class="red_f" name="delorder" href="javascript:;">取消订单</a>
+
+								</if>
+
+								</td>
+								</if>
+							</tr>
+
+
+						</tbody>
+						</volist>
+						
+						<tbody class="order_list">
+							
+						        <tr style="text-align:center"class="empty">
+						            <td colspan="8">      
+						                 <{$pageNav}>
+						            </td>
+
+						        </tr>
+						</tbody>
+
+
+						
+						
+						
+					</table>
+				</form>
+			</fieldset>
+		</div>
+	
+	</div>
+	</empty>
+</div>
+<!--包含底部文件-->
+<include file="./Mls/Home/Common/footer.html" />

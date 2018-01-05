@@ -1,0 +1,1597 @@
+.content_fluid{
+	margin-left:auto;
+	margin-right:auto;
+	overflow:hidden
+}
+
+.corner_notic{
+	display:inline;
+	margin-right:6px;
+	margin-left:6px;
+	word-wrap:break-word;
+	float:left;
+	width:228px
+}
+
+.corner_stamp{
+	float:right;
+	margin-left:6px;
+	display:inline;
+	width:228px
+}
+
+.goods_wall{
+	width:100%
+}
+
+.poster_wall{
+	position:absolute;
+	left:-2000px;
+	top:0
+}
+
+.poster_grid{
+	display:inline;
+	margin-right:6px;
+	margin-left:6px;
+	word-wrap:break-word;
+	float:left;
+	width:228px
+}
+
+.poster_grid .new_poster{
+	background:#fff;
+	border:1px solid #ddd;
+	margin-top:14px;
+	width:226px
+}
+
+.poster_grid .new_poster .np_pic{
+	text-align:center;
+	width:226px;
+	position:relative
+}
+
+.poster_grid .new_poster .pic_load{
+	background:url("/meilishuo/home/static/images/group/g_loading1.gif") no-repeat center;
+	display:block;
+	width:100%
+}
+
+.poster_grid .new_poster .price{
+	background:#fff;
+	height:18px;
+	line-height:18px;
+	padding:0 5px;
+	position:absolute;
+	bottom:0;
+	right:0;
+	opacity:.8;
+	filter:alpha(opacity=80)
+}
+
+.poster_grid .new_poster .wuyougou{
+	background:url("/meilishuo/home/static/images/doota/wuyou.png") no-repeat;
+	float:left;
+	height:59px;
+	width:59px;
+	position:absolute;
+	left:-2px;
+	top:-2px;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/meilishuo/home/static/images/doota/wuyou.png',sizingMethod='scale');
+	_background-image:none
+}
+
+.poster_grid .new_poster .title,.poster_grid .new_poster .comm_num,.poster_grid .new_poster .promotion{
+	padding:10px 10px 0
+}
+
+.poster_grid .new_poster .title{
+	line-height:20px
+}
+
+.poster_grid .new_poster .title .p{
+	overflow:hidden;
+	max-height:40px
+}
+
+.poster_grid .new_poster .comm_num{
+	line-height:22px;
+	*zoom:1;
+	position:relative
+}
+
+.poster_grid .new_poster .comm_num:after{
+	clear:both;
+	content:".";
+	display:block;
+	visibility:hidden;
+	height:0
+}
+
+.poster_grid .new_poster .comm_num .pl{
+	color:#999;
+	float:right
+}
+
+.poster_grid .new_poster .btn{
+	float:right;
+	padding:0 5px
+}
+
+.poster_grid .new_poster .origin_price{
+	color:#999;
+	text-decoration:line-through;
+	margin-left:5px
+}
+
+.poster_grid .new_poster .facetableSetxy{
+	height:10px;
+	margin-left:2px;
+	margin-right:2px;
+	width:10px
+}
+
+.poster_grid .new_poster .np_share,.poster_grid .new_poster .comm_share,.poster_grid .new_poster .discuss_one{
+	color:#999;
+	overflow:hidden
+}
+
+.poster_grid .new_poster .np_share{
+	border-top:1px dotted #ccc;
+	padding:10px 0;
+	margin:10px 10px 0
+}
+
+.poster_grid .new_poster .comm_share,.poster_grid .new_poster .discuss_one{
+	padding:0 10px 10px
+}
+
+.poster_grid .new_poster .np_share span,.poster_grid .new_poster .np_share a,.poster_grid .new_poster .comm_share a,.poster_grid .new_poster .comm_share span,.poster_grid .new_poster .issue_box a,.poster_grid .new_poster .issue_box span,.poster_grid .new_poster .comm_issue p a,.poster_grid .new_poster .comm_issue p span{
+	margin-right:4px
+}
+
+.poster_grid .new_poster .botcomm_num{
+	background-color:#f9f9f9;
+	height:32px;
+	line-height:32px;
+	color:#999;
+	text-align:center
+}
+
+.poster_grid .new_poster .ml42_f{
+	margin-left:42px
+}
+
+.poster_grid .new_poster .t_idt{
+	margin-left:42px;
+	line-height:20px;
+	padding-top:4px
+}
+
+.poster_grid .new_poster .love_pro{
+	background:url("/meilishuo/home/static/images/goods/love_pro.png") no-repeat;
+	color:#f69;
+	float:left;
+	text-align:center;
+	height:30px;
+	line-height:25px;
+	width:130px;
+	position:absolute;
+	top:-20px;
+	left:0
+}
+
+.poster_grid .new_poster .comm_issue,.poster_grid .new_poster .discuss_two{
+	background:#f9f9f9;
+	border-bottom:1px solid #ddd;
+	padding:3px 13px;
+	color:#999;
+	line-height:18px;
+	overflow:hidden
+}
+
+.poster_grid .new_poster .comm_issue .small_ava,.poster_grid .new_poster .discuss_two .small_ava{
+	float:left;
+	height:20px;
+	width:20px
+}
+
+.poster_grid .new_poster .comm_issue .small_ava img,.poster_grid .new_poster .discuss_two .small_ava img{
+	height:20px;
+	width:20px
+}
+
+.poster_grid .new_poster .comm_issue p,.poster_grid .new_poster .discuss_two p{
+	margin-left:28px
+}
+
+.poster_grid .new_poster .more_comm{
+	background:#f9f9f9;
+	border-bottom:1px solid #ddd;
+	text-align:center;
+	height:26px;
+	line-height:24px
+}
+
+.poster_grid .new_poster .cmt_r{
+	margin-left:40px
+}
+
+.poster_grid .new_poster .cmt_r textarea{
+	background:#fff;
+	border:1px solid #ddd;
+	font-size:12px;
+	color:#999;
+	float:left;
+	height:22px;
+	overflow:hidden;
+	padding:4px;
+	width:150px
+}
+
+.poster_grid .new_poster .comment_reply{
+	color:#f69;
+	white-space:nowrap;
+	line-height:16px
+}
+
+.poster_grid .new_poster .discuss{
+	height:25px;
+	line-height:20px;
+	padding-top:5px
+}
+
+.poster_grid .new_poster .discuss .pl_btn{
+	background:url("/meilishuo/home/static/images/header/mls_global140607.png") no-repeat -172px -112px;
+	text-align:center;
+	cursor:pointer;
+	height:22px;
+	line-height:22px;
+	float:right;
+	width:52px
+}
+
+.trans07{
+	border:1px solid #ddd;
+	opacity:.7;
+	filter:alpha(opacity=70)
+}
+
+.trans07:hover{
+	opacity:1.0;
+	filter:alpha(opacity=100)
+}
+
+.online,.notonline{
+	background:url("/meilishuo/home/static/images/person/person_icon3.gif") no-repeat;
+	padding:1px 4px 1px 20px
+}
+
+.online{
+	background-position:0 -83px
+}
+
+.notonline{
+	background-position:0 -58px
+}
+
+.lm_love,.lm_love2,.lm_comm,.lm_shouji,.lm_like,.lm_liked{
+	background:url("/meilishuo/home/static/images/header/mls_global140607.png") no-repeat;
+	height:12px
+}
+
+.lm_love{
+	background-position:0 -259px;
+	padding:0 5px 0 6px
+}
+
+.lm_comm{
+	background-position:-16px -260px;
+	padding:0 4px 0 5px
+}
+
+.lm_shouji{
+	background-position:-158px -68px;
+	padding:0 6px
+}
+
+.lm_love2{
+	background-position:-53px -259px;
+	padding:0 5px 0 6px
+}
+
+.lm_like{
+	background-position:-101px -67px;
+	padding:1px 6px
+}
+
+.lm_liked{
+	background-position:-127px -67px;
+	padding:1px 6px
+}
+
+.like_merge{
+	height:32px;
+	position:absolute;
+	display:none;
+	overflow:hidden;
+	left:6px;
+	top:6px;
+	width:218px
+}
+
+.like_merge .poster_comment,.like_merge .poster_forward,.like_merge .poster_likes,.like_merge .poster_del,.like_merge .poster_dellike{
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	text-align:center;
+	cursor:pointer;
+	font-size:14px;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	padding:0 5px;
+	background:#fffcfc;
+	background:-moz-linear-gradient(#fffcfc,#f3f0f0);
+	background:-webkit-linear-gradient(#fffcfc,#f3f0f0);
+	filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#FFFCFC,endcolorstr=#F3F0F0);
+	border:1px solid #d6d6d1;
+	margin-right:2px
+}
+
+.like_merge .line_num{
+	border-left:1px solid #d6d6d1;
+	display:inline-block;
+	padding-left:5px
+}
+
+.like_merge .poster_forward:hover .lm_shouji{
+	background-position:-188px -68px
+}
+
+.likes{
+	cursor:pointer;
+	height:22px;
+	line-height:22px
+}
+
+.likes .likes_status{
+	background-color:#ff74a1;
+	color:#fff;
+	float:left;
+	text-align:center;
+	margin-right:6px;
+	height:20px;
+	line-height:20px;
+	width:50px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+	border:1px solid #fa5b90;
+	font-weight:normal
+}
+
+.likes .likes_status:hover{
+	color:#fff
+}
+
+.mark{
+	width:220px;
+	position:absolute;
+	left:5px;
+	top:-1px
+}
+
+.mark .m_ico{
+	float:left;
+	color:#fff;
+	text-align:center;
+	overflow:hidden;
+	margin-right:1px
+}
+
+.mark .m_ico:hover{
+	color:#fff
+}
+
+.face_pop{
+	z-index:600;
+	float:left;
+	background:#fff
+}
+
+.face_pop .pop_con{
+	border:1px solid #ddd;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	background:#fff;
+	position:relative;
+	z-index:605
+}
+
+.face_pop .pop_con .fp_con,.face_pop .pop_con .sp_con{
+	height:142px;
+	width:304px
+}
+
+.face_pop .pop_con .fp_con .fp_info,.face_pop .pop_con .sp_con .fp_info{
+	width:284px;
+	height:64px;
+	float:left;
+	overflow:hidden;
+	padding:10px
+}
+
+.face_pop .pop_con .fp_con .fp_info p,.face_pop .pop_con .sp_con .fp_info p{
+	height:22px;
+	line-height:22px;
+	margin-left:72px;
+	overflow:hidden;
+	width:208px
+}
+
+.face_pop .pop_con .fp_con .fp_info p .online,.face_pop .pop_con .sp_con .fp_info p .online,.face_pop .pop_con .fp_con .fp_info p .notonline,.face_pop .pop_con .sp_con .fp_info p .notonline{
+	color:#f69;
+	font-weight:bold
+}
+
+.face_pop .pop_con .fp_con .fp_info p span,.face_pop .pop_con .sp_con .fp_info p span{
+	padding-right:6px
+}
+
+.face_pop .pop_con .fp_con .fp_labels,.face_pop .pop_con .sp_con .fp_labels{
+	height:16px;
+	line-height:16px;
+	overflow:hidden;
+	padding:0 10px;
+	width:284px
+}
+
+.face_pop .pop_con .fp_con .fp_labels .labels,.face_pop .pop_con .sp_con .fp_labels .labels{
+	color:#f69;
+	padding-right:10px;
+	white-space:nowrap
+}
+
+.face_pop .pop_con .fp_con .fp_follow,.face_pop .pop_con .sp_con .fp_follow{
+	height:20px;
+	margin-top:10px;
+	background-color:#f7f7f7;
+	padding:6px 10px;
+	width:284px
+}
+
+.face_pop .pop_con .fp_con .fp_follow .btn,.face_pop .pop_con .sp_con .fp_follow .btn,.face_pop .pop_con .fp_con .fp_follow .followed,.face_pop .pop_con .sp_con .fp_follow .followed,.face_pop .pop_con .fp_con .fp_follow .shop_pop_btn,.face_pop .pop_con .sp_con .fp_follow .shop_pop_btn,.face_pop .pop_con .fp_con .fp_follow .shop_pop_followed,.face_pop .pop_con .sp_con .fp_follow .shop_pop_followed{
+	float:left;
+	height:18px;
+	line-height:17px;
+	width:64px
+}
+
+.face_pop .pop_con .fp_con .fp_follow .shop_pop_btn,.face_pop .pop_con .sp_con .fp_follow .shop_pop_btn{
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	cursor:pointer;
+	text-align:center;
+	background:#f69;
+	color:#fff
+}
+
+.face_pop .pop_con .fp_con .fp_follow .shop_pop_btn:hover,.face_pop .pop_con .sp_con .fp_follow .shop_pop_btn:hover{
+	color:#fff
+}
+
+.face_pop .pop_con .fp_con .fp_follow .shop_pop_followed,.face_pop .pop_con .sp_con .fp_follow .shop_pop_followed{
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	cursor:pointer;
+	text-align:center;
+	background:#ffdce7;
+	color:#f69
+}
+
+.face_pop .pop_con .sp_con{
+	height:165px;
+	position:relative
+}
+
+.face_pop .pop_con .sp_con .shop-assess{
+	margin-left:82px;
+	height:39px;
+	overflow:hidden
+}
+
+.face_pop .pop_con .sp_con .shop-assess li{
+	float:left;
+	width:32px;
+	border-right:1px dotted #ccc
+}
+
+.face_pop .pop_con .sp_con .shop-assess .up{
+	color:#fb3f3f
+}
+
+.face_pop .pop_con .sp_con .shop-assess .up .arrow-ico{
+	font-size:0;
+	background-position:-130px -146px
+}
+
+.face_pop .pop_con .sp_con .shop-assess .fair{
+	color:#ff9b28
+}
+
+.face_pop .pop_con .sp_con .shop-assess .fair .arrow-ico{
+	font-size:16px;
+	margin-top:-3px;
+	background-image:none
+}
+
+.face_pop .pop_con .sp_con .shop-assess .down{
+	color:#94a603
+}
+
+.face_pop .pop_con .sp_con .shop-assess .down .arrow-ico{
+	font-size:0;
+	background-position:-117px -146px
+}
+
+.face_pop .pop_con .sp_con .shop-assess .arrow-ico{
+	float:right;
+	width:11px;
+	height:13px;
+	margin-left:4px;
+	background-image:url("/meilishuo/home/static/images/doota/sale1501201617.png")
+}
+
+.face_pop .pop_con .sp_con .shop-assess .shop-point{
+	display:block;
+	margin-top:10px
+}
+
+.face_pop .pop_con .sp_con .shop-assess .shop-assess-first{
+	padding-right:10px
+}
+
+.face_pop .pop_con .sp_con .shop-assess .shop-assess-last{
+	margin-left:10px;
+	border-right:0
+}
+
+.face_pop .pop_con .sp_con .shop-assess .shop-assess-middle{
+	padding:0 9px
+}
+
+.face_pop .pop_con .sp_con .shop-flag{
+	position:absolute;
+	right:0;
+	top:0;
+	width:44px;
+	height:44px
+}
+
+.face_pop .pop_con .sp_con .star-shop{
+	background:url("http://d05.res.meilishuo.net/pic/_o/a3/9a/012e724d7dbc6b358313707e7ddf_44_44.ch.png") no-repeat
+}
+
+.face_pop .pop_con .sp_con .competitive-shop{
+	background:url("http://d02.res.meilishuo.net/pic/_o/a3/4a/fdd3a3802b88f134d1af6c5916f6_44_44.ch.png") no-repeat
+}
+
+.face_pop .corner_t,.face_pop .corner_b,.face_pop .corner_tr,.face_pop .corner_br{
+	background:url("/meilishuo/home/static/images/window/f_ico.gif") no-repeat;
+	height:8px;
+	width:15px;
+	z-index:610;
+	overflow:hidden;
+	position:absolute
+}
+
+.face_pop .corner_t{
+	background-position:0 0;
+	top:-7px;
+	left:10px
+}
+
+.face_pop .corner_tr{
+	background-position:0 0;
+	top:-7px;
+	right:10px
+}
+
+.face_pop .corner_b{
+	background-position:0 -11px;
+	bottom:-7px;
+	left:10px
+}
+
+.face_pop .corner_br{
+	background-position:0 -11px;
+	bottom:-7px;
+	right:10px
+}
+
+.big_btn,.big_btnr,.small_btn,.small_btnr{
+	background:url("/meilishuo/home/static/images/header/btn_pic121201.png") no-repeat;
+	display:inline-block;
+	position:relative
+}
+
+.red_follow,.pink_follow{
+	background:url("/meilishuo/home/static/images/header/mls_global140607.png") no-repeat;
+	text-align:center;
+	display:inline-block;
+	line-height:31px;
+	cursor:pointer;
+	font-size:14px;
+	font-weight:bold;
+	height:30px;
+	width:102px
+}
+
+.red_follow{
+	background-position:-143px -268px;
+	color:#fff
+}
+
+.red_follow:hover{
+	color:#fff
+}
+
+.pink_follow{
+	background-position:-143px -304px;
+	color:#f69
+}
+
+.groupBox{
+	display:inline;
+	margin-right:6px;
+	margin-left:6px;
+	word-wrap:break-word;
+	float:left;
+	width:228px
+}
+
+.groupCon{
+	background:#fff;
+	border:1px solid #ddd;
+	margin-top:14px;
+	width:226px;
+	position:relative
+}
+
+.groupCon .gc_title{
+	height:18px;
+	line-height:18px;
+	overflow:hidden;
+	padding:10px 13px 0
+}
+
+.groupCon .gc_title h4{
+	font-size:14px;
+	float:left;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	width:140px
+}
+
+.groupCon .gc_title p{
+	font-size:14px;
+	color:#999;
+	float:right
+}
+
+.groupCon .s_tle{
+	height:56px;
+	line-height:56px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	width:175px;
+	margin-left:13px;
+	font-size:14px;
+	background:url("/meilishuo/home/static/images/shop/shop_tle.png") no-repeat 0 20px;
+	padding-left:25px
+}
+
+.groupCon .btn,.groupCon .followed{
+	float:right;
+	height:20px;
+	line-height:20px;
+	width:64px
+}
+
+.groupCon .picBox{
+	margin-top:10px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:200px
+}
+
+.groupCon .imgBox{
+	margin-top:5px;
+	display:block;
+	width:200px;
+	margin-left:auto;
+	margin-right:auto;
+	height:204px;
+	background:url("/meilishuo/home/static/images/person/pg_bg1.png") no-repeat bottom
+}
+
+.groupCon .imgBox .minpic,.groupCon .imgBox span{
+	width:64px;
+	height:64px;
+	float:left;
+	margin-right:4px;
+	margin-top:4px
+}
+
+.groupCon .imgBox .maxpic{
+	margin-top:4px;
+	height:200px;
+	width:200px
+}
+
+.groupCon .infoBox{
+	background:#ffecef;
+	margin-top:8px;
+	overflow:hidden;
+	padding:8px 13px
+}
+
+.groupCon .lookBox{
+	height:20px;
+	padding:13px
+}
+
+.groupCon .lookBox .tex{
+	color:#999;
+	line-height:20px
+}
+
+.groupCon .oldBox{
+	height:24px;
+	padding:11px 13px
+}
+
+.groupCon .oldBox .tex{
+	line-height:24px;
+	margin-left:6px
+}
+
+.groupCon .oldBox .btn,.groupCon .oldBox .followed{
+	float:right;
+	line-height:20px
+}
+
+.groupCon .oldBox img{
+	float:left
+}
+
+.userinfo{
+	background:#fff;
+	border:1px solid #ddd;
+	margin-top:14px;
+	padding:13px
+}
+
+.userinfo .brand{
+	background:url("/meilishuo/home/static/images/activity/welfare/welfare.png") no-repeat -748px -1px;
+	display:block;
+	height:39px;
+	margin-bottom:10px;
+	overflow:hidden;
+	width:200px;
+	position:relative
+}
+
+.userinfo .avatar{
+	height:128px;
+	width:128px;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative
+}
+
+.userinfo .avatar img{
+	height:128px;
+	width:128px
+}
+
+.userinfo .avatar .change{
+	background:url("/meilishuo/home/static/images/person/change_face.png") no-repeat;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/meilishuo/home/static/images/person/change_face.png',sizingMethod='scale');
+	_background-image:none;
+	height:30px;
+	float:left;
+	display:none;
+	position:absolute;
+	cursor:pointer;
+	bottom:0;
+	left:0;
+	width:128px
+}
+
+.userinfo .nickname{
+	text-align:center;
+	height:25px;
+	line-height:25px;
+	overflow:hidden;
+	width:100%;
+	margin:5px 0
+}
+
+.userinfo .nickname a{
+	font-size:14px;
+	font-weight:bold
+}
+
+.userinfo .speclial{
+	text-align:center;
+	padding:5px 0;
+	zoom:1
+}
+
+.userinfo .status{
+	overflow:hidden
+}
+
+.userinfo .status li{
+	width:65px;
+	height:40px;
+	border-right:1px solid #ccc;
+	text-align:center;
+	float:left
+}
+
+.userinfo .status li a{
+	cursor:pointer;
+	float:left
+}
+
+.userinfo .status li span{
+	height:20px;
+	line-height:20px;
+	float:left;
+	overflow:hidden;
+	width:65px
+}
+
+.userinfo .status li .nums{
+	color:#f69
+}
+
+.userinfo .status .last{
+	border:0
+}
+
+.userinfo .status.big .nums{
+	font-size:20px;
+	font-weight:bold
+}
+
+.userinfo .flw_msg{
+	text-align:center;
+	margin-top:10px
+}
+
+.userinfo .flw_msg .msg{
+	background:url("/meilishuo/home/static/images/header/mls_global140607.png") no-repeat -73px -257px;
+	cursor:pointer;
+	color:#f69;
+	margin-left:20px;
+	padding-left:18px
+}
+
+.userinfo .weibo_url{
+	border-top:1px dashed #ccc;
+	text-align:center;
+	margin-top:10px;
+	padding-top:10px
+}
+
+.userinfo .gomls{
+	text-align:center;
+	font-size:14px;
+	margin:10px 0 0;
+	padding-top:10px
+}
+
+.userinfo .gomls a{
+	margin-left:33px;
+	float:left;
+	color:#f69
+}
+
+.userinfo .gomls em{
+	background:url("/meilishuo/home/static/images/home/h_ico1.png") no-repeat scroll 0 -159px transparent;
+	padding:3px 0 0 22px
+}
+
+.identity_big_style{
+	display:inline
+}
+
+.identity_big_style .mls_buyer,.identity_big_style .mls_diamond,.identity_big_style .mls_lv,.identity_big_style .mls_special,.identity_big_style .mls_editor,.identity_big_style .mls_zv{
+	background:url("/meilishuo/home/static/images/person/person_icon3.gif") no-repeat;
+	cursor:pointer;
+	padding:4px 10px
+}
+
+.identity_big_style .mls_buyer{
+	background-position:0 0
+}
+
+.identity_big_style .mls_diamond{
+	background-position:0 -28px
+}
+
+.identity_big_style .mls_special{
+	background-position:0 -110px
+}
+
+.identity_big_style .mls_lv{
+	background-position:0 -141px
+}
+
+.identity_big_style .mls_editor{
+	background-position:0 -171px
+}
+
+.identity_big_style .mls_zv{
+	background-position:0 -203px
+}
+
+.corner_nav{
+	float:right;
+	overflow:hidden
+}
+
+.s_p_tabs{
+	border-bottom:1px solid #ddd;
+	border-top:1px solid #ddd;
+	box-shadow:0 1px #fff inset,0 1px 0 #fff;
+	-webkit-box-shadow:0 1px #fff inset,0 1px 0 #fff;
+	padding-top:2px;
+	padding-bottom:2px;
+	margin:14px 6px 0
+}
+
+.s_p_tabs .tabs_con{
+	border-bottom:1px solid #ddd;
+	border-top:1px solid #ddd;
+	box-shadow:0 1px #fff inset,0 1px 0 #fff;
+	-webkit-box-shadow:0 1px #fff inset,0 1px 0 #fff;
+	padding-top:12px;
+	padding-bottom:12px;
+	overflow:hidden
+}
+
+.s_p_tabs .tabs_con .list{
+	font-size:18px;
+	font-weight:bold;
+	overflow:hidden
+}
+
+.s_p_tabs .tabs_con .list li{
+	border-right:2px solid #ddd;
+	float:left;
+	padding:0 13px
+}
+
+.s_p_tabs .tabs_con .list .last{
+	border:0
+}
+
+.per_modules{
+	background:#fff;
+	border:1px solid #ddd;
+	margin-top:14px;
+	padding:13px
+}
+
+.per_modules .e_tabs{
+	border-bottom:1px dashed #e6e6e6;
+	margin-bottom:12px;
+	overflow:hidden;
+	padding-bottom:12px;
+	width:100%
+}
+
+.per_modules .e_tabs .label{
+	margin-top:4px;
+	margin-bottom:4px
+}
+
+.per_modules .e_tabs .btn{
+	display:inline-block;
+	font-weight:bold;
+	height:26px;
+	line-height:26px;
+	padding:0 10px
+}
+
+.per_modules .e_tabs .xy_font{
+	font-size:16px;
+	font-weight:bold;
+	line-height:22px
+}
+
+.per_modules .e_tabs .dotleft_n,.per_modules .e_tabs .dotright_n{
+	background:url("/meilishuo/home/static/images/person/beaty4.png") no-repeat;
+	height:11px;
+	width:15px;
+	display:inline-block
+}
+
+.per_modules .e_tabs .dotleft_n{
+	background-position:0 -21px
+}
+
+.per_modules .e_tabs .dotright_n{
+	background-position:-19px -21px
+}
+
+.per_modules .e_tabs .xy_bg{
+	background:url("/meilishuo/home/static/images/person/beaty4.png") no-repeat top right;
+	height:18px
+}
+
+.per_modules .e_tabs .medal a,.per_modules .e_tabs .medal .medal_pic{
+	height:45px;
+	cursor:pointer;
+	float:left;
+	overflow:hidden;
+	width:46px
+}
+
+.per_modules .e_tabs .medal a{
+	margin-top:8px;
+	margin-right:4px
+}
+
+.per_modules .e_tabs .labelList .label{
+	cursor:text
+}
+
+.per_modules .last{
+	border:0;
+	margin-bottom:0;
+	padding-bottom:0
+}
+
+.cmn_title{
+	*zoom:1;
+	height:18px;
+	line-height:18px;
+	margin-left:auto;
+	margin-right:auto;
+	overflow:hidden
+}
+
+.cmn_title:after{
+	clear:both;
+	content:".";
+	display:block;
+	visibility:hidden;
+	height:0
+}
+
+.cmn_title h3{
+	float:left
+}
+
+.cmn_title p{
+	float:right
+}
+
+.cmn_title p a{
+	color:#999
+}
+
+.cmn_title p a:hover{
+	color:#f69
+}
+
+.normal,.active{
+	-webkit-border-radius:12px;
+	border-radius:12px;
+	cursor:pointer;
+	float:left;
+	white-space:nowrap;
+	height:20px;
+	line-height:20px;
+	margin-right:6px;
+	*line-height:21px;
+	padding:0 8px
+}
+
+.normal{
+	border:1px solid #ccc;
+	background:#eaeceb
+}
+
+.active{
+	background:#ffdce7;
+	border:1px solid #fcbfd4;
+	color:#f69
+}
+
+.mytabs{
+	background:#fff;
+	overflow:hidden;
+	width:670px
+}
+
+.mytabs .sel_tab li{
+	float:left;
+	white-space:nowrap;
+	padding-right:10px;
+	margin:3px 6px 3px 0
+}
+
+.mytabs .sel_tab li.mouseon{
+	background:url("/meilishuo/home/static/images/person/ico_close.gif") no-repeat center right;
+	cursor:pointer
+}
+
+.mytabs .defaultText{
+	text-align:center;
+	color:#f69;
+	font-size:18px;
+	font-weight:bold;
+	padding:20px
+}
+
+.mytabs .tips{
+	font-size:14px;
+	margin-top:5px
+}
+
+.mytabs .explain{
+	color:#999;
+	margin-top:5px
+}
+
+.mytabs .tab_b{
+	margin-top:5px;
+	position:relative;
+	width:100%
+}
+
+.mytabs .tab_b .tab_list{
+	height:82px;
+	overflow:hidden;
+	margin-left:auto;
+	margin-right:auto;
+	width:580px
+}
+
+.mytabs .tab_b .tab_list ul li{
+	float:left
+}
+
+.mytabs .tab_b .tab_list ul li span{
+	white-space:nowrap;
+	margin-top:3px;
+	margin-bottom:3px
+}
+
+.mytabs .tab_b .before,.mytabs .tab_b .next{
+	position:absolute;
+	color:#f69;
+	cursor:pointer;
+	font-weight:bold;
+	font-size:52px;
+	font-family:宋体;
+	top:10px
+}
+
+.mytabs .tab_b .before{
+	left:0
+}
+
+.mytabs .tab_b .next{
+	right:0
+}
+
+.mytabs .edit_box{
+	background:#e6e6e6;
+	height:28px;
+	line-height:28px;
+	margin-top:5px;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative;
+	padding:7px;
+	width:300px
+}
+
+.mytabs .edit_box span{
+	float:left
+}
+
+.mytabs .edit_box .ipt{
+	border:1px solid #ccc;
+	color:#999;
+	float:left;
+	height:16px;
+	padding:5px 0;
+	width:145px
+}
+
+.mytabs .edit_box .btn{
+	font-weight:bold;
+	margin-left:6px;
+	width:60px
+}
+
+.mytabs .edit_box .add_suc{
+	position:absolute;
+	right:-60px
+}
+
+.beauty{
+	background:#fff;
+	width:340px
+}
+
+.beauty .limit{
+	font-size:12px;
+	font-weight:normal
+}
+
+.beauty .area{
+	border:1px solid #ccc;
+	color:#666;
+	font-size:14px;
+	height:82px;
+	margin-top:10px;
+	padding:2px;
+	width:330px
+}
+
+.beauty .tell_check{
+	position:relative;
+	left:-3px;
+	top:1px
+}
+
+.beauty .bea_b{
+	margin-top:10px
+}
+
+.beauty .bea_b a{
+	display:inline-block
+}
+
+.beauty .bea_b .btn{
+	margin-left:100px
+}
+
+.bgcnt{
+	background:url("/meilishuo/home/static/images/header/mls_global140607.png") no-repeat right -571px;
+	display:inline-block;
+	*display:inline;
+	padding:35px 120px 20px 100px;
+	zoom:1;
+	position:relative
+}
+
+.pageNav{
+	margin:10px auto;
+	text-align:center
+}
+
+.pageNav a{
+	display:inline-block;
+	font-weight:bold;
+	font-size:14px;
+	height:22px;
+	line-height:22px;
+	text-align:center;
+	white-space:nowrap;
+	color:#f69;
+	background-color:#ffe1ea;
+	border:1px solid #fcc8d9;
+	margin:0 1px;
+	min-width:12px;
+	padding:0 4px
+}
+
+.pageNav .currentpage{
+	background:#fff;
+	border:1px solid #ddd;
+	color:#000
+}
+
+.pageNav .pageNextico{
+	height:58px;
+	width:55px;
+	position:absolute;
+	right:0;
+	top:0
+}
+
+.pageNav .pagePrev,.pageNav .pageNext{
+	height:22px;
+	font-size:14px;
+	font-weight:normal;
+	width:50px
+}
+
+.rec_layout{
+	position:absolute;
+	z-index:99
+}
+
+.rec_layout .top_ico,.rec_layout .bot_ico{
+	height:17px;
+	width:21px;
+	float:left;
+	position:absolute;
+	left:290px
+}
+
+.rec_layout .left_ico,.rec_layout .right_ico{
+	height:21px;
+	width:17px;
+	float:left;
+	position:absolute;
+	top:130px
+}
+
+.rec_layout .left_ico{
+	background:url("/meilishuo/home/static/images/icons/left_ico1.png") no-repeat;
+	left:-9px;
+	_background:0;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/meilishuo/home/static/images/icons/left_ico1.png',sizingMethod='scale')
+}
+
+.rec_layout .right_ico{
+	background:url("/meilishuo/home/static/images/icons/right_ico.png") no-repeat;
+	right:-9px;
+	_background:0;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/meilishuo/home/static/images/icons/right_ico.png',sizingMethod='scale')
+}
+
+.rec_layout .top_ico{
+	background:url("/meilishuo/home/static/images/icons/top_ico2.png") no-repeat;
+	top:-9px;
+	_background:0;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/meilishuo/home/static/images/icons/top_ico2.png',sizingMethod='scale')
+}
+
+.rec_layout .bot_ico{
+	background:url("/meilishuo/home/static/images/icons/bottom_ico.png") no-repeat;
+	bottom:-9px;
+	_background:0;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/meilishuo/home/static/images/icons/bottom_ico.png',sizingMethod='scale')
+}
+
+.rec_layout .group_rec{
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	float:left;
+	padding:7px;
+	background:rgba(102,102,102,0.4);
+	filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#70666666,endcolorstr=#70666666)
+}
+
+.rec_layout .group_rec .rec_con{
+	background:#fff;
+	-webkit-border-radius:3px;
+	border-radius:3px
+}
+
+.rec_layout .group_rec .rec_con .rec_t{
+	font-size:16px;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	padding:5px 13px
+}
+
+.rec_layout .group_rec .rec_con .list li{
+	background:#fffcfc;
+	background:-moz-linear-gradient(#fffcfc,#f3f0f0);
+	background:-webkit-linear-gradient(#fffcfc,#f3f0f0);
+	filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#FFFCFC,endcolorstr=#F3F0F0);
+	border:1px solid #ddd;
+	cursor:pointer;
+	float:left;
+	display:inline;
+	overflow:hidden;
+	height:64px;
+	margin:0 0 12px 14px;
+	padding:8px;
+	width:264px
+}
+
+.rec_layout .group_rec .rec_con .list li p{
+	margin-left:72px
+}
+
+.rec_layout .group_rec .rec_con .list li .rc_tle{
+	height:18px;
+	line-height:18px;
+	overflow:hidden;
+	width:191px
+}
+
+.rec_layout .group_rec .rec_con .bot{
+	text-align:center;
+	height:30px;
+	padding-bottom:15px
+}
+
+.rec_layout .group_rec .rec_con .bot .small_btn{
+	width:130px
+}
+
+.icon-shop{
+	display:none;
+	position:absolute;
+	width:44px;
+	height:44px
+}
+
+.star-shop .icon-shop{
+	display:block;
+	background-image:url("http://d05.res.meilishuo.net/pic/_o/a3/9a/012e724d7dbc6b358313707e7ddf_44_44.ch.png")
+}
+
+.competitive-shop .icon-shop{
+	display:block;
+	background-image:url("http://d02.res.meilishuo.net/pic/_o/a3/4a/fdd3a3802b88f134d1af6c5916f6_44_44.ch.png")
+}
+
+.group_shop .group_box{
+	display:inline;
+	margin-right:6px;
+	margin-left:6px;
+	word-wrap:break-word;
+	float:left;
+	width:228px;
+	margin-left:0;
+	margin-right:0
+}
+
+.group_shop .groupCon{
+	margin-top:20px
+}
+
+.group_shop .hd{
+	padding:5px;
+	font-size:0;
+	overflow:hidden
+}
+
+.group_shop .icon-shop{
+	position:relative
+}
+
+.group_shop .icon-shop,.group_shop .wrap{
+	float:left
+}
+
+.group_shop .icon-store{
+	float:left;
+	width:19px;
+	height:16px;
+	margin:18px 5px 0 5px;
+	background:url("/meilishuo/home/static/images/shop/shop_tle.png") no-repeat
+}
+
+.group_shop .has-icon .wrap{
+	width:160px
+}
+
+.group_shop .wrap{
+	width:180px;
+	font-size:12px;
+	margin:5px 0 0 5px
+}
+
+.group_shop h2{
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis
+}
+
+.group_shop .tex-wrap{
+	margin-top:5px
+}
+
+.group_shop .tex-wrap i{
+	margin-left:7px
+}
+
+.group_shop .long-tex{
+	display:inline-block;
+	width:100%;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis
+}
+
+.group_shop .imgBox{
+	display:block;
+	width:228px;
+	height:298px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:0
+}
+
+.group_shop .imgBox .s_wrapper{
+	margin-left:1px
+}
+
+.group_shop .imgBox .goods_pic_b{
+	width:226px;
+	height:302px
+}
+
+.group_shop .section{
+	margin:10px 0 15px;
+	padding:0 13px
+}
+
+.group_shop .section .btn{
+	width:70px;
+	height:25px;
+	line-height:25px;
+	border-radius:0;
+	text-align:center
+}
+
+.group_shop .icon-add{
+	display:inline-block;
+	width:10px;
+	height:10px;
+	margin-right:5px;
+	font-size:18px;
+	vertical-align:top
+}
+
+.group_shop .tex{
+	display:inline-block;
+	max-width:80px;
+	margin-right:15px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis
+}
+
+.group_shop .tex i{
+	margin-left:7px;
+	color:#999;
+	font-style:normal
+}
+
+.group_shop .btn-wrap{
+	text-align:center;
+	font-size:0
+}
+
+.group_shop .btn{
+	float:none;
+	display:inline-block;
+	margin-right:10px;
+	font-size:12px
+}
+
+.group_shop .mark{
+	top:56px
+}
+
+.alpha{
+	margin-left:0
+}
+
+.omega{
+	margin-right:0
+}
+
+;

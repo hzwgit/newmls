@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+ <link href="__HOMECSS__/bootstrap.min.css" rel="stylesheet" media="screen">
+ <link href="__HOMECSS__/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="__HOMECSS__/base.css" media="all">
+  <link rel="stylesheet" href="__HOMECSS__/personal.css" media="all">
+  <link rel="stylesheet" href="__HOMECSS__/setPersonal.css" media="all">
+
+  <!--加载顶部文件-->
+  <include file="./Mls/Home/Common/header.html" />
+  <include file="./Mls/Home/Common/header_bg.html" />
+  <include file="./Mls/Home/Common/navbar.html" />
+
+<load file="__HOMEJS__/person.js" />    
+ 
+<div class="settings">
+    <div class="hp_tab">
+        <div class="use-info">
+            <img src="<{$user.pic}>" alt="" class="use-pic">
+            <p href="" class="use-name">
+                <a class="use" href="" title="<{$Think.session.homename}>"><{$Think.session.homename}></a>
+            </p>
+            <p class="use-id">用户ID：<{$Think.session.hid}></p>
+        </div>
+        <div class="sub_tab">
+            <ul class="account-manage"> <strong>账号管理</strong>
+                <li>
+                    <a href="<{:U('Person/index')}>" class="red_f">我的信息</a>
+                </li>
+                <li>
+                    <a href="<{:U('Person/filePic')}>">设置头像</a>
+                </li>
+                <li>
+                    <a href="<{:U('Person/upPass')}>">修改密码</a>
+                </li>
+                <!-- <li>
+                    <a href="/settings/sync">同步绑定</a>
+                </li> -->
+            </ul>
+            <ul class="account-safe"> <strong>账号安全</strong>
+                <li>
+                    <a href="/settings/safeCon" style="border:none;">安全中心</a>
+                </li>
+                <li>
+                    <a href="/settings/bindMobile" style="border:none;">手机绑定</a>
+                </li>
+                <li>
+                    <a href="/settings/loginEqm" style="border:none;">登录设备</a>
+                </li>
+                <li>
+                    <a href="/settings/safeHelp" style="border:none;">安全贴士</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="settings_box">
+        <strong class="title">我的信息</strong>
+        <fieldset class="setPassword">
+            <form id="setPersonForm" method="post" onsubmit="return false" action="">
+            
+                <p class="form-list">
+                    <label>注册邮箱 </label>
+                    <input id="register_mail" name="register_mail" autocomplete="off" class="l_ipt" value="#cfd234f6ee30e955f736d745d67a94" disabled="disabled" type="text">
+                    <strong></strong>
+                </p>
+                <p class="form-list">
+                    <label>真实姓名</label>
+                    <input id="true_name" name="true_name" autocomplete="off" class="l_ipt" value="<{$user.truename}>" type="text">
+                    <strong></strong>
+                </p>
+
+                <p class="form-list">
+                    <label>昵称</label>
+                    <input id="nickname" name="nickname" autocomplete="off" class="l_ipt" value="<{$Think.session.homename}>" type="text">
+                    <strong></strong>
+                    <a class="visit_icon"></a>
+                </p>
+                <p class="passChange">
+                <label> 性别 </label>
+                    <label  ><input type="radio"  checked="checked"value="0" name="gender">
+                 女 </label>
+                    <label  ><input type="radio" value="1" name="gender">
+                 男 </label>
+                    <strong> </strong>
+                </p>
+ 
+                <label style="width:15px;float:none;"></label>
+                <p class="form-list">
+                <label>生日</label>
+                    <div class="controls input-append date form_date" data-date="" data-date-format="yyyy MM dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                <input size="16"name="birth" type="text" value="<{$user.birth|date='Y-m-d',###}>" readonly>
+                <span class="add-on"><i class="icon-remove"></i></span>
+                <span class="add-on"><i class="icon-th"></i></span>
+                 </div>
+                </p>
+                <input type="hidden" id="dtp_input2" value="" /><br/>
+
+                
+                <p class="form-list"style="margin-top: 0px; margin-bottom: 15px;">
+                    <label>所在地</label>
+                      <input id=""  autocomplete="off" class="l_ipt" value="<{$user.address}>" type="text"><br/>
+                    <p style="margin-left: 183px; margin-bottom: 15px;">
+                    <select id="provinceid" name="provinceid">
+                        <option value="0">所在省份</option>
+                
+                    </select>
+                    <select id="city_id" name="city_id">
+                        <option value="0">所在城市</option>
+                    </select>
+                    </p>
+                    <strong></strong>
+                </p>
+                <p class="form-list">
+                    <label>学校</label>
+                    <input id="school_id" name="school_id" autocomplete="off" class="l_ipt" value="<{$user.school}>" type="text">
+                    <strong></strong>
+                </p>
+                <p class="form-list">
+                    <label>工作单位</label>
+                    <input id="work_place" name="work_place" autocomplete="off" class="l_ipt" value="<{$user.workunit}>" type="text">
+                    <strong></strong>
+                </p>
+                <!-- <p class="form-list">
+                    <label>从事行业</label>
+                    <select name="occupation" id="occupation">
+                        <option value="0">请选择你的职业</option>
+                        <option value="1">公关</option>
+                        <option value="2">媒体</option>
+                        <option value="3">模特</option>
+                        <option value="4">设计师</option>
+                        <option value="5">市场/营销</option>
+                        <option value="6">创意/文案</option>
+                        <option value="7">广告</option>
+                        <option value="8">法律</option>
+                        <option value="9">贸易</option>
+                        <option value="10">公务员</option>
+                        <option value="11">教育</option>
+                        <option value="12">互联网</option>
+                        <option value="13">计算机</option>
+                        <option value="14">自由职业</option>
+                        <option value="15">学生</option>
+                        <option value="16">非盈利机构</option>
+                        <option value="17">保险</option>
+                        <option value="18">财务</option>
+                        <option value="19">餐饮</option>
+                        <option value="20">电子/微电子</option>
+                        <option value="21">翻译</option>
+                        <option value="22">房地产/建筑</option>
+                        <option value="23">航空航天</option>
+                        <option value="24">家电业</option>
+                        <option value="25">家居/室内设计</option>
+                        <option value="26">教育/培训</option>
+                        <option value="27">酒店</option>
+                        <option value="28">会计</option>
+                        <option value="29">科研/院校</option>
+                        <option value="30">快速消费品</option>
+                        <option value="31">零售</option>
+                        <option value="32">旅游</option>
+                        <option value="33">其他</option>
+                    </select>
+                    <strong></strong>
+                </p> -->
+                <p class="form-list">
+                    <label>爱好</label>
+                    <input id="hobby" name="hobby" autocomplete="off" class="l_ipt" value="<{$user.hobbies}>" type="text">
+                    <strong></strong>
+                </p>
+                <p class="form-list">
+                    <label>微博地址</label>
+                    <input id="weibo_add" name="weibo_add" autocomplete="off" class="l_ipt" value="<{$user.micro}>" type="text">
+                    <strong></strong>
+                </p>
+                <p class="form-list">
+                    <label>美丽宣言</label>
+                    <textarea id="beauty" name="beauty"><{$user.declaration}></textarea>
+                    <strong></strong>
+                </p>
+                <p class="setting_success"></p>
+                <input value="确 认" class="ext_submit" type="submit">
+            </form>
+
+            <!-- <div id="setting_box_warnningnickname" class="setting_box_warnning">
+                 <img src="http://i.meilishuo.net/css/images/confirm.gif">
+                
+                <img src="http://i.meilishuo.net/css//images/yaoyaotest/war.png" alt="">
+                <p>&nbsp;已经有人用了，换一个吧</p>
+            </div> -->
+        </fieldset>
+        
+    </div>
+</div>
+<!-- <script type="text/javascript" src="__HOMEJS__/jquery-1.8.3.min.js" charset="UTF-8"></script> -->
+
+<script type="text/javascript" src="__HOMEJS__/bootstrap.min.js"></script>
+<script type="text/javascript" src="__HOMEJS__/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="__HOMEJS__/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+<script type="text/javascript" src="__HOMEJS__/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+ 
+  <script type="text/javascript">
+  $('.form_date').datetimepicker({ 
+　　minView: "month", //选择日期后，不会再跳转去选择时分秒 
+　　format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式 
+　　language: 'zh-CN', //汉化 
+　　autoclose:true //选择日期后自动关闭 
+        });
+    $('.form_date').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+ 
+</script>     
+<!--包含底部文件-->
+<include file="./Mls/Home/Common/footer.html" />

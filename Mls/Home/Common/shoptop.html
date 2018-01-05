@@ -1,0 +1,48 @@
+
+	<script>
+	var $url = "<{:U('Shopinfo/action',array('id'=> I('get.id')  ))}>";
+	var $idUrl = "<{:U('Shopinfo/index',array('id'=> I('get.id')  ))}>";
+	</script>
+
+	<load file="__PUBLIC__/Js/shopinfo.js" />
+		<div style="height: 152px;" id="shop-hd" class="shop-hd">
+		<if condition="$banner['pic'] eq null">
+			<a class="top-banner"  style="background-image:url(http://imgtest-dl.meiliworks.com/pic/_o/1e/f4/b9ffef1d744fb01e18689db7d3f9_1200_120.cf.jpg);"></a>
+			<else />
+			<a class="top-banner"  style="background-image:url(__PUBLIC__<{$banner['pic']}>);"></a>
+		</if>
+			<div class="shop-nav" id="shop-nav">
+				<ul class="shop-nav-top">
+					<li>
+						<a href="<{:U('Shopinfo/index')}>/id/<{$Think.get.id}>" target="_blank">店铺首页</a>
+					</li>
+
+					<foreach name="pType" item="vo" key="key">
+						<if condition="$vo['state'] neq null">
+							<li class="js-nav-item">
+								<a href="javascript:;" class="js-new-all" path-id="<{$vo['id']}>" path-url="__CONTROLLER__">
+									<{$vo['name']}>
+										<span class="js-new-goods-num label-item-new" >21</span> <i class="icon-tr">▾</i>
+									</a>
+									<ul class="shop-nav-nest shop-nav-new">
+										<else />		
+										<li>
+											<a class="js-newest-goods" href="javascript:;" path-id="<{$vo['id']}>" path-url="__CONTROLLER__">
+												<{$vo['name']}> <i class="label-item-num">21</i>
+												</a>
+											</li>
+
+											<if condition="$pType[($key+1)]['state'] neq null or $pType[$key+1]['name'] eq null">
+											</ul>
+										</li>
+									</if>
+
+								</if>
+							</foreach>
+
+							<li>
+								<a href="/help/feedback#wx" target="_blank">支付指引</a>
+							</li>
+						</ul>
+					</div>
+				</div>

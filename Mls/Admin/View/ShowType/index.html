@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="__PUBLIC__/Css/bootstrap.min.css">
+	<load file="__ADMINJS__/jquery.js" />	
+	<script>
+		$(function(){
+			var $tid = null;
+			var url = "<{:U('ShowType/isGood')}>";
+			//判断类别下是否存在商品
+			$("a:first-child").mouseover(function(){
+				$tid = $(this).attr('flag');
+				$.ajax({
+					url:url,
+					type:"get",
+					data:"id="+$tid,
+					success:function(data){
+						if(data == "1"){ 
+							alert('存在商品不能添加！');
+							return false;
+						}else if(data == 2){ 
+							$('a:first-child').attr('href',"__CONTROLLER__/add/id/"+$tid);
+						}
+					} 		
+				});
+			});
+		})
+	</script>
+</head>
+<body >
+	<div style="background:#F2F0F5 " class="panel-heading">
+		<form action="__CONTROLLER__/index" method="get">
+			类别名:<input name="search" type="text" class="">
+		<button style="margin:0px 10px;" class="btn btn-info" type="submit">查询</button>
+		</form>	
+	</div>
+	<table style="vertical-align:middle" align="center" class="table table-hover table-striped">
+		<tr >
+			<th>类别ID</th>
+			<th>类别名称</th>
+			<th>父ID</th>
+			<th>Path路径</th>
+			<th>操作</th>
+		</tr>
+		<volist name='data' id='d'>
+			<tr>
+				<td id="tid" style="vertical-align:middle"><{$d.id}></td>
+				<td style="vertical-align:middle"><{$d.name}></td>
+				<td style="vertical-align:middle"><{$d.p_id}></td>
+				<td style="vertical-align:middle"><{$d.path}></td>
+				<td>
+				<a class="btn btn-info" href="#" flag="<{$d.id}>" >添加子类</a> &nbsp;&nbsp;
+				<volist name="allow" id="al">
+					<if condition="$al['id'] eq $d['id']">
+						<a class="btn btn-danger" href="__CONTROLLER__/delType/id/<{$d.id}>">删除</a>
+					<else />
+
+					</if>
+				</volist>
+				
+				</td>
+			<tr>
+		</volist>
+		<tr>
+			<td colspan="5">
+				<{$pageNav}>
+			</td>
+		</tr>
+		<!-- <tr>
+			<td style="vertical-align:middle">都比</td>
+			<td style="vertical-align:middle">傻比</td>
+			<td style="vertical-align:middle">都比</td>
+			<td style="vertical-align:middle">都比</td>
+			<td>
+			<a class="btn btn-info" href="">修改</a> &nbsp;&nbsp;
+				<a class="btn btn-danger" href="">删除</a>
+			</td>
+		</tr> -->
+	</table>
+</body>
+</html>

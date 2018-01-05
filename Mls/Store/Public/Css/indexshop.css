@@ -1,0 +1,831 @@
+.createshop-index-index{
+	display:block;
+	padding-bottom:100px;
+	width:1040px;
+	margin:auto
+}
+
+.createshop-index-index .error-tip{
+	width:1000px;
+	height:48px;
+	padding-left:40px;
+	background:#ffe8f0 url("http://i.meilishuo.net/css/images/store/modify_warning.png") no-repeat 14px 16px;
+	line-height:48px;
+	-webkit-transition:height 0.6s
+}
+
+.createshop-index-index .steps-horizonal{
+	width:960px;
+	margin:auto
+}
+
+.createshop-index-index .title-tip{
+	background-color:#f7f7f7;
+	padding:5px 10px;
+	font-weight:bold
+}
+
+.createshop-index-index .submitBtn{
+	display:block;
+	width:160px;
+	margin:auto
+}
+
+.createshop-index-index .box{
+	display:block;
+	position:relative;
+	padding-top:30px;
+	padding-bottom:30px;
+	border-bottom:1px dashed gainsboro
+}
+
+.createshop-index-index .box .title{
+	color:#999;
+	margin-bottom:20px
+}
+
+.createshop-index-index .box .title span{
+	font-size:14px;
+	color:#666;
+	font-weight:bold;
+	padding-right:5px
+}
+
+.createshop-index-index .box .title .red{
+	vertical-align:middle
+}
+
+.createshop-index-index .box .form-group label{
+	width:7em
+}
+
+.createshop-index-index .box .form-group .form-control{
+	margin:0px 15px
+}
+
+.createshop-index-index .box .imgBox{
+	display:inline-block;
+	vertical-align:top
+}
+
+.createshop-index-index .box .imgBox img{
+	display:block;
+	width:120px;
+	height:120px
+}
+
+.createshop-index-index .box .imgBox button{
+	display:block;
+	margin:10px auto
+}
+
+.createshop-index-index .box .brandGroup{
+	border-top:1px dotted #b5b5b5;
+	padding:20px 0;
+	position:relative
+}
+
+.createshop-index-index .box .brandGroup .special{
+	position:absolute;
+	bottom:70px;
+	right:0px
+}
+
+.createshop-index-index .box .brandGroup.first{
+	border-top:none
+}
+
+.createshop-index-index .box .red{
+	color:#ff8fb5 !important
+}
+
+.createshop-index-index .box .margin-bottom-0{
+	margin-bottom:0
+}
+
+.createshop-index-index .box-info .form-group label{
+	width:4em;
+	text-align:right
+}
+
+.createshop-index-index .box-info .form-group .select{
+	margin-left:15px;
+	margin-right:-10px
+}
+
+.createshop-index-index .box-style .form-group{
+	line-height:22px
+}
+
+.createshop-index-index .box-style .form-group label{
+	width:4em;
+	text-align:right
+}
+
+.createshop-index-index .box-style .form-group .examImg{
+	vertical-align:top;
+	margin-left:15px
+}
+
+.createshop-index-index .box-style .validateNum{
+	color:#ff8fb5;
+	margin-left:15px
+}
+
+.createshop-index-index .box-style .form-control{
+	width:300px
+}
+
+.createshop-index-index .box-style .imgBox{
+	margin-right:20px
+}
+
+.createshop-index-index .box-style .imgBox .form-control{
+	width:108px
+}
+
+.createshop-index-index .box-style table{
+	line-height:1.6em
+}
+
+.createshop-index-index .box-style .control-label{
+	width:auto !important
+}
+
+.createshop-index-index .box-style .cursor{
+	cursor:pointer
+}
+
+.createshop-index-index .box-idcard .form-group label{
+	width:7em;
+	text-align:right
+}
+
+.createshop-index-index .box-idcard .example{
+	display:inline-block;
+	margin-left:70px
+}
+
+.createshop-index-index .box-idcard .example span{
+	vertical-align:top
+}
+
+.createshop-index-index .box-idcard .example img{
+	margin-left:20px
+}
+
+.createshop-index-index .box-idcard .example p{
+	margin-top:10px;
+	margin-left:30px;
+	line-height:1.5em
+}
+
+.createshop-index-index .box-idcard .calendar-wrap input{
+	min-width:100px
+}
+
+.createshop-index-index .box-idcard .calendar-wrap .calendar-icon{
+	right:20px
+}
+
+.createshop-index-index .box-idcard .imgBox{
+	margin-left:15px
+}
+
+.createshop-index-index .box-certify .form-group label{
+	text-align:right
+}
+
+.createshop-index-index .box-certify .form-group .form-control{
+	width:200px
+}
+
+.createshop-index-index .box-certify .imgBox{
+	margin-left:15px
+}
+
+.createshop-index-index .box-brand .title{
+	margin-bottom:0
+}
+
+.createshop-index-index .box-brand .calendar-wrap input{
+	min-width:100px
+}
+
+.createshop-index-index .box-brand .imgBox{
+	margin-left:15px
+}
+
+.createshop-index-index .box-brand .imgBox .form-control{
+	width:108px
+}
+
+.createshop-index-index .box-brand .brandPanel{
+	border-top:1px dotted #b5b5b5;
+	padding-top:20px;
+	position:relative
+}
+
+.createshop-index-index .box-brand .brandPanel.first{
+	padding-top:10px;
+	border-top:none
+}
+
+.createshop-index-index .box-brand .rmvBtn{
+	position:absolute;
+	top:20px;
+	right:0;
+	background:url('http://i.meilishuo.net/css/images/store/mls_store131110_1.png') no-repeat -75px -23px;
+	width:20px;
+	height:20px;
+	cursor:pointer
+}
+
+.createshop-index-index .box-brand .brandName{
+	position:relative
+}
+
+.createshop-index-index .box-brand .brandName .brandlist{
+	position:absolute;
+	z-index:20;
+	background-color:white;
+	left:66px;
+	top:24px;
+	line-height:1.6em;
+	border:1px solid #d2d2d2;
+	padding:0;
+	margin:0
+}
+
+.createshop-index-index .box-brand .brandName .brandlist li{
+	list-style:none;
+	padding:0px 6px;
+	width:123px
+}
+
+.createshop-index-index .box-brand .brandName .brandlist li:hover{
+	color:#ff8fb5
+}
+
+.createshop-index-index .box-brand .brandName .form-control{
+	margin-left:15px
+}
+
+.createshop-index-index .box-elec .title,.createshop-index-index .box-cusfood .title{
+	margin-bottom:0
+}
+
+.createshop-index-index .box-elec .margin-right-3,.createshop-index-index .box-cusfood .margin-right-3{
+	margin-right:30px
+}
+
+.createshop-index-index .box-elec .imgBox,.createshop-index-index .box-cusfood .imgBox{
+	position:relative;
+	margin-right:40px
+}
+
+.createshop-index-index .box-elec .imgBox .defaultImg,.createshop-index-index .box-cusfood .imgBox .defaultImg{
+	position:absolute;
+	left:0;
+	top:0;
+	width:118px;
+	height:118px;
+	color:#ff8fb5
+}
+
+.createshop-index-index .box-elec .imgBox .defaultImg span,.createshop-index-index .box-cusfood .imgBox .defaultImg span{
+	display:block;
+	width:100%;
+	position:absolute;
+	left:0;
+	top:50%;
+	margin-top:-1.2em;
+	text-align:center;
+	line-height:1.4em
+}
+
+@-moz-document url-prefix(){
+	.defaultImg{
+		border:1px solid #ddd
+	}
+
+}
+
+.createshop-index-index .box-elec .imgBox .defaultImg.another span,.createshop-index-index .box-cusfood .imgBox .defaultImg.another span{
+	top:0;
+	height:100%;
+	font-size:60px;
+	line-height:118px;
+	text-align:center;
+	margin-top:0
+}
+
+.createshop-index-index .box-elec .imgBox .defaultImg.fill,.createshop-index-index .box-cusfood .imgBox .defaultImg.fill{
+	border:none
+}
+
+.createshop-index-index .box-elec .imgBox .defaultImg.fill span,.createshop-index-index .box-cusfood .imgBox .defaultImg.fill span{
+	z-index:-1
+}
+
+.createshop-index-index .box-elec .imgBox .form-control,.createshop-index-index .box-cusfood .imgBox .form-control{
+	width:108px
+}
+
+.createshop-index-index .box-elec .rmvBtn,.createshop-index-index .box-cusfood .rmvBtn{
+	position:absolute;
+	top:20px;
+	right:0;
+	background:url('http://i.meilishuo.net/css/images/store/mls_store131110_1.png') no-repeat -75px -23px;
+	width:20px;
+	height:20px;
+	cursor:pointer
+}
+
+.createshop-index-index .box-elec .calendar-wrap input,.createshop-index-index .box-cusfood .calendar-wrap input{
+	min-width:100px
+}
+
+.createshop-index-index .box-food .imgBox{
+	margin-left:15px
+}
+
+.createshop-index-index .box-other .imgBox{
+	position:relative;
+	margin-right:40px
+}
+
+.createshop-index-index .box-other .imgBox .form-control{
+	width:108px
+}
+
+.createshop-index-index .box-other .imgBox .rmvBtn{
+	position:absolute;
+	top:0px;
+	right:-22px;
+	background:url('http://i.meilishuo.net/css/images/store/mls_store131110_1.png') no-repeat -75px -23px;
+	width:20px;
+	height:20px;
+	cursor:pointer
+}
+
+.createshop-index-index .box-services{
+	border:none
+}
+
+.createshop-index-index .box-services .one{
+	display:inline-block;
+	width:120px;
+	text-align:center;
+	color:#a79fa5;
+	font-size:14px
+}
+
+.createshop-index-index .box-services .one span{
+	display:inline-block;
+	width:60px;
+	height:60px;
+	background:url('http://i.meilishuo.net/css/images/doota/sale131022.png') no-repeat;
+	background-position:-71px 0;
+	margin-bottom:10px
+}
+
+.createshop-index-index .box-services .two span{
+	background-position:-143px 0
+}
+
+.createshop-index-index .box-services .three span{
+	background-position:-214px 0
+}
+
+.createshop-index-index .box-services .content{
+	border:1px solid #eaeaea;
+	padding-bottom:20px
+}
+
+.createshop-index-index .box-services .content p{
+	padding:20px;
+	border-bottom:1px solid #f8f8f8
+}
+
+.createshop-index-index .box-services .content div{
+	padding:10px 20px;
+	line-height:1.8em;
+	font-weight:bold
+}
+
+.createshop-index-index{
+	display:block;
+	padding-bottom:100px;
+	width:1040px;
+	margin:auto
+}
+
+.createshop-index-index .error-tip{
+	width:1000px;
+	height:48px;
+	padding-left:40px;
+	background:#ffe8f0 url("http://i.meilishuo.net/css/images/store/modify_warning.png") no-repeat 14px 16px;
+	line-height:48px;
+	-webkit-transition:height 0.6s
+}
+
+.createshop-index-index .steps-horizonal{
+	width:960px;
+	margin:auto
+}
+
+.createshop-index-index .title-tip{
+	background-color:#f7f7f7;
+	padding:5px 10px;
+	font-weight:bold
+}
+
+.createshop-index-index .submitBtn{
+	display:block;
+	width:160px;
+	margin:auto
+}
+
+.createshop-index-index .box{
+	display:block;
+	position:relative;
+	padding-top:30px;
+	padding-bottom:30px;
+	border-bottom:1px dashed gainsboro
+}
+
+.createshop-index-index .box .title{
+	color:#999;
+	margin-bottom:20px
+}
+
+.createshop-index-index .box .title span{
+	font-size:14px;
+	color:#666;
+	font-weight:bold;
+	padding-right:5px
+}
+
+.createshop-index-index .box .title .red{
+	vertical-align:middle
+}
+
+.createshop-index-index .box .form-group label{
+	width:7em
+}
+
+.createshop-index-index .box .form-group .form-control{
+	margin:0px 15px
+}
+
+.createshop-index-index .box .imgBox{
+	display:inline-block;
+	vertical-align:top
+}
+
+.createshop-index-index .box .imgBox img{
+	display:block;
+	width:120px;
+	height:120px
+}
+
+.createshop-index-index .box .imgBox button{
+	display:block;
+	margin:10px auto
+}
+
+.createshop-index-index .box .brandGroup{
+	border-top:1px dotted #b5b5b5;
+	padding:20px 0;
+	position:relative
+}
+
+.createshop-index-index .box .brandGroup .special{
+	position:absolute;
+	bottom:70px;
+	right:0px
+}
+
+.createshop-index-index .box .brandGroup.first{
+	border-top:none
+}
+
+.createshop-index-index .box .red{
+	color:#ff8fb5 !important
+}
+
+.createshop-index-index .box .margin-bottom-0{
+	margin-bottom:0
+}
+
+.createshop-index-index .box-info .form-group label{
+	width:4em;
+	text-align:right
+}
+
+.createshop-index-index .box-info .form-group .select{
+	margin-left:15px;
+	margin-right:-10px
+}
+
+.createshop-index-index .box-style .form-group{
+	line-height:22px
+}
+
+.createshop-index-index .box-style .form-group label{
+	width:4em;
+	text-align:right
+}
+
+.createshop-index-index .box-style .form-group .examImg{
+	vertical-align:top;
+	margin-left:15px
+}
+
+.createshop-index-index .box-style .validateNum{
+	color:#ff8fb5;
+	margin-left:15px
+}
+
+.createshop-index-index .box-style .form-control{
+	width:300px
+}
+
+.createshop-index-index .box-style .imgBox{
+	margin-right:20px
+}
+
+.createshop-index-index .box-style .imgBox .form-control{
+	width:108px
+}
+
+.createshop-index-index .box-style table{
+	line-height:1.6em
+}
+
+.createshop-index-index .box-style .control-label{
+	width:auto !important
+}
+
+.createshop-index-index .box-style .cursor{
+	cursor:pointer
+}
+
+.createshop-index-index .box-idcard .form-group label{
+	width:7em;
+	text-align:right
+}
+
+.createshop-index-index .box-idcard .example{
+	display:inline-block;
+	margin-left:70px
+}
+
+.createshop-index-index .box-idcard .example span{
+	vertical-align:top
+}
+
+.createshop-index-index .box-idcard .example img{
+	margin-left:20px
+}
+
+.createshop-index-index .box-idcard .example p{
+	margin-top:10px;
+	margin-left:30px;
+	line-height:1.5em
+}
+
+.createshop-index-index .box-idcard .calendar-wrap input{
+	min-width:100px
+}
+
+.createshop-index-index .box-idcard .calendar-wrap .calendar-icon{
+	right:20px
+}
+
+.createshop-index-index .box-idcard .imgBox{
+	margin-left:15px
+}
+
+.createshop-index-index .box-certify .form-group label{
+	text-align:right
+}
+
+.createshop-index-index .box-certify .form-group .form-control{
+	width:200px
+}
+
+.createshop-index-index .box-certify .imgBox{
+	margin-left:15px
+}
+
+.createshop-index-index .box-brand .title{
+	margin-bottom:0
+}
+
+.createshop-index-index .box-brand .calendar-wrap input{
+	min-width:100px
+}
+
+.createshop-index-index .box-brand .imgBox{
+	margin-left:15px
+}
+
+.createshop-index-index .box-brand .imgBox .form-control{
+	width:108px
+}
+
+.createshop-index-index .box-brand .brandPanel{
+	border-top:1px dotted #b5b5b5;
+	padding-top:20px;
+	position:relative
+}
+
+.createshop-index-index .box-brand .brandPanel.first{
+	padding-top:10px;
+	border-top:none
+}
+
+.createshop-index-index .box-brand .rmvBtn{
+	position:absolute;
+	top:20px;
+	right:0;
+	background:url('http://i.meilishuo.net/css/images/store/mls_store131110_1.png') no-repeat -75px -23px;
+	width:20px;
+	height:20px;
+	cursor:pointer
+}
+
+.createshop-index-index .box-brand .brandName{
+	position:relative
+}
+
+.createshop-index-index .box-brand .brandName .brandlist{
+	position:absolute;
+	z-index:20;
+	background-color:white;
+	left:66px;
+	top:24px;
+	line-height:1.6em;
+	border:1px solid #d2d2d2;
+	padding:0;
+	margin:0
+}
+
+.createshop-index-index .box-brand .brandName .brandlist li{
+	list-style:none;
+	padding:0px 6px;
+	width:123px
+}
+
+.createshop-index-index .box-brand .brandName .brandlist li:hover{
+	color:#ff8fb5
+}
+
+.createshop-index-index .box-brand .brandName .form-control{
+	margin-left:15px
+}
+
+.createshop-index-index .box-elec .title,.createshop-index-index .box-cusfood .title{
+	margin-bottom:0
+}
+
+.createshop-index-index .box-elec .margin-right-3,.createshop-index-index .box-cusfood .margin-right-3{
+	margin-right:30px
+}
+
+.createshop-index-index .box-elec .imgBox,.createshop-index-index .box-cusfood .imgBox{
+	position:relative;
+	margin-right:40px
+}
+
+.createshop-index-index .box-elec .imgBox .defaultImg,.createshop-index-index .box-cusfood .imgBox .defaultImg{
+	position:absolute;
+	left:0;
+	top:0;
+	width:118px;
+	height:118px;
+	color:#ff8fb5
+}
+
+.createshop-index-index .box-elec .imgBox .defaultImg span,.createshop-index-index .box-cusfood .imgBox .defaultImg span{
+	display:block;
+	width:100%;
+	position:absolute;
+	left:0;
+	top:50%;
+	margin-top:-1.2em;
+	text-align:center;
+	line-height:1.4em
+}
+
+@-moz-document url-prefix(){
+	.defaultImg{
+		border:1px solid #ddd
+	}
+
+}
+
+.createshop-index-index .box-elec .imgBox .defaultImg.another span,.createshop-index-index .box-cusfood .imgBox .defaultImg.another span{
+	top:0;
+	height:100%;
+	font-size:60px;
+	line-height:118px;
+	text-align:center;
+	margin-top:0
+}
+
+.createshop-index-index .box-elec .imgBox .defaultImg.fill,.createshop-index-index .box-cusfood .imgBox .defaultImg.fill{
+	border:none
+}
+
+.createshop-index-index .box-elec .imgBox .defaultImg.fill span,.createshop-index-index .box-cusfood .imgBox .defaultImg.fill span{
+	z-index:-1
+}
+
+.createshop-index-index .box-elec .imgBox .form-control,.createshop-index-index .box-cusfood .imgBox .form-control{
+	width:108px
+}
+
+.createshop-index-index .box-elec .rmvBtn,.createshop-index-index .box-cusfood .rmvBtn{
+	position:absolute;
+	top:20px;
+	right:0;
+	background:url('http://i.meilishuo.net/css/images/store/mls_store131110_1.png') no-repeat -75px -23px;
+	width:20px;
+	height:20px;
+	cursor:pointer
+}
+
+.createshop-index-index .box-elec .calendar-wrap input,.createshop-index-index .box-cusfood .calendar-wrap input{
+	min-width:100px
+}
+
+.createshop-index-index .box-food .imgBox{
+	margin-left:15px
+}
+
+.createshop-index-index .box-other .imgBox{
+	position:relative;
+	margin-right:40px
+}
+
+.createshop-index-index .box-other .imgBox .form-control{
+	width:108px
+}
+
+.createshop-index-index .box-other .imgBox .rmvBtn{
+	position:absolute;
+	top:0px;
+	right:-22px;
+	background:url('http://i.meilishuo.net/css/images/store/mls_store131110_1.png') no-repeat -75px -23px;
+	width:20px;
+	height:20px;
+	cursor:pointer
+}
+
+.createshop-index-index .box-services{
+	border:none
+}
+
+.createshop-index-index .box-services .one{
+	display:inline-block;
+	width:120px;
+	text-align:center;
+	color:#a79fa5;
+	font-size:14px
+}
+
+.createshop-index-index .box-services .one span{
+	display:inline-block;
+	width:60px;
+	height:60px;
+	background:url('http://i.meilishuo.net/css/images/doota/sale131022.png') no-repeat;
+	background-position:-71px 0;
+	margin-bottom:10px
+}
+
+.createshop-index-index .box-services .two span{
+	background-position:-143px 0
+}
+
+.createshop-index-index .box-services .three span{
+	background-position:-214px 0
+}
+
+.createshop-index-index .box-services .content{
+	border:1px solid #eaeaea;
+	padding-bottom:20px
+}
+
+.createshop-index-index .box-services .content p{
+	padding:20px;
+	border-bottom:1px solid #f8f8f8
+}
+
+.createshop-index-index .box-services .content div{
+	padding:10px 20px;
+	line-height:1.8em;
+	font-weight:bold
+}

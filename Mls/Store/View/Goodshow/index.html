@@ -1,0 +1,202 @@
+<link rel="stylesheet" href="__STORECSS__/global-min.css">
+<link rel="stylesheet" href="__STORECSS__/items-classify-min.css">
+<link rel="stylesheet" href="__STORECSS__/goodshow.css">
+
+<div style="height: 438px;" id="vl-container">
+    <!-- 宝贝分类页面主体内容 -->
+    <div id="content" class="tb-shop">
+        <div class="item-view">
+            <div id="J_TCatesPopup" class="cates-popup"></div>
+            <div class="search clear-fix">
+                <div class="srch-cond srch-by-keyword">
+                    <label class="keyword-label J_TKeywordLabel" for="keyword">请输入宝贝名称</label>
+                    <input id="keyword" title="请输入和宝贝名称相关的关键词" class="srch-input keyword-input J_TKeywordInput" name="q" value="" autocomplete="off" maxlength="60" type="text"></div>
+                <div class="srch-cond  srch-by-price">
+                    <label class="srch-cond-label">价格:</label>
+                    <input class="srch-input price-input start-price price J_TPriceInput" title="请输入最低价" name="start_price" value="" autocomplete="off" id="J_StartPriceInput" type="text">
+                    -
+                    <input class="srch-input price-input end-price price J_TPriceInput" title="请输入最高价" name="end_price" value="" autocomplete="off" id="J_EndPriceInput" type="text"></div>
+                <div class="srch-cond srch-by-status" id="J_SrchByStatus" tabindex="0" data-acc="event:down" aria-label="按向下键展开状态列表浮出层" aria-haspopup="true">
+                    <label class="srch-cond-label">状态:</label>
+                    <span id="J_SelectedStatus" class="selected-status" data-status-value="0">出售中</span>
+                    <s class="dropdown-tips"> <i class="i"></i>
+                    </s>
+                    <ul class="status-list" data-acc="event:esc" tabindex="0" aria-label="状态列表浮出层，按ESC键退出浮出层">
+                        <li class="J_TStatusSrch offshelf-status" data-status-value="-2" tabindex="0" data-acc="event:space" title="仓库中">仓库中</li>
+                        <li class="J_TStatusSrch onshelf-status status-selected" data-status-value="0" tabindex="0" data-acc="event:space" title="仓库中">出售中</li>
+                    </ul>
+                </div>
+
+                <div class="srch-cond srch-cond-submit">
+                    <a id="J_TSrch" data-gold-type="click/type" data-gold-url="/tbwmdd.10.14.1" class="J_TGoldData srch-btn border-radius" href="#">搜索</a>
+                </div>
+            </div>
+            <div class="item-funcs clear-fix">
+                <ul class="item-opts">
+                    <li class="check-all-items"> <b aria-checked="false" data-gold-type="click/type" data-gold-url="/tbwmdd.10.14.2" id="J_TAllItemsChecked" class="J_TGoldData check-all-box" data-all-checked="false" role="checkbox" data-acc="event:space" aria-label="按下空格键选中或半选或取消全选" tabindex="0"></b>
+                        <span class="check-all-text">全选</span>
+                    </li>
+                    <li id="J_TBatchClassify" class="batch-classify" data-tooltip="批量分类" data-acc="event:down" aria-controls="J_TBatchClassifyPopup" aria-label="按向下键展开批量分类树浮出层" aria-haspopup="true" tabindex="0">
+                        <a href="#" class="J_TGoldData" data-gold-type="click/type" data-gold-url="/tbwmdd.10.14.3">
+                            批量分类 <i></i>
+                        </a>
+                    </li>
+                    <li aria-disabled="true" id="J_TBatchOnShelf" class="batchshelf-disabled" data-tooltip="批量上架">
+                        <a href="" class="J_TGoldData" data-gold-type="click/type" data-gold-url="/tbwmdd.10.14.4">批量上架</a>
+                    </li>
+                    <li aria-disabled="false" id="J_TBatchOffShelf" class="" data-tooltip="批量下架">
+                        <a href="" class="J_TGoldData" data-gold-type="click/type" data-gold-url="/tbwmdd.10.14.5">批量下架</a>
+                    </li>
+                    <!--li id="J_TBatchDelete" class="" data-tooltip="批量删除">
+                    <a href="">批量删除</a>
+                </li-->
+            </ul>
+
+            <div id="J_TItemsPagenation" class="pagination">
+                <span class="total-num">
+                    共
+                    <span class="num-val">2</span>
+                    宝贝
+                </span>
+                <span class="page-info">1/1</span>
+                <a class="page-pre pre-disabled" href="" title="上一页"> <b></b>
+                </a>
+                <a class="page-next next-disabled" href="" title="下一页">
+                    <b></b>
+                </a>
+            </div>
+            <!-- 批量分类弹出框 -->
+            <div id="J_TBatchClassifyPopup" class="batch-classify-popup" data-acc="event:esc" tabindex="0" aria-label="批量分类树浮出层，按ESC键退出浮出层" style="display:none">
+                <ul id="J_TBCTree" class="bc-tree"></ul>
+                <div class="separate-line"></div>
+                <div class="bottom" tabindex="0">
+                    <span class="opt-tips">
+                        <i class="opt-tips-icon"></i>
+                        <i class="partial-checkbox"></i>
+                        <span class="text">表示部分宝贝已在分类中</span>
+                    </span>
+                    <a id="J_TCommitBatch" class="cmt-batch border-radius" href="#" data-acc="event:enter" aria-label="按回车键应用批量分类">应用</a>
+                </div>
+            </div>
+        </div>
+        <!-- 通过div class  table-outer 和div class table-inner 和thead的绝对定位 ，从而让表格的tbody能够滚动 -->
+        <!--  通过绝对定位表格头来让表格的tbody能够overflow auto -->
+        <!-- 参考 http://www.cssplay.co.uk/menu/tablescroll.html, 作者很聪明 -->
+        <table style="width: 100%;" summary="搜索结果-宝贝列表">
+            <caption style="display:none;">宝贝列表</caption>
+            <colgroup>
+            <col width="28%">
+            <col width="8%">
+            <col width="16%">
+            <col width="20%">
+            <col width="10%">
+            <col width="8%">
+            <col width="10%"></colgroup>
+        <thead class="items-tb-hd">
+            <tr>
+                <th class="col-title" scope="col">宝贝名称</th>
+                <th class="col-price" scope="col">
+                    <div class="price-wrap">
+                        <span class="price-label">价格</span>
+                    </div>
+                </th>
+                <th class="col-categories" scope="col">所属分类</th>
+                <th class="col-cat-edit" scope="col">图片分类</th>
+                <th class="col-time" scope="col">
+                    <div class="time-wrap">
+                        <span class="time-label">创建时间</span>
+                    </div>
+                </th>
+                <th class="col-status" scope="col">
+                    <div class="status-wrap">
+                        <span class="status-label">状态</span>
+                    </div>
+                </th>
+                <th scope="col">操作</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div class="table-outer">
+        <div tabindex="698" style="position: relative; overflow: hidden; height: 316px; outline: medium none;" class="ks-container">
+            <div style="height: auto; position: absolute; top: 0px; left: 0px; width: 100%; overflow: visible;" class="table-inner ks-body">
+                <table class="items-table" summary="搜索结果-宝贝列表">
+                    <colgroup>
+                    <col width="28%">
+                    <col width="8%">
+                    <col width="16%">
+                    <col width="20%">
+                    <col width="10%">
+                    <col width="8%">
+                    <col width="10%"></colgroup>
+                <tbody class="item-list">
+                <foreach name="goods" item="val">
+                    <tr class="item-info" id="<{$val['id']}>">
+                        <td class="title">
+                            <div class="title-wrapper">
+                                <b class="item-checkbox J_TItemCheckbox" data-item-checked="false" data-item-id="<{$val['id']}>" role="checkbox" data-acc="event:space" aria-label="按下空格键选中或取消当前宝贝" tabindex="0"></b>
+                                <span class="item-pic">
+                                    <a target="_blank" href="">
+                                        <img class="J_TShowBigPic" alt="<{$val['name']}>" title="<{$val['name']}>" src="" data-bigpicurl=""</a>
+                                </span>
+                                <a target="_blank" class="title-text" title="<{$val['name']}>" href="//item.taobao.com/item.htm?id=43273387820"><{$val['name']}></a>
+                            </div>
+                        </td>
+                        <td class="price ellipsis g_price" title="¥<{$val['price']}>">
+                            <span>¥</span> <strong><{$val['price']}></strong>
+                        </td>
+                        <td class="categories">
+                            <div class="categories-wrap">
+                                <a class="cat-name-label ellipsis" title="吃货>吃货_1" href="javascript:void(0)">           吃货&gt;吃货_1</a>
+                            </div>
+                        </td>
+                        <td class="cat-edit">
+                            <div class="cat-edit-wrapper">
+                                <div class="cat-edit-hd">
+                                <!--
+                                    <a href="" class="J_ItemEditCat">
+                                        添加分类
+                                        <i></i>
+                                    </a>
+                                    -->
+                                     <input type="hidden" class="J_CatImg" id="img-1103508169" value="" disabled="true">
+                <a href="<{:U('Store/Image/index',array('id'=>$val['id']))}>" class="add-pic J_EditPic" data-spm-anchor-id="a21ar.c-ca-1.0.0"><span><em>添加图片</em></span></a>
+                    </td>
+                                </div>
+                                <div class="cat-edit-bd J_CatEditBd" tabindex="0"></div>
+                            </div>
+                        </td>
+                        <td class="create-time"><{$val['addtime']|date='Y-m-d',###}></td>
+                        <td class="status">
+                            <span data-status-val="0">
+                                <if condition="$val['state'] eq 1">
+                                    出售中
+                                    <else />
+                                    已下架
+                                </if>
+                            </span>
+                        </td>
+                        <td class="opt">
+                            <a href="//upload.taobao.com/auction/publish/edit.htm?item_num_id=43273387820" target="_blank" title="编辑">编辑</a>
+                            <a href="" class="J_TItemBatchShelf" data-status-val="0" title="下架">下架</a>
+                            <!--a href="" class="J_TItemDelete" title="删除">删除</a-->
+                    </td>
+                    </tr>
+                </foreach>
+                   
+        </tbody>
+    </table>
+</div>
+
+</div>
+</div>
+
+<div class="no-items-tip hidden">
+<i class="tip-icon"></i>
+暂无宝贝，点击“批量分类”对您的宝贝进行分类吧
+</div>
+
+</div>
+</div>
+
+</div>

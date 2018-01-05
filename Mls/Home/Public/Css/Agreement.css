@@ -1,0 +1,19 @@
+	.privacy{
+	 width:660px;
+	 margin:0 auto 10px;
+	 line-height:25px;
+	 overflow:hidden;
+	 padding-top: 20px;
+ }
+
+.privacy .pt{
+	 text-indent:2em;
+ }
+
+	#main{
+			margin-top: 20px;
+			margin-left: auto;
+			margin-right: auto;
+			width: 960px;
+			background-color: #fff;
+	}
